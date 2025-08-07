@@ -28,6 +28,7 @@ import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.AlertDialogDefaults
 import androidx.compose.material3.BasicAlertDialog
+import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -47,6 +48,8 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun AlertDialogSample() {
     val openDialog = remember { mutableStateOf(true) }
+
+    Button(onClick = { openDialog.value = true }) { Text("Open dialog") }
 
     if (openDialog.value) {
         AlertDialog(
@@ -74,6 +77,8 @@ fun AlertDialogSample() {
 fun AlertDialogWithIconSample() {
     val openDialog = remember { mutableStateOf(true) }
 
+    Button(onClick = { openDialog.value = true }) { Text("Open dialog") }
+
     if (openDialog.value) {
         AlertDialog(
             onDismissRequest = {
@@ -87,7 +92,7 @@ fun AlertDialogWithIconSample() {
             text = {
                 Text(
                     "This area typically contains the supportive text " +
-                            "which presents the details regarding the Dialog's purpose."
+                        "which presents the details regarding the Dialog's purpose."
                 )
             },
             confirmButton = {
@@ -107,6 +112,8 @@ fun AlertDialogWithIconSample() {
 fun BasicAlertDialogSample() {
     val openDialog = remember { mutableStateOf(true) }
 
+    Button(onClick = { openDialog.value = true }) { Text("Open dialog") }
+
     if (openDialog.value) {
         BasicAlertDialog(
             onDismissRequest = {
@@ -125,7 +132,7 @@ fun BasicAlertDialogSample() {
                     Text(
                         text =
                             "This area typically contains the supportive text " +
-                                    "which presents the details regarding the Dialog's purpose."
+                                "which presents the details regarding the Dialog's purpose."
                     )
                     Spacer(modifier = Modifier.height(24.dp))
                     TextButton(
