@@ -1,3 +1,4 @@
+import java.util.Properties
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
@@ -9,6 +10,29 @@ plugins {
 android {
     namespace = "androidx.compose.material3.catalog"
     compileSdk = 35
+
+    signingConfigs {
+        create("release") {
+            val propertiesFile = rootProject.file("signing.properties")
+            val properties = if (propertiesFile.exists()) {
+                Properties().apply {
+                    load(propertiesFile.inputStream())
+                }
+            } else {
+                null
+            }
+
+            val getString: (String, String, String) -> String? = { propertyName, environmentName, prompt ->
+                properties?.getProperty(propertyName) ?: System.getenv(environmentName)
+                    ?: System.console()?.readLine("\n$prompt: ")
+            }
+
+            storeFile = getString("storeFile", "STORE_FILE", "Store file")?.let { rootProject.file(it) }
+            storePassword = getString("storePassword", "STORE_PASSWORD", "Store password")
+            keyAlias = getString("keyAlias", "KEY_ALIAS", "Key alias")
+            keyPassword = getString("keyPassword", "KEY_PASSWORD", "Key password")
+        }
+    }
 
     defaultConfig {
         applicationId = "androidx.compose.material3.catalog"
@@ -30,6 +54,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro",
             )
+	    signingConfig = signingConfigs.getByName("release")
         }
     }
     compileOptions {
