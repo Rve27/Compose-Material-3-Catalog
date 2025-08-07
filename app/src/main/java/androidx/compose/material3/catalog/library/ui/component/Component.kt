@@ -33,6 +33,12 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.catalog.R
+import androidx.compose.material3.catalog.library.model.Component
+import androidx.compose.material3.catalog.library.model.Example
+import androidx.compose.material3.catalog.library.model.Theme
+import androidx.compose.material3.catalog.library.ui.common.CatalogScaffold
+import androidx.compose.material3.catalog.library.ui.example.ExampleItem
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -41,12 +47,6 @@ import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.compose.material3.catalog.R
-import androidx.compose.material3.catalog.library.model.Component
-import androidx.compose.material3.catalog.library.model.Example
-import androidx.compose.material3.catalog.library.model.Theme
-import androidx.compose.material3.catalog.library.ui.common.CatalogScaffold
-import androidx.compose.material3.catalog.library.ui.example.ExampleItem
 
 @Composable
 fun Component(

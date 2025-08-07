@@ -42,13 +42,16 @@ import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Slider
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
-import androidx.compose.material3.minimumInteractiveComponentSize
+import androidx.compose.material3.catalog.R
 import androidx.compose.material3.catalog.library.model.ColorMode
+import androidx.compose.material3.catalog.library.model.ExpressiveThemeMode
 import androidx.compose.material3.catalog.library.model.FontScaleMode
 import androidx.compose.material3.catalog.library.model.MaxFontScale
 import androidx.compose.material3.catalog.library.model.MinFontScale
 import androidx.compose.material3.catalog.library.model.TextDirection
 import androidx.compose.material3.catalog.library.model.Theme
+import androidx.compose.material3.catalog.library.model.ThemeColorMode
+import androidx.compose.material3.minimumInteractiveComponentSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
@@ -60,9 +63,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
-import androidx.compose.material3.catalog.R
-import androidx.compose.material3.catalog.library.model.ExpressiveThemeMode
-import androidx.compose.material3.catalog.library.model.ThemeColorMode
 
 @Composable
 fun ThemePicker(theme: Theme, onThemeChange: (theme: Theme) -> Unit) {
@@ -251,7 +251,7 @@ fun ThemePicker(theme: Theme, onThemeChange: (theme: Theme) -> Unit) {
                     )
                 }
                 SwitchSetting(
-                    text = "Mark expressive components",
+                    text = stringResource(id = R.string.mark_expressive_components),
                     modifier = Modifier.fillMaxWidth(),
                     checked = theme.markExpressiveComponents,
                     onCheckedChange = { checked ->
@@ -261,7 +261,7 @@ fun ThemePicker(theme: Theme, onThemeChange: (theme: Theme) -> Unit) {
                     },
                 )
                 SwitchSetting(
-                    text = "Show only expressive components",
+                    text = stringResource(id = R.string.display_only_expressive_components),
                     modifier = Modifier.fillMaxWidth(),
                     checked = theme.showOnlyExpressiveComponents,
                     onCheckedChange = { checked ->
@@ -403,7 +403,7 @@ private fun ExpressiveAlertDialog(
         text = {
             Text(
                 "Setting a new Material theme will reset the catalog and progress will be " +
-                        "lost. Please confirm before proceeding."
+                    "lost. Please confirm before proceeding."
             )
         },
         onDismissRequest = onDismissRequest,

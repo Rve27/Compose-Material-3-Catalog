@@ -16,8 +16,9 @@
 
 @file:Suppress("DEPRECATION") // Suppress for WindowWidthSizeClass
 
-package androidx.compose.material3.samples
+package androidx.compose.material3.adaptive.navigationsuite.samples
 
+import androidx.compose.material3.catalog.library.Sampled
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -26,7 +27,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material3.Button
-import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.material3.adaptive.currentWindowAdaptiveInfo
@@ -48,10 +48,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.window.core.layout.WindowHeightSizeClass
 import androidx.window.core.layout.WindowWidthSizeClass
-import androidx.compose.material3.catalog.library.Sampled
 import kotlinx.coroutines.launch
 
-@OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Preview
 @Sampled
 @Composable
@@ -101,7 +99,6 @@ fun NavigationSuiteScaffoldSample() {
     }
 }
 
-@OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Preview
 @Sampled
 @Composable

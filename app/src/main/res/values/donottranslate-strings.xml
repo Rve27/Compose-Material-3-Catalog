@@ -56,4 +56,8 @@
     <string name="change_theme_button">Change theme</string>
     <string name="more_menu_button">External links</string>
 
+    <string name="mark_expressive_components" description="Mark expressive components with an expressive banner. [CHAR_LIMIT=NONE]">Mark expressive components</string>
+    <string name="display_only_expressive_components" description="Display only expressive components. [CHAR_LIMIT=NONE]">Show only expressive components</string>
+    <string name="expressive_banner" description="Expressive banner. [CHAR_LIMIT=NONE]">Expr</string>
+
 </resources>

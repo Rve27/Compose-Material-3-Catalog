@@ -17,12 +17,13 @@
 package androidx.compose.material3.catalog.library.data
 
 import android.content.Context
+import androidx.compose.material3.catalog.library.model.Theme
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
-import androidx.compose.material3.catalog.library.model.Theme
+import java.lang.Exception
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.mapNotNull

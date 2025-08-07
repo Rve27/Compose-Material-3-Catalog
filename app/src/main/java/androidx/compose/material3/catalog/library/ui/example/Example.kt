@@ -23,13 +23,13 @@ import androidx.compose.foundation.layout.consumeWindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
 import androidx.compose.material3.catalog.library.model.Component
 import androidx.compose.material3.catalog.library.model.Example
 import androidx.compose.material3.catalog.library.model.Theme
 import androidx.compose.material3.catalog.library.ui.common.CatalogScaffold
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable

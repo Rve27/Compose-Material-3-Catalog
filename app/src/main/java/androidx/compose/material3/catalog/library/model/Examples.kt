@@ -14,22 +14,21 @@
  * limitations under the License.
  */
 
-@file:Suppress("COMPOSABLE_FUNCTION_REFERENCE")
-
 package androidx.compose.material3.catalog.library.model
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentWidth
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
+import androidx.compose.material3.adaptive.navigationsuite.samples.NavigationSuiteScaffoldCustomConfigSample
+import androidx.compose.material3.adaptive.navigationsuite.samples.NavigationSuiteScaffoldSample
+import androidx.compose.material3.adaptive.samples.ListDetailPaneScaffoldSample
+import androidx.compose.material3.adaptive.samples.ListDetailPaneScaffoldSampleWithExtraPane
+import androidx.compose.material3.adaptive.samples.NavigableListDetailPaneScaffoldSample
 import androidx.compose.material3.catalog.library.util.AdaptiveNavigationSuiteSampleSourceUrl
 import androidx.compose.material3.catalog.library.util.AdaptiveSampleSourceUrl
 import androidx.compose.material3.catalog.library.util.SampleSourceUrl
 import androidx.compose.material3.samples.AlertDialogSample
 import androidx.compose.material3.samples.AlertDialogWithIconSample
-import androidx.compose.material3.samples.AllShapes
 import androidx.compose.material3.samples.AnimatedExtendedFloatingActionButtonSample
 import androidx.compose.material3.samples.AnimatedFloatingActionButtonSample
 import androidx.compose.material3.samples.AssistChipSample
@@ -136,8 +135,6 @@ import androidx.compose.material3.samples.LargeToggleButtonWithIconSample
 import androidx.compose.material3.samples.LeadingIconTabs
 import androidx.compose.material3.samples.LinearProgressIndicatorSample
 import androidx.compose.material3.samples.LinearWavyProgressIndicatorSample
-import androidx.compose.material3.samples.ListDetailPaneScaffoldSample
-import androidx.compose.material3.samples.ListDetailPaneScaffoldSampleWithExtraPane
 import androidx.compose.material3.samples.LoadingIndicatorPullToRefreshSample
 import androidx.compose.material3.samples.LoadingIndicatorSample
 import androidx.compose.material3.samples.MediumAnimatedExtendedFloatingActionButtonSample
@@ -155,15 +152,10 @@ import androidx.compose.material3.samples.ModalNavigationDrawerSample
 import androidx.compose.material3.samples.ModalWideNavigationRailSample
 import androidx.compose.material3.samples.MultiAutocompleteExposedDropdownMenuSample
 import androidx.compose.material3.samples.MultiSelectConnectedButtonGroupWithFlowLayoutSample
-import androidx.compose.material3.samples.NavigableListDetailPaneScaffoldSample
 import androidx.compose.material3.samples.NavigationBarItemWithBadge
 import androidx.compose.material3.samples.NavigationBarSample
-import androidx.compose.material3.samples.NavigationBarWithOnlySelectedLabelsSample
 import androidx.compose.material3.samples.NavigationRailBottomAlignSample
 import androidx.compose.material3.samples.NavigationRailSample
-import androidx.compose.material3.samples.NavigationRailWithOnlySelectedLabelsSample
-import androidx.compose.material3.samples.NavigationSuiteScaffoldCustomConfigSample
-import androidx.compose.material3.samples.NavigationSuiteScaffoldSample
 import androidx.compose.material3.samples.OneLineListItem
 import androidx.compose.material3.samples.OutlinedButtonSample
 import androidx.compose.material3.samples.OutlinedButtonWithAnimatedShapeSample
@@ -180,6 +172,11 @@ import androidx.compose.material3.samples.PermanentNavigationDrawerSample
 import androidx.compose.material3.samples.PinnedTopAppBar
 import androidx.compose.material3.samples.PlainTooltipSample
 import androidx.compose.material3.samples.PlainTooltipWithCaret
+import androidx.compose.material3.samples.PlainTooltipWithCaretBelowAnchor
+import androidx.compose.material3.samples.PlainTooltipWithCaretEndOfAnchor
+import androidx.compose.material3.samples.PlainTooltipWithCaretLeftOfAnchor
+import androidx.compose.material3.samples.PlainTooltipWithCaretRightOfAnchor
+import androidx.compose.material3.samples.PlainTooltipWithCaretStartOfAnchor
 import androidx.compose.material3.samples.PlainTooltipWithCustomCaret
 import androidx.compose.material3.samples.PlainTooltipWithManualInvocationSample
 import androidx.compose.material3.samples.PrimaryIconTabs
@@ -282,6 +279,9 @@ import androidx.compose.material3.samples.XLargeToggleButtonWithIconSample
 import androidx.compose.material3.samples.XSmallButtonWithIconSample
 import androidx.compose.material3.samples.XSmallFilledSplitButtonSample
 import androidx.compose.material3.samples.XSmallToggleButtonWithIconSample
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 
 data class Example(
     val name: String,
@@ -1003,7 +1003,7 @@ val TopAppBarExamples =
             name = "ExitUntilCollapsedCenterAlignedMediumFlexibleTopAppBar with subtitle",
             description = TopAppBarExampleDescription,
             sourceUrl = TopAppBarExampleSourceUrl,
-            isExpressive = true,
+            isExpressive = false,
         ) {
             ExitUntilCollapsedCenterAlignedMediumFlexibleTopAppBar()
         },
@@ -1553,14 +1553,6 @@ val NavigationBarExamples =
         ) {
             NavigationBarSample()
         },
-        Example(
-            name = "NavigationBarWithOnlySelectedLabelsSample",
-            description = NavigationBarExampleDescription,
-            sourceUrl = NavigationBarExampleSourceUrl,
-            isExpressive = false,
-        ) {
-            NavigationBarWithOnlySelectedLabelsSample()
-        },
     )
 
 private const val NavigationRailExampleDescription = "Navigation rail examples"
@@ -1622,14 +1614,6 @@ val NavigationRailExamples =
             isExpressive = false,
         ) {
             NavigationRailSample()
-        },
-        Example(
-            name = "NavigationRailWithOnlySelectedLabelsSample",
-            description = NavigationRailExampleDescription,
-            sourceUrl = NavigationRailExampleSourceUrl,
-            isExpressive = false,
-        ) {
-            NavigationRailWithOnlySelectedLabelsSample()
         },
         Example(
             name = "NavigationRailBottomAlignSample",
@@ -1857,7 +1841,7 @@ val SearchBarExamples =
             name = "FullScreenSearchBarScaffoldSample",
             description = SearchBarExampleDescription,
             sourceUrl = SearchBarExampleSourceUrl,
-            isExpressive = false,
+            isExpressive = true,
         ) {
             FullScreenSearchBarScaffoldSample()
         },
@@ -2529,6 +2513,46 @@ val TooltipsExamples =
             PlainTooltipWithCaret()
         },
         Example(
+            name = "PlainTooltipWithCaretBelowAnchor",
+            description = TooltipsExampleDescription,
+            sourceUrl = TooltipsExampleSourceUrl,
+            isExpressive = false,
+        ) {
+            PlainTooltipWithCaretBelowAnchor()
+        },
+        Example(
+            name = "PlainTooltipWithCaretLeftOfAnchor",
+            description = TooltipsExampleDescription,
+            sourceUrl = TooltipsExampleSourceUrl,
+            isExpressive = false,
+        ) {
+            PlainTooltipWithCaretLeftOfAnchor()
+        },
+        Example(
+            name = "PlainTooltipWithCaretRightOfAnchor",
+            description = TooltipsExampleDescription,
+            sourceUrl = TooltipsExampleSourceUrl,
+            isExpressive = false,
+        ) {
+            PlainTooltipWithCaretRightOfAnchor()
+        },
+        Example(
+            name = "PlainTooltipWithCaretStartOfAnchor",
+            description = TooltipsExampleDescription,
+            sourceUrl = TooltipsExampleSourceUrl,
+            isExpressive = false,
+        ) {
+            PlainTooltipWithCaretStartOfAnchor()
+        },
+        Example(
+            name = "PlainTooltipWithCaretEndOfAnchor",
+            description = TooltipsExampleDescription,
+            sourceUrl = TooltipsExampleSourceUrl,
+            isExpressive = false,
+        ) {
+            PlainTooltipWithCaretEndOfAnchor()
+        },
+        Example(
             name = "PlainTooltipWithCustomCaret",
             description = TooltipsExampleDescription,
             sourceUrl = TooltipsExampleSourceUrl,
@@ -2568,16 +2592,4 @@ val TooltipsExamples =
         ) {
             RichTooltipWithCustomCaretSample()
         },
-    )
-
-val MaterialShapesExamples =
-    listOf(
-        Example(
-            name = "ShapesSample",
-            description = "Material shapes examples",
-            sourceUrl = "$SampleSourceUrl/MaterialShapesSamples.kt",
-            isExpressive = true,
-        ) {
-            AllShapes()
-        }
     )

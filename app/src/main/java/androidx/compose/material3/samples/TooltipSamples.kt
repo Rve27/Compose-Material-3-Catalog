@@ -37,7 +37,9 @@ import androidx.compose.material3.TooltipBox
 import androidx.compose.material3.TooltipDefaults
 import androidx.compose.material3.rememberTooltipState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -51,7 +53,8 @@ import kotlinx.coroutines.launch
 @Composable
 fun PlainTooltipSample() {
     TooltipBox(
-        positionProvider = TooltipDefaults.rememberTooltipPositionProvider(),
+        positionProvider =
+            TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
         tooltip = { PlainTooltip { Text("Add to favorites") } },
         state = rememberTooltipState(),
     ) {
@@ -70,11 +73,17 @@ fun PlainTooltipWithManualInvocationSample() {
     val scope = rememberCoroutineScope()
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         TooltipBox(
-            positionProvider = TooltipDefaults.rememberTooltipPositionProvider(),
+            positionProvider =
+                TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
             tooltip = { PlainTooltip { Text("Add to list") } },
             state = tooltipState,
         ) {
-            Icon(imageVector = Icons.Filled.AddCircle, contentDescription = "Localized Description")
+            IconButton(onClick = { /* Icon button's click event */ }) {
+                Icon(
+                    imageVector = Icons.Filled.AddCircle,
+                    contentDescription = "Localized Description",
+                )
+            }
         }
         Spacer(Modifier.requiredHeight(30.dp))
         OutlinedButton(onClick = { scope.launch { tooltipState.show() } }) {
@@ -90,6 +99,96 @@ fun PlainTooltipWithCaret() {
     TooltipBox(
         positionProvider =
             TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+        tooltip = {
+            PlainTooltip(caretShape = TooltipDefaults.caretShape()) { Text("Add to favorites") }
+        },
+        state = rememberTooltipState(),
+    ) {
+        IconButton(onClick = { /* Icon button's click event */ }) {
+            Icon(imageVector = Icons.Filled.Favorite, contentDescription = "Localized Description")
+        }
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Sampled
+@Composable
+fun PlainTooltipWithCaretBelowAnchor() {
+    TooltipBox(
+        positionProvider =
+            TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Below),
+        tooltip = {
+            PlainTooltip(caretShape = TooltipDefaults.caretShape()) { Text("Add to favorites") }
+        },
+        state = rememberTooltipState(),
+    ) {
+        IconButton(onClick = { /* Icon button's click event */ }) {
+            Icon(imageVector = Icons.Filled.Favorite, contentDescription = "Localized Description")
+        }
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Sampled
+@Composable
+fun PlainTooltipWithCaretLeftOfAnchor() {
+    TooltipBox(
+        positionProvider =
+            TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Left),
+        tooltip = {
+            PlainTooltip(caretShape = TooltipDefaults.caretShape()) { Text("Add to favorites") }
+        },
+        state = rememberTooltipState(),
+    ) {
+        IconButton(onClick = { /* Icon button's click event */ }) {
+            Icon(imageVector = Icons.Filled.Favorite, contentDescription = "Localized Description")
+        }
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Sampled
+@Composable
+fun PlainTooltipWithCaretRightOfAnchor() {
+    TooltipBox(
+        positionProvider =
+            TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Right),
+        tooltip = {
+            PlainTooltip(caretShape = TooltipDefaults.caretShape()) { Text("Add to favorites") }
+        },
+        state = rememberTooltipState(),
+    ) {
+        IconButton(onClick = { /* Icon button's click event */ }) {
+            Icon(imageVector = Icons.Filled.Favorite, contentDescription = "Localized Description")
+        }
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Sampled
+@Composable
+fun PlainTooltipWithCaretStartOfAnchor() {
+    TooltipBox(
+        positionProvider =
+            TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Start),
+        tooltip = {
+            PlainTooltip(caretShape = TooltipDefaults.caretShape()) { Text("Add to favorites") }
+        },
+        state = rememberTooltipState(),
+    ) {
+        IconButton(onClick = { /* Icon button's click event */ }) {
+            Icon(imageVector = Icons.Filled.Favorite, contentDescription = "Localized Description")
+        }
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Sampled
+@Composable
+fun PlainTooltipWithCaretEndOfAnchor() {
+    TooltipBox(
+        positionProvider =
+            TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.End),
         tooltip = {
             PlainTooltip(caretShape = TooltipDefaults.caretShape()) { Text("Add to favorites") }
         },
@@ -128,7 +227,8 @@ fun RichTooltipSample() {
     val tooltipState = rememberTooltipState(isPersistent = true)
     val scope = rememberCoroutineScope()
     TooltipBox(
-        positionProvider = TooltipDefaults.rememberTooltipPositionProvider(),
+        positionProvider =
+            TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
         tooltip = {
             RichTooltip(
                 title = { Text(richTooltipSubheadText) },
@@ -141,6 +241,7 @@ fun RichTooltipSample() {
                 Text(richTooltipText)
             }
         },
+        hasAction = true,
         state = tooltipState,
     ) {
         IconButton(onClick = { /* Icon button's click event */ }) {
@@ -157,7 +258,8 @@ fun RichTooltipWithManualInvocationSample() {
     val scope = rememberCoroutineScope()
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         TooltipBox(
-            positionProvider = TooltipDefaults.rememberTooltipPositionProvider(),
+            positionProvider =
+                TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
             tooltip = {
                 RichTooltip(
                     title = { Text(richTooltipSubheadText) },
@@ -170,9 +272,12 @@ fun RichTooltipWithManualInvocationSample() {
                     Text(richTooltipText)
                 }
             },
+            hasAction = true,
             state = tooltipState,
         ) {
-            Icon(imageVector = Icons.Filled.Info, contentDescription = "Localized Description")
+            IconButton(onClick = { /* Icon button's click event */ }) {
+                Icon(imageVector = Icons.Filled.Info, contentDescription = "Localized Description")
+            }
         }
         Spacer(Modifier.requiredHeight(30.dp))
         OutlinedButton(onClick = { scope.launch { tooltipState.show() } }) {
@@ -246,6 +351,6 @@ fun RichTooltipWithCustomCaretSample() {
 const val richTooltipSubheadText = "Permissions"
 const val richTooltipText =
     "Configure permissions for selected service accounts. " +
-            "You can add and remove service account members and assign roles to them. " +
-            "Visit go/permissions for details"
+        "You can add and remove service account members and assign roles to them. " +
+        "Visit go/permissions for details"
 const val richTooltipActionText = "Request Access"

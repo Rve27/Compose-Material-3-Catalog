@@ -17,7 +17,6 @@
 package androidx.compose.material3.catalog.library.model
 
 import androidx.annotation.DrawableRes
-import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.catalog.R
 import androidx.compose.material3.catalog.library.util.AdaptiveGuidelinesUrl
 import androidx.compose.material3.catalog.library.util.AdaptiveNavigationSuiteMaterial3SourceUrl
@@ -38,7 +37,6 @@ data class Component(
     val docsUrl: String,
     val sourceUrl: String,
     val examples: List<Example>,
-    val additionalInfo: String? = null,
 ) {
     /** True if the component has expressive examples, false otherwise. */
     val hasExpressiveExamples: Boolean
@@ -568,19 +566,6 @@ private val TopAppBar =
         examples = TopAppBarExamples,
     )
 
-private val MaterialShapes =
-    Component(
-        id = nextId(),
-        name = "Material Shapes",
-        description = "Material Shapes are used to define the shape of components.",
-        // No material shapes icon
-        guidelinesUrl = "$ComponentGuidelinesUrl/material-shapes",
-        docsUrl = "$PackageSummaryUrl#shapes",
-        sourceUrl = "$Material3SourceUrl/Shapes.kt",
-        examples = MaterialShapesExamples,
-        additionalInfo = "Unofficial"
-    )
-
 /** Components for the catalog, ordered alphabetically by name. */
 val Components =
     listOf(
@@ -623,5 +608,4 @@ val Components =
         ToggleButtons,
         Tooltips,
         TopAppBar,
-        MaterialShapes,
     )
