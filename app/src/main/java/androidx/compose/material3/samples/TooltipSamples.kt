@@ -32,6 +32,7 @@ import androidx.compose.material3.PlainTooltip
 import androidx.compose.material3.RichTooltip
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
+import androidx.compose.material3.TooltipAnchorPosition
 import androidx.compose.material3.TooltipBox
 import androidx.compose.material3.TooltipDefaults
 import androidx.compose.material3.rememberTooltipState
@@ -87,9 +88,10 @@ fun PlainTooltipWithManualInvocationSample() {
 @Composable
 fun PlainTooltipWithCaret() {
     TooltipBox(
-        positionProvider = TooltipDefaults.rememberTooltipPositionProvider(),
+        positionProvider =
+            TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
         tooltip = {
-            PlainTooltip(caretSize = TooltipDefaults.caretSize) { Text("Add to favorites") }
+            PlainTooltip(caretShape = TooltipDefaults.caretShape()) { Text("Add to favorites") }
         },
         state = rememberTooltipState(),
     ) {
@@ -104,8 +106,13 @@ fun PlainTooltipWithCaret() {
 @Composable
 fun PlainTooltipWithCustomCaret() {
     TooltipBox(
-        positionProvider = TooltipDefaults.rememberTooltipPositionProvider(),
-        tooltip = { PlainTooltip(caretSize = DpSize(24.dp, 12.dp)) { Text("Add to favorites") } },
+        positionProvider =
+            TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+        tooltip = {
+            PlainTooltip(caretShape = TooltipDefaults.caretShape(DpSize(24.dp, 12.dp))) {
+                Text("Add to favorites")
+            }
+        },
         state = rememberTooltipState(),
     ) {
         IconButton(onClick = { /* Icon button's click event */ }) {
@@ -181,7 +188,8 @@ fun RichTooltipWithCaretSample() {
     val tooltipState = rememberTooltipState(isPersistent = true)
     val scope = rememberCoroutineScope()
     TooltipBox(
-        positionProvider = TooltipDefaults.rememberTooltipPositionProvider(),
+        positionProvider =
+            TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
         tooltip = {
             RichTooltip(
                 title = { Text(richTooltipSubheadText) },
@@ -190,11 +198,12 @@ fun RichTooltipWithCaretSample() {
                         Text(richTooltipActionText)
                     }
                 },
-                caretSize = TooltipDefaults.caretSize,
+                caretShape = TooltipDefaults.caretShape(),
             ) {
                 Text(richTooltipText)
             }
         },
+        hasAction = true,
         state = tooltipState,
     ) {
         IconButton(onClick = { /* Icon button's click event */ }) {
@@ -210,7 +219,8 @@ fun RichTooltipWithCustomCaretSample() {
     val tooltipState = rememberTooltipState(isPersistent = true)
     val scope = rememberCoroutineScope()
     TooltipBox(
-        positionProvider = TooltipDefaults.rememberTooltipPositionProvider(),
+        positionProvider =
+            TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
         tooltip = {
             RichTooltip(
                 title = { Text(richTooltipSubheadText) },
@@ -219,11 +229,12 @@ fun RichTooltipWithCustomCaretSample() {
                         Text(richTooltipActionText)
                     }
                 },
-                caretSize = DpSize(32.dp, 16.dp),
+                caretShape = TooltipDefaults.caretShape(DpSize(32.dp, 16.dp)),
             ) {
                 Text(richTooltipText)
             }
         },
+        hasAction = true,
         state = tooltipState,
     ) {
         IconButton(onClick = { /* Icon button's click event */ }) {
