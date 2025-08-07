@@ -1003,7 +1003,7 @@ val TopAppBarExamples =
             name = "ExitUntilCollapsedCenterAlignedMediumFlexibleTopAppBar with subtitle",
             description = TopAppBarExampleDescription,
             sourceUrl = TopAppBarExampleSourceUrl,
-            isExpressive = false,
+            isExpressive = true,
         ) {
             ExitUntilCollapsedCenterAlignedMediumFlexibleTopAppBar()
         },
