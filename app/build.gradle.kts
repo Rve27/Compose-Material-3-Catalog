@@ -10,6 +10,7 @@ plugins {
 android {
     namespace = "androidx.compose.material3.catalog"
     compileSdk = 35
+    ndkVersion = "28.2.13676358"
 
     signingConfigs {
         create("release") {
