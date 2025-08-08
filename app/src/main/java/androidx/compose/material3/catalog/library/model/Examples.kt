@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *     https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package androidx.compose.material3.catalog.library.model
 
 import androidx.compose.foundation.layout.Box
@@ -332,7 +331,7 @@ val BadgeExamples =
             isExpressive = false,
         ) {
             NavigationBarItemWithBadge()
-        }
+        },
     )
 
 private const val BottomSheetExampleDescription = "Bottom Sheet examples"
@@ -1289,7 +1288,7 @@ val FloatingActionButtonMenuExamples =
             isExpressive = true,
         ) {
             FloatingActionButtonMenuSample()
-        }
+        },
     )
 
 private const val ListsExampleDescription = "List examples"
@@ -2363,119 +2362,119 @@ private const val TextFieldsExampleDescription = "Text fields examples"
 private const val TextFieldsExampleSourceUrl = "$SampleSourceUrl/TextFieldSamples.kt"
 val TextFieldsExamples =
     listOf(
-            Example(
-                name = "SimpleTextFieldSample",
-                description = TextFieldsExampleDescription,
-                sourceUrl = TextFieldsExampleSourceUrl,
-                isExpressive = false,
-            ) {
-                SimpleTextFieldSample()
-            },
-            Example(
-                name = "TextFieldWithInitialValueAndSelection",
-                description = TextFieldsExampleDescription,
-                sourceUrl = TextFieldsExampleSourceUrl,
-                isExpressive = false,
-            ) {
-                TextFieldWithInitialValueAndSelection()
-            },
-            Example(
-                name = "SimpleOutlinedTextFieldSample",
-                description = TextFieldsExampleDescription,
-                sourceUrl = TextFieldsExampleSourceUrl,
-                isExpressive = false,
-            ) {
-                SimpleOutlinedTextFieldSample()
-            },
-            Example(
-                name = "OutlinedTextFieldWithInitialValueAndSelection",
-                description = TextFieldsExampleDescription,
-                sourceUrl = TextFieldsExampleSourceUrl,
-                isExpressive = false,
-            ) {
-                OutlinedTextFieldWithInitialValueAndSelection()
-            },
-            Example(
-                name = "TextFieldWithTransformations",
-                description = TextFieldsExampleDescription,
-                sourceUrl = TextFieldsExampleSourceUrl,
-                isExpressive = false,
-            ) {
-                TextFieldWithTransformations()
-            },
-            Example(
-                name = "TextFieldWithIcons",
-                description = TextFieldsExampleDescription,
-                sourceUrl = TextFieldsExampleSourceUrl,
-                isExpressive = false,
-            ) {
-                TextFieldWithIcons()
-            },
-            Example(
-                name = "TextFieldWithPlaceholder",
-                description = TextFieldsExampleDescription,
-                sourceUrl = TextFieldsExampleSourceUrl,
-                isExpressive = false,
-            ) {
-                TextFieldWithPlaceholder()
-            },
-            Example(
-                name = "TextFieldWithPrefixAndSuffix",
-                description = TextFieldsExampleDescription,
-                sourceUrl = TextFieldsExampleSourceUrl,
-                isExpressive = false,
-            ) {
-                TextFieldWithPrefixAndSuffix()
-            },
-            Example(
-                name = "TextFieldWithErrorState",
-                description = TextFieldsExampleDescription,
-                sourceUrl = TextFieldsExampleSourceUrl,
-                isExpressive = false,
-            ) {
-                TextFieldWithErrorState()
-            },
-            Example(
-                name = "TextFieldWithSupportingText",
-                description = TextFieldsExampleDescription,
-                sourceUrl = TextFieldsExampleSourceUrl,
-                isExpressive = false,
-            ) {
-                TextFieldWithSupportingText()
-            },
-            Example(
-                name = "DenseTextFieldContentPadding",
-                description = TextFieldsExampleDescription,
-                sourceUrl = TextFieldsExampleSourceUrl,
-                isExpressive = false,
-            ) {
-                DenseTextFieldContentPadding()
-            },
-            Example(
-                name = "PasswordTextField",
-                description = TextFieldsExampleDescription,
-                sourceUrl = TextFieldsExampleSourceUrl,
-                isExpressive = false,
-            ) {
-                PasswordTextField()
-            },
-            Example(
-                name = "TextFieldWithHideKeyboardOnImeAction",
-                description = TextFieldsExampleDescription,
-                sourceUrl = TextFieldsExampleSourceUrl,
-                isExpressive = false,
-            ) {
-                TextFieldWithHideKeyboardOnImeAction()
-            },
-            Example(
-                name = "TextArea",
-                description = TextFieldsExampleDescription,
-                sourceUrl = TextFieldsExampleSourceUrl,
-                isExpressive = false,
-            ) {
-                TextArea()
-            },
-        )
+        Example(
+            name = "SimpleTextFieldSample",
+            description = TextFieldsExampleDescription,
+            sourceUrl = TextFieldsExampleSourceUrl,
+            isExpressive = false,
+        ) {
+            SimpleTextFieldSample()
+        },
+        Example(
+            name = "TextFieldWithInitialValueAndSelection",
+            description = TextFieldsExampleDescription,
+            sourceUrl = TextFieldsExampleSourceUrl,
+            isExpressive = false,
+        ) {
+            TextFieldWithInitialValueAndSelection()
+        },
+        Example(
+            name = "SimpleOutlinedTextFieldSample",
+            description = TextFieldsExampleDescription,
+            sourceUrl = TextFieldsExampleSourceUrl,
+            isExpressive = false,
+        ) {
+            SimpleOutlinedTextFieldSample()
+        },
+        Example(
+            name = "OutlinedTextFieldWithInitialValueAndSelection",
+            description = TextFieldsExampleDescription,
+            sourceUrl = TextFieldsExampleSourceUrl,
+            isExpressive = false,
+        ) {
+            OutlinedTextFieldWithInitialValueAndSelection()
+        },
+        Example(
+            name = "TextFieldWithTransformations",
+            description = TextFieldsExampleDescription,
+            sourceUrl = TextFieldsExampleSourceUrl,
+            isExpressive = false,
+        ) {
+            TextFieldWithTransformations()
+        },
+        Example(
+            name = "TextFieldWithIcons",
+            description = TextFieldsExampleDescription,
+            sourceUrl = TextFieldsExampleSourceUrl,
+            isExpressive = false,
+        ) {
+            TextFieldWithIcons()
+        },
+        Example(
+            name = "TextFieldWithPlaceholder",
+            description = TextFieldsExampleDescription,
+            sourceUrl = TextFieldsExampleSourceUrl,
+            isExpressive = false,
+        ) {
+            TextFieldWithPlaceholder()
+        },
+        Example(
+            name = "TextFieldWithPrefixAndSuffix",
+            description = TextFieldsExampleDescription,
+            sourceUrl = TextFieldsExampleSourceUrl,
+            isExpressive = false,
+        ) {
+            TextFieldWithPrefixAndSuffix()
+        },
+        Example(
+            name = "TextFieldWithErrorState",
+            description = TextFieldsExampleDescription,
+            sourceUrl = TextFieldsExampleSourceUrl,
+            isExpressive = false,
+        ) {
+            TextFieldWithErrorState()
+        },
+        Example(
+            name = "TextFieldWithSupportingText",
+            description = TextFieldsExampleDescription,
+            sourceUrl = TextFieldsExampleSourceUrl,
+            isExpressive = false,
+        ) {
+            TextFieldWithSupportingText()
+        },
+        Example(
+            name = "DenseTextFieldContentPadding",
+            description = TextFieldsExampleDescription,
+            sourceUrl = TextFieldsExampleSourceUrl,
+            isExpressive = false,
+        ) {
+            DenseTextFieldContentPadding()
+        },
+        Example(
+            name = "PasswordTextField",
+            description = TextFieldsExampleDescription,
+            sourceUrl = TextFieldsExampleSourceUrl,
+            isExpressive = false,
+        ) {
+            PasswordTextField()
+        },
+        Example(
+            name = "TextFieldWithHideKeyboardOnImeAction",
+            description = TextFieldsExampleDescription,
+            sourceUrl = TextFieldsExampleSourceUrl,
+            isExpressive = false,
+        ) {
+            TextFieldWithHideKeyboardOnImeAction()
+        },
+        Example(
+            name = "TextArea",
+            description = TextFieldsExampleDescription,
+            sourceUrl = TextFieldsExampleSourceUrl,
+            isExpressive = false,
+        ) {
+            TextArea()
+        },
+    )
         .map {
             // By default text field samples are minimal and don't have a `width` modifier to
             // restrict the width. As a result, they grow horizontally if enough text is typed. To

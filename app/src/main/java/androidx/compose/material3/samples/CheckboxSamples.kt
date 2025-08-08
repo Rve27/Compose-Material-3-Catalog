@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *     https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package androidx.compose.material3.samples
 
 import androidx.compose.foundation.layout.Column
@@ -30,6 +29,7 @@ import androidx.compose.material3.CheckboxDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TriStateCheckbox
+import androidx.compose.material3.catalog.library.Sampled
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -43,7 +43,6 @@ import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.state.ToggleableState
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.material3.catalog.library.Sampled
 import kotlin.math.floor
 
 @Preview
@@ -129,11 +128,11 @@ fun TriStateCheckboxSample() {
         Row(
             verticalAlignment = Alignment.CenterVertically,
             modifier =
-                Modifier.triStateToggleable(
-                    state = parentState,
-                    onClick = onParentClick,
-                    role = Role.Checkbox,
-                ),
+            Modifier.triStateToggleable(
+                state = parentState,
+                onClick = onParentClick,
+                role = Role.Checkbox,
+            ),
         ) {
             TriStateCheckbox(state = parentState, onClick = null)
             Text("Receive Emails")
@@ -143,11 +142,11 @@ fun TriStateCheckboxSample() {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 modifier =
-                    Modifier.toggleable(
-                        value = state,
-                        onValueChange = onStateChange,
-                        role = Role.Checkbox,
-                    ),
+                Modifier.toggleable(
+                    value = state,
+                    onValueChange = onStateChange,
+                    role = Role.Checkbox,
+                ),
             ) {
                 Checkbox(state, null)
                 Text("Daily")
@@ -156,11 +155,11 @@ fun TriStateCheckboxSample() {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 modifier =
-                    Modifier.toggleable(
-                        value = state2,
-                        onValueChange = onStateChange2,
-                        role = Role.Checkbox,
-                    ),
+                Modifier.toggleable(
+                    value = state2,
+                    onValueChange = onStateChange2,
+                    role = Role.Checkbox,
+                ),
             ) {
                 Checkbox(state2, null)
                 Text("Weekly")
@@ -203,11 +202,11 @@ fun TriStateCheckboxRoundedStrokesSample() {
         Row(
             verticalAlignment = Alignment.CenterVertically,
             modifier =
-                Modifier.triStateToggleable(
-                    state = parentState,
-                    onClick = onParentClick,
-                    role = Role.Checkbox,
-                ),
+            Modifier.triStateToggleable(
+                state = parentState,
+                onClick = onParentClick,
+                role = Role.Checkbox,
+            ),
         ) {
             TriStateCheckbox(
                 state = parentState,
@@ -222,11 +221,11 @@ fun TriStateCheckboxRoundedStrokesSample() {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 modifier =
-                    Modifier.toggleable(
-                        value = state,
-                        onValueChange = onStateChange,
-                        role = Role.Checkbox,
-                    ),
+                Modifier.toggleable(
+                    value = state,
+                    onValueChange = onStateChange,
+                    role = Role.Checkbox,
+                ),
             ) {
                 Checkbox(
                     checked = state,
@@ -240,11 +239,11 @@ fun TriStateCheckboxRoundedStrokesSample() {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 modifier =
-                    Modifier.toggleable(
-                        value = state2,
-                        onValueChange = onStateChange2,
-                        role = Role.Checkbox,
-                    ),
+                Modifier.toggleable(
+                    value = state2,
+                    onValueChange = onStateChange2,
+                    role = Role.Checkbox,
+                ),
             ) {
                 Checkbox(
                     checked = state2,

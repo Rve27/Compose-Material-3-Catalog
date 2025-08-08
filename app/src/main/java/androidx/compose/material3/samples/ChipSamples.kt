@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *     https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -13,10 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package androidx.compose.material3.samples
 
-import androidx.compose.material3.catalog.library.Sampled
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -54,6 +52,7 @@ import androidx.compose.material3.InputChipDefaults
 import androidx.compose.material3.SuggestionChip
 import androidx.compose.material3.Text
 import androidx.compose.material3.VerticalDivider
+import androidx.compose.material3.catalog.library.Sampled
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -109,17 +108,17 @@ fun FilterChipSample() {
         onClick = { selected = !selected },
         label = { Text("Filter chip") },
         leadingIcon =
-            if (selected) {
-                {
-                    Icon(
-                        imageVector = Icons.Filled.Done,
-                        contentDescription = "Localized Description",
-                        modifier = Modifier.size(FilterChipDefaults.IconSize),
-                    )
-                }
-            } else {
-                null
-            },
+        if (selected) {
+            {
+                Icon(
+                    imageVector = Icons.Filled.Done,
+                    contentDescription = "Localized Description",
+                    modifier = Modifier.size(FilterChipDefaults.IconSize),
+                )
+            }
+        } else {
+            null
+        },
     )
 }
 
@@ -133,17 +132,17 @@ fun ElevatedFilterChipSample() {
         onClick = { selected = !selected },
         label = { Text("Filter chip") },
         leadingIcon =
-            if (selected) {
-                {
-                    Icon(
-                        imageVector = Icons.Filled.Done,
-                        contentDescription = "Localized Description",
-                        modifier = Modifier.size(FilterChipDefaults.IconSize),
-                    )
-                }
-            } else {
-                null
-            },
+        if (selected) {
+            {
+                Icon(
+                    imageVector = Icons.Filled.Done,
+                    contentDescription = "Localized Description",
+                    modifier = Modifier.size(FilterChipDefaults.IconSize),
+                )
+            }
+        } else {
+            null
+        },
     )
 }
 
@@ -157,23 +156,23 @@ fun FilterChipWithLeadingIconSample() {
         onClick = { selected = !selected },
         label = { Text("Filter chip") },
         leadingIcon =
-            if (selected) {
-                {
-                    Icon(
-                        imageVector = Icons.Filled.Done,
-                        contentDescription = "Localized Description",
-                        modifier = Modifier.size(FilterChipDefaults.IconSize),
-                    )
-                }
-            } else {
-                {
-                    Icon(
-                        imageVector = Icons.Filled.Home,
-                        contentDescription = "Localized description",
-                        modifier = Modifier.size(FilterChipDefaults.IconSize),
-                    )
-                }
-            },
+        if (selected) {
+            {
+                Icon(
+                    imageVector = Icons.Filled.Done,
+                    contentDescription = "Localized Description",
+                    modifier = Modifier.size(FilterChipDefaults.IconSize),
+                )
+            }
+        } else {
+            {
+                Icon(
+                    imageVector = Icons.Filled.Home,
+                    contentDescription = "Localized description",
+                    modifier = Modifier.size(FilterChipDefaults.IconSize),
+                )
+            }
+        },
     )
 }
 
@@ -293,15 +292,15 @@ fun ChipGroupReflowSample() {
     Column {
         FlowRow(
             modifier =
-                Modifier.fillMaxWidth(1f)
-                    .wrapContentHeight(align = Alignment.Top)
-                    .then(
-                        if (selected) {
-                            Modifier.verticalScroll(rememberScrollState())
-                        } else {
-                            Modifier.horizontalScroll(rememberScrollState())
-                        }
-                    ),
+            Modifier.fillMaxWidth(1f)
+                .wrapContentHeight(align = Alignment.Top)
+                .then(
+                    if (selected) {
+                        Modifier.verticalScroll(rememberScrollState())
+                    } else {
+                        Modifier.horizontalScroll(rememberScrollState())
+                    },
+                ),
             horizontalArrangement = Arrangement.Start,
             maxLines = if (!selected) 1 else Int.MAX_VALUE,
         ) {
@@ -314,8 +313,8 @@ fun ChipGroupReflowSample() {
             FilterChip(
                 selected = selected,
                 modifier =
-                    Modifier.padding(horizontal = 4.dp)
-                        .align(alignment = Alignment.CenterVertically),
+                Modifier.padding(horizontal = 4.dp)
+                    .align(alignment = Alignment.CenterVertically),
                 onClick = { selected = !selected },
                 label = { Text("Show All") },
                 leadingIcon = {
@@ -328,15 +327,15 @@ fun ChipGroupReflowSample() {
             )
             Box(
                 Modifier.height(FilterChipDefaults.Height)
-                    .align(alignment = Alignment.CenterVertically)
+                    .align(alignment = Alignment.CenterVertically),
             ) {
                 VerticalDivider()
             }
             colorNames.fastForEachIndexed { index, element ->
                 AssistChip(
                     modifier =
-                        Modifier.padding(horizontal = 4.dp)
-                            .align(alignment = Alignment.CenterVertically),
+                    Modifier.padding(horizontal = 4.dp)
+                        .align(alignment = Alignment.CenterVertically),
                     onClick = { /* do something*/ },
                     label = { Text("$element $index") },
                 )

@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *     https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -13,10 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package androidx.compose.material3.samples
 
-import androidx.compose.material3.catalog.library.Sampled
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.AnimationVector1D
@@ -54,6 +52,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TooltipAnchorPosition
 import androidx.compose.material3.TooltipBox
 import androidx.compose.material3.TooltipDefaults
+import androidx.compose.material3.catalog.library.Sampled
 import androidx.compose.material3.rememberTooltipState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -112,9 +111,9 @@ fun PrimaryIconTabs() {
                 // Icon-only tab should have a tooltip associated with it.
                 TooltipBox(
                     positionProvider =
-                        TooltipDefaults.rememberTooltipPositionProvider(
-                            TooltipAnchorPosition.Above
-                        ),
+                    TooltipDefaults.rememberTooltipPositionProvider(
+                        TooltipAnchorPosition.Above,
+                    ),
                     tooltip = { PlainTooltip { Text("Favorite") } },
                     state = rememberTooltipState(),
                 ) {
@@ -196,9 +195,9 @@ fun SecondaryIconTabs() {
                 // Icon-only tab should have a tooltip associated with it.
                 TooltipBox(
                     positionProvider =
-                        TooltipDefaults.rememberTooltipPositionProvider(
-                            TooltipAnchorPosition.Above
-                        ),
+                    TooltipDefaults.rememberTooltipPositionProvider(
+                        TooltipAnchorPosition.Above,
+                    ),
                     tooltip = { PlainTooltip { Text("Favorite") } },
                     state = rememberTooltipState(),
                 ) {
@@ -463,10 +462,11 @@ fun FancyIndicator(color: Color, modifier: Modifier = Modifier) {
         modifier
             .padding(5.dp)
             .fillMaxSize()
-            .border(BorderStroke(2.dp, color), RoundedCornerShape(5.dp))
+            .border(BorderStroke(2.dp, color), RoundedCornerShape(5.dp)),
     )
 }
 
+@Suppress("ktlint:standard:value-argument-comment")
 @OptIn(ExperimentalMaterial3Api::class)
 @Sampled
 @Composable
@@ -486,63 +486,64 @@ fun TabIndicatorScope.FancyAnimatedIndicatorWithModifier(index: Int) {
         Modifier.tabIndicatorLayout {
                 measurable: Measurable,
                 constraints: Constraints,
-                tabPositions: List<TabPosition> ->
-                val newStart = tabPositions[index].left
-                val newEnd = tabPositions[index].right
-                val startAnim =
-                    startAnimatable
-                        ?: Animatable(newStart, Dp.VectorConverter).also { startAnimatable = it }
+                tabPositions: List<TabPosition>,
+            ->
+            val newStart = tabPositions[index].left
+            val newEnd = tabPositions[index].right
+            val startAnim =
+                startAnimatable
+                    ?: Animatable(newStart, Dp.VectorConverter).also { startAnimatable = it }
 
-                val endAnim =
-                    endAnimatable
-                        ?: Animatable(newEnd, Dp.VectorConverter).also { endAnimatable = it }
+            val endAnim =
+                endAnimatable
+                    ?: Animatable(newEnd, Dp.VectorConverter).also { endAnimatable = it }
 
-                if (endAnim.targetValue != newEnd) {
-                    coroutineScope.launch {
-                        endAnim.animateTo(
-                            newEnd,
-                            animationSpec =
-                                if (endAnim.targetValue < newEnd) {
-                                    spring(dampingRatio = 1f, stiffness = 1000f)
-                                } else {
-                                    spring(dampingRatio = 1f, stiffness = 50f)
-                                },
-                        )
-                    }
-                }
-
-                if (startAnim.targetValue != newStart) {
-                    coroutineScope.launch {
-                        startAnim.animateTo(
-                            newStart,
-                            animationSpec =
-                                // Handle directionality here, if we are moving to the right, we
-                                // want the right side of the indicator to move faster, if we are
-                                // moving to the left, we want the left side to move faster.
-                                if (startAnim.targetValue < newStart) {
-                                    spring(dampingRatio = 1f, stiffness = 50f)
-                                } else {
-                                    spring(dampingRatio = 1f, stiffness = 1000f)
-                                },
-                        )
-                    }
-                }
-
-                val indicatorEnd = endAnim.value.roundToPx()
-                val indicatorStart = startAnim.value.roundToPx()
-
-                // Apply an offset from the start to correctly position the indicator around the tab
-                val placeable =
-                    measurable.measure(
-                        constraints.copy(
-                            maxWidth = indicatorEnd - indicatorStart,
-                            minWidth = indicatorEnd - indicatorStart,
-                        )
+            if (endAnim.targetValue != newEnd) {
+                coroutineScope.launch {
+                    endAnim.animateTo(
+                        newEnd,
+                        animationSpec =
+                        if (endAnim.targetValue < newEnd) {
+                            spring(dampingRatio = 1f, stiffness = 1000f)
+                        } else {
+                            spring(dampingRatio = 1f, stiffness = 50f)
+                        },
                     )
-                layout(constraints.maxWidth, constraints.maxHeight) {
-                    placeable.place(indicatorStart, 0)
                 }
             }
+
+            if (startAnim.targetValue != newStart) {
+                coroutineScope.launch {
+                    startAnim.animateTo(
+                        newStart,
+                        animationSpec =
+                        // Handle directionality here, if we are moving to the right, we
+                        // want the right side of the indicator to move faster, if we are
+                        // moving to the left, we want the left side to move faster.
+                        if (startAnim.targetValue < newStart) {
+                            spring(dampingRatio = 1f, stiffness = 50f)
+                        } else {
+                            spring(dampingRatio = 1f, stiffness = 1000f)
+                        },
+                    )
+                }
+            }
+
+            val indicatorEnd = endAnim.value.roundToPx()
+            val indicatorStart = startAnim.value.roundToPx()
+
+            // Apply an offset from the start to correctly position the indicator around the tab
+            val placeable =
+                measurable.measure(
+                    constraints.copy(
+                        maxWidth = indicatorEnd - indicatorStart,
+                        minWidth = indicatorEnd - indicatorStart,
+                    ),
+                )
+            layout(constraints.maxWidth, constraints.maxHeight) {
+                placeable.place(indicatorStart, 0)
+            }
+        }
             .padding(5.dp)
             .fillMaxSize()
             .drawWithContent {
@@ -551,7 +552,7 @@ fun TabIndicatorScope.FancyAnimatedIndicatorWithModifier(index: Int) {
                     cornerRadius = CornerRadius(5.dp.toPx()),
                     style = Stroke(width = 2.dp.toPx()),
                 )
-            }
+            },
     )
 }
 
@@ -604,9 +605,9 @@ fun FancyTab(title: String, onClick: () -> Unit, selected: Boolean) {
                     .align(Alignment.CenterHorizontally)
                     .background(
                         color =
-                            if (selected) MaterialTheme.colorScheme.primary
-                            else MaterialTheme.colorScheme.background
-                    )
+                        if (selected) MaterialTheme.colorScheme.primary
+                        else MaterialTheme.colorScheme.background,
+                    ),
             )
             Text(
                 text = title,

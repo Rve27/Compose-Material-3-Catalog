@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *     https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package androidx.compose.material3.catalog.library.ui.component
 
 import androidx.compose.foundation.Image
@@ -74,28 +73,28 @@ fun Component(
         LazyColumn(
             modifier = Modifier.consumeWindowInsets(paddingValues),
             contentPadding =
-                PaddingValues(
-                    start = paddingValues.calculateStartPadding(ltr) + ComponentPadding,
-                    top = paddingValues.calculateTopPadding() + ComponentPadding,
-                    end = paddingValues.calculateEndPadding(ltr) + ComponentPadding,
-                    bottom = paddingValues.calculateBottomPadding() + ComponentPadding,
-                ),
+            PaddingValues(
+                start = paddingValues.calculateStartPadding(ltr) + ComponentPadding,
+                top = paddingValues.calculateTopPadding() + ComponentPadding,
+                end = paddingValues.calculateEndPadding(ltr) + ComponentPadding,
+                bottom = paddingValues.calculateBottomPadding() + ComponentPadding,
+            ),
         ) {
             item {
                 Box(
                     modifier =
-                        Modifier.fillMaxWidth().padding(vertical = ComponentIconVerticalPadding)
+                    Modifier.fillMaxWidth().padding(vertical = ComponentIconVerticalPadding),
                 ) {
                     Image(
                         painter = painterResource(id = component.icon),
                         contentDescription = null,
                         modifier = Modifier.size(ComponentIconSize).align(Alignment.Center),
                         colorFilter =
-                            if (component.tintIcon) {
-                                ColorFilter.tint(LocalContentColor.current)
-                            } else {
-                                null
-                            },
+                        if (component.tintIcon) {
+                            ColorFilter.tint(LocalContentColor.current)
+                        } else {
+                            null
+                        },
                     )
                 }
             }

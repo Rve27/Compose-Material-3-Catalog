@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *     https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package androidx.compose.material3.catalog.ui.specification
 
 import androidx.compose.animation.core.FastOutLinearInEasing
@@ -39,21 +38,18 @@ import androidx.compose.ui.unit.dp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SpecificationTopAppBar(
-    title: String,
-    scrollBehavior: TopAppBarScrollBehavior? = null,
-) {
+fun SpecificationTopAppBar(title: String, scrollBehavior: TopAppBarScrollBehavior? = null) {
     val backgroundColor =
         lerp(
             MaterialTheme.colorScheme.surface,
             MaterialTheme.colorScheme.surfaceColorAtElevation(elevation = 3.dp),
-            FastOutLinearInEasing.transform(scrollBehavior?.state?.overlappedFraction ?: 0f)
+            FastOutLinearInEasing.transform(scrollBehavior?.state?.overlappedFraction ?: 0f),
         )
 
     val foregroundColors =
         TopAppBarDefaults.centerAlignedTopAppBarColors(
             containerColor = Color.Transparent,
-            scrolledContainerColor = Color.Transparent
+            scrolledContainerColor = Color.Transparent,
         )
     // Wrapping in a Surface to handle window insets
     // https://issuetracker.google.com/issues/183161866
@@ -65,9 +61,9 @@ fun SpecificationTopAppBar(
             modifier =
             Modifier.windowInsetsPadding(
                 WindowInsets.safeDrawing.only(
-                    WindowInsetsSides.Horizontal + WindowInsetsSides.Top
-                )
-            )
+                    WindowInsetsSides.Horizontal + WindowInsetsSides.Top,
+                ),
+            ),
         )
     }
 }

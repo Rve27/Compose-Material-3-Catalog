@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *     https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -13,10 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package androidx.compose.material3.samples
 
-import androidx.compose.material3.catalog.library.Sampled
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Spacer
@@ -39,6 +37,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.SplitButtonDefaults
 import androidx.compose.material3.SplitButtonLayout
 import androidx.compose.material3.Text
+import androidx.compose.material3.catalog.library.Sampled
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -76,10 +75,10 @@ fun FilledSplitButtonSample() {
                 checked = checked,
                 onCheckedChange = { checked = it },
                 modifier =
-                    Modifier.semantics {
-                        stateDescription = if (checked) "Expanded" else "Collapsed"
-                        contentDescription = "Toggle Button"
-                    },
+                Modifier.semantics {
+                    stateDescription = if (checked) "Expanded" else "Collapsed"
+                    contentDescription = "Toggle Button"
+                },
             ) {
                 val rotation: Float by
                     animateFloatAsState(
@@ -89,9 +88,9 @@ fun FilledSplitButtonSample() {
                 Icon(
                     Icons.Filled.KeyboardArrowDown,
                     modifier =
-                        Modifier.size(SplitButtonDefaults.TrailingIconSize).graphicsLayer {
-                            this.rotationZ = rotation
-                        },
+                    Modifier.size(SplitButtonDefaults.TrailingIconSize).graphicsLayer {
+                        this.rotationZ = rotation
+                    },
                     contentDescription = "Localized description",
                 )
             }
@@ -153,10 +152,10 @@ fun SplitButtonWithDropdownMenuSample() {
                     checked = checked,
                     onCheckedChange = { checked = it },
                     modifier =
-                        Modifier.semantics {
-                            stateDescription = if (checked) "Expanded" else "Collapsed"
-                            contentDescription = "Toggle Button"
-                        },
+                    Modifier.semantics {
+                        stateDescription = if (checked) "Expanded" else "Collapsed"
+                        contentDescription = "Toggle Button"
+                    },
                 ) {
                     val rotation: Float by
                         animateFloatAsState(
@@ -166,9 +165,9 @@ fun SplitButtonWithDropdownMenuSample() {
                     Icon(
                         Icons.Filled.KeyboardArrowDown,
                         modifier =
-                            Modifier.size(SplitButtonDefaults.TrailingIconSize).graphicsLayer {
-                                this.rotationZ = rotation
-                            },
+                        Modifier.size(SplitButtonDefaults.TrailingIconSize).graphicsLayer {
+                            this.rotationZ = rotation
+                        },
                         contentDescription = "Localized description",
                     )
                 }
@@ -221,10 +220,10 @@ fun TonalSplitButtonSample() {
                 checked = checked,
                 onCheckedChange = { checked = it },
                 modifier =
-                    Modifier.semantics {
-                        stateDescription = if (checked) "Expanded" else "Collapsed"
-                        contentDescription = "Toggle Button"
-                    },
+                Modifier.semantics {
+                    stateDescription = if (checked) "Expanded" else "Collapsed"
+                    contentDescription = "Toggle Button"
+                },
             ) {
                 val rotation: Float by
                     animateFloatAsState(
@@ -234,9 +233,9 @@ fun TonalSplitButtonSample() {
                 Icon(
                     Icons.Filled.KeyboardArrowDown,
                     modifier =
-                        Modifier.size(SplitButtonDefaults.TrailingIconSize).graphicsLayer {
-                            this.rotationZ = rotation
-                        },
+                    Modifier.size(SplitButtonDefaults.TrailingIconSize).graphicsLayer {
+                        this.rotationZ = rotation
+                    },
                     contentDescription = "Localized description",
                 )
             }
@@ -268,10 +267,10 @@ fun ElevatedSplitButtonSample() {
                 checked = checked,
                 onCheckedChange = { checked = it },
                 modifier =
-                    Modifier.semantics {
-                        stateDescription = if (checked) "Expanded" else "Collapsed"
-                        contentDescription = "Toggle Button"
-                    },
+                Modifier.semantics {
+                    stateDescription = if (checked) "Expanded" else "Collapsed"
+                    contentDescription = "Toggle Button"
+                },
             ) {
                 val rotation: Float by
                     animateFloatAsState(
@@ -281,9 +280,9 @@ fun ElevatedSplitButtonSample() {
                 Icon(
                     Icons.Filled.KeyboardArrowDown,
                     modifier =
-                        Modifier.size(SplitButtonDefaults.TrailingIconSize).graphicsLayer {
-                            this.rotationZ = rotation
-                        },
+                    Modifier.size(SplitButtonDefaults.TrailingIconSize).graphicsLayer {
+                        this.rotationZ = rotation
+                    },
                     contentDescription = "Localized description",
                 )
             }
@@ -315,10 +314,10 @@ fun OutlinedSplitButtonSample() {
                 checked = checked,
                 onCheckedChange = { checked = it },
                 modifier =
-                    Modifier.semantics {
-                        stateDescription = if (checked) "Expanded" else "Collapsed"
-                        contentDescription = "Toggle Button"
-                    },
+                Modifier.semantics {
+                    stateDescription = if (checked) "Expanded" else "Collapsed"
+                    contentDescription = "Toggle Button"
+                },
             ) {
                 val rotation: Float by
                     animateFloatAsState(
@@ -328,9 +327,9 @@ fun OutlinedSplitButtonSample() {
                 Icon(
                     Icons.Filled.KeyboardArrowDown,
                     modifier =
-                        Modifier.size(SplitButtonDefaults.TrailingIconSize).graphicsLayer {
-                            this.rotationZ = rotation
-                        },
+                    Modifier.size(SplitButtonDefaults.TrailingIconSize).graphicsLayer {
+                        this.rotationZ = rotation
+                    },
                     contentDescription = "Localized description",
                 )
             }
@@ -354,10 +353,10 @@ fun SplitButtonWithTextSample() {
                 checked = checked,
                 onCheckedChange = { checked = it },
                 modifier =
-                    Modifier.semantics {
-                        stateDescription = if (checked) "Expanded" else "Collapsed"
-                        contentDescription = "Toggle Button"
-                    },
+                Modifier.semantics {
+                    stateDescription = if (checked) "Expanded" else "Collapsed"
+                    contentDescription = "Toggle Button"
+                },
             ) {
                 val rotation: Float by
                     animateFloatAsState(
@@ -367,9 +366,9 @@ fun SplitButtonWithTextSample() {
                 Icon(
                     Icons.Filled.KeyboardArrowDown,
                     modifier =
-                        Modifier.size(SplitButtonDefaults.TrailingIconSize).graphicsLayer {
-                            this.rotationZ = rotation
-                        },
+                    Modifier.size(SplitButtonDefaults.TrailingIconSize).graphicsLayer {
+                        this.rotationZ = rotation
+                    },
                     contentDescription = "Localized description",
                 )
             }
@@ -399,10 +398,10 @@ fun SplitButtonWithIconSample() {
                 checked = checked,
                 onCheckedChange = { checked = it },
                 modifier =
-                    Modifier.semantics {
-                        stateDescription = if (checked) "Expanded" else "Collapsed"
-                        contentDescription = "Toggle Button"
-                    },
+                Modifier.semantics {
+                    stateDescription = if (checked) "Expanded" else "Collapsed"
+                    contentDescription = "Toggle Button"
+                },
             ) {
                 val rotation: Float by
                     animateFloatAsState(
@@ -412,9 +411,9 @@ fun SplitButtonWithIconSample() {
                 Icon(
                     Icons.Filled.KeyboardArrowDown,
                     modifier =
-                        Modifier.size(SplitButtonDefaults.TrailingIconSize).graphicsLayer {
-                            this.rotationZ = rotation
-                        },
+                    Modifier.size(SplitButtonDefaults.TrailingIconSize).graphicsLayer {
+                        this.rotationZ = rotation
+                    },
                     contentDescription = "Localized description",
                 )
             }
@@ -452,10 +451,10 @@ fun XSmallFilledSplitButtonSample() {
                 checked = checked,
                 onCheckedChange = { checked = it },
                 modifier =
-                    Modifier.heightIn(size).semantics {
-                        stateDescription = if (checked) "Expanded" else "Collapsed"
-                        contentDescription = "Toggle Button"
-                    },
+                Modifier.heightIn(size).semantics {
+                    stateDescription = if (checked) "Expanded" else "Collapsed"
+                    contentDescription = "Toggle Button"
+                },
                 shapes = SplitButtonDefaults.trailingButtonShapesFor(size),
                 contentPadding = SplitButtonDefaults.trailingButtonContentPaddingFor(size),
             ) {
@@ -467,8 +466,8 @@ fun XSmallFilledSplitButtonSample() {
                 Icon(
                     Icons.Filled.KeyboardArrowDown,
                     modifier =
-                        Modifier.size(SplitButtonDefaults.trailingButtonIconSizeFor(size))
-                            .graphicsLayer { this.rotationZ = rotation },
+                    Modifier.size(SplitButtonDefaults.trailingButtonIconSizeFor(size))
+                        .graphicsLayer { this.rotationZ = rotation },
                     contentDescription = "Localized description",
                 )
             }
@@ -506,10 +505,10 @@ fun MediumFilledSplitButtonSample() {
                 checked = checked,
                 onCheckedChange = { checked = it },
                 modifier =
-                    Modifier.heightIn(size).semantics {
-                        stateDescription = if (checked) "Expanded" else "Collapsed"
-                        contentDescription = "Toggle Button"
-                    },
+                Modifier.heightIn(size).semantics {
+                    stateDescription = if (checked) "Expanded" else "Collapsed"
+                    contentDescription = "Toggle Button"
+                },
                 shapes = SplitButtonDefaults.trailingButtonShapesFor(size),
                 contentPadding = SplitButtonDefaults.trailingButtonContentPaddingFor(size),
             ) {
@@ -521,8 +520,8 @@ fun MediumFilledSplitButtonSample() {
                 Icon(
                     Icons.Filled.KeyboardArrowDown,
                     modifier =
-                        Modifier.size(SplitButtonDefaults.trailingButtonIconSizeFor(size))
-                            .graphicsLayer { this.rotationZ = rotation },
+                    Modifier.size(SplitButtonDefaults.trailingButtonIconSizeFor(size))
+                        .graphicsLayer { this.rotationZ = rotation },
                     contentDescription = "Localized description",
                 )
             }
@@ -560,10 +559,10 @@ fun LargeFilledSplitButtonSample() {
                 checked = checked,
                 onCheckedChange = { checked = it },
                 modifier =
-                    Modifier.heightIn(size).semantics {
-                        stateDescription = if (checked) "Expanded" else "Collapsed"
-                        contentDescription = "Toggle Button"
-                    },
+                Modifier.heightIn(size).semantics {
+                    stateDescription = if (checked) "Expanded" else "Collapsed"
+                    contentDescription = "Toggle Button"
+                },
                 shapes = SplitButtonDefaults.trailingButtonShapesFor(size),
                 contentPadding = SplitButtonDefaults.trailingButtonContentPaddingFor(size),
             ) {
@@ -575,8 +574,8 @@ fun LargeFilledSplitButtonSample() {
                 Icon(
                     Icons.Filled.KeyboardArrowDown,
                     modifier =
-                        Modifier.size(SplitButtonDefaults.trailingButtonIconSizeFor(size))
-                            .graphicsLayer { this.rotationZ = rotation },
+                    Modifier.size(SplitButtonDefaults.trailingButtonIconSizeFor(size))
+                        .graphicsLayer { this.rotationZ = rotation },
                     contentDescription = "Localized description",
                 )
             }
@@ -614,10 +613,10 @@ fun ExtraLargeFilledSplitButtonSample() {
                 checked = checked,
                 onCheckedChange = { checked = it },
                 modifier =
-                    Modifier.heightIn(size).semantics {
-                        stateDescription = if (checked) "Expanded" else "Collapsed"
-                        contentDescription = "Toggle Button"
-                    },
+                Modifier.heightIn(size).semantics {
+                    stateDescription = if (checked) "Expanded" else "Collapsed"
+                    contentDescription = "Toggle Button"
+                },
                 shapes = SplitButtonDefaults.trailingButtonShapesFor(size),
                 contentPadding = SplitButtonDefaults.trailingButtonContentPaddingFor(size),
             ) {
@@ -629,8 +628,8 @@ fun ExtraLargeFilledSplitButtonSample() {
                 Icon(
                     Icons.Filled.KeyboardArrowDown,
                     modifier =
-                        Modifier.size(SplitButtonDefaults.trailingButtonIconSizeFor(size))
-                            .graphicsLayer { this.rotationZ = rotation },
+                    Modifier.size(SplitButtonDefaults.trailingButtonIconSizeFor(size))
+                        .graphicsLayer { this.rotationZ = rotation },
                     contentDescription = "Localized description",
                 )
             }

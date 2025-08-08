@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *     https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -13,10 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package androidx.compose.material3.samples
 
-import androidx.compose.material3.catalog.library.Sampled
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.LinearOutSlowInEasing
 import androidx.compose.animation.core.Spring
@@ -40,6 +38,7 @@ import androidx.compose.material3.ProgressIndicatorDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.catalog.library.Sampled
 import androidx.compose.material3.pulltorefresh.PullToRefreshBox
 import androidx.compose.material3.pulltorefresh.PullToRefreshDefaults
 import androidx.compose.material3.pulltorefresh.PullToRefreshState
@@ -92,7 +91,7 @@ fun PullToRefreshSample() {
                     }
                 },
             )
-        }
+        },
     ) {
         PullToRefreshBox(
             modifier = Modifier.padding(it),
@@ -136,7 +135,7 @@ fun PullToRefreshWithLoadingIndicatorSample() {
                     }
                 },
             )
-        }
+        },
     ) {
         PullToRefreshBox(
             modifier = Modifier.padding(it),
@@ -206,7 +205,7 @@ fun PullToRefreshViewModelSample() {
                     }
                 },
             )
-        }
+        },
     ) {
         PullToRefreshBox(
             modifier = Modifier.padding(it),
@@ -250,11 +249,11 @@ fun PullToRefreshScalingSample() {
 
     Scaffold(
         modifier =
-            Modifier.pullToRefresh(
-                state = state,
-                isRefreshing = isRefreshing,
-                onRefresh = onRefresh,
-            ),
+        Modifier.pullToRefresh(
+            state = state,
+            isRefreshing = isRefreshing,
+            onRefresh = onRefresh,
+        ),
         topBar = {
             TopAppBar(
                 title = { Text("TopAppBar") },
@@ -277,7 +276,7 @@ fun PullToRefreshScalingSample() {
                 Modifier.align(Alignment.TopCenter).graphicsLayer {
                     scaleX = scaleFraction()
                     scaleY = scaleFraction()
-                }
+                },
             ) {
                 PullToRefreshDefaults.Indicator(state = state, isRefreshing = isRefreshing)
             }
@@ -306,11 +305,11 @@ fun PullToRefreshLinearProgressIndicatorSample() {
 
     Scaffold(
         modifier =
-            Modifier.pullToRefresh(
-                state = state,
-                isRefreshing = isRefreshing,
-                onRefresh = onRefresh,
-            ),
+        Modifier.pullToRefresh(
+            state = state,
+            isRefreshing = isRefreshing,
+            onRefresh = onRefresh,
+        ),
         topBar = {
             TopAppBar(
                 title = { Text("TopAppBar") },
@@ -394,7 +393,7 @@ fun PullToRefreshSampleCustomState() {
                     }
                 },
             )
-        }
+        },
     ) {
         PullToRefreshBox(
             modifier = Modifier.padding(it),
@@ -440,7 +439,7 @@ fun PullToRefreshCustomIndicatorWithDefaultTransform() {
                     }
                 },
             )
-        }
+        },
     ) {
         PullToRefreshBox(
             modifier = Modifier.padding(it),

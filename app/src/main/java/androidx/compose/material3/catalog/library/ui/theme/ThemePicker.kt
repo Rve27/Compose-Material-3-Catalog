@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *     https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package androidx.compose.material3.catalog.library.ui.theme
 
 import android.os.Build
@@ -71,10 +70,10 @@ fun ThemePicker(theme: Theme, onThemeChange: (theme: Theme) -> Unit) {
 
     LazyColumn(
         contentPadding =
-            WindowInsets.safeDrawing
-                .only(WindowInsetsSides.Horizontal + WindowInsetsSides.Bottom)
-                .add(WindowInsets(top = ThemePickerPadding, bottom = ThemePickerPadding))
-                .asPaddingValues(),
+        WindowInsets.safeDrawing
+            .only(WindowInsetsSides.Horizontal + WindowInsetsSides.Bottom)
+            .add(WindowInsets(top = ThemePickerPadding, bottom = ThemePickerPadding))
+            .asPaddingValues(),
         verticalArrangement = Arrangement.spacedBy(ThemePickerPadding),
     ) {
         item {
@@ -215,11 +214,11 @@ fun ThemePicker(theme: Theme, onThemeChange: (theme: Theme) -> Unit) {
                     text = stringResource(id = R.string.expressive_theme_mode),
                     style = MaterialTheme.typography.bodyMedium,
                     modifier =
-                        Modifier.padding(
-                            start = ThemePickerPadding,
-                            // Align Badge closer to text
-                            end = ThemePickerPadding / 2,
-                        ),
+                    Modifier.padding(
+                        start = ThemePickerPadding,
+                        // Align Badge closer to text
+                        end = ThemePickerPadding / 2,
+                    ),
                 )
                 Badge { Text(stringResource(R.string.experimental)) }
             }
@@ -321,14 +320,14 @@ private fun <T> RadioButtonOption(
 ) {
     Row(
         modifier =
-            modifier
-                .selectable(
-                    selected = selected,
-                    enabled = enabled,
-                    onClick = { onClick(option) },
-                    role = Role.RadioButton,
-                )
-                .minimumInteractiveComponentSize(),
+        modifier
+            .selectable(
+                selected = selected,
+                enabled = enabled,
+                onClick = { onClick(option) },
+                role = Role.RadioButton,
+            )
+            .minimumInteractiveComponentSize(),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(ThemePickerPadding),
     ) {
@@ -347,14 +346,14 @@ private fun SwitchSetting(
 ) {
     Row(
         modifier =
-            modifier
-                .selectable(
-                    selected = checked,
-                    enabled = enabled,
-                    onClick = { onCheckedChange(!checked) },
-                    role = Role.Switch,
-                )
-                .minimumInteractiveComponentSize(),
+        modifier
+            .selectable(
+                selected = checked,
+                enabled = enabled,
+                onClick = { onCheckedChange(!checked) },
+                role = Role.Switch,
+            )
+            .minimumInteractiveComponentSize(),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Text(
@@ -392,18 +391,14 @@ private fun CustomFontScaleSlider(
 }
 
 @Composable
-private fun ExpressiveAlertDialog(
-    onDismissRequest: () -> Unit,
-    onConfirmButtonClick: () -> Unit,
-    onDismissButtonClick: () -> Unit,
-) {
+private fun ExpressiveAlertDialog(onDismissRequest: () -> Unit, onConfirmButtonClick: () -> Unit, onDismissButtonClick: () -> Unit) {
     AlertDialog(
         icon = { Icon(imageVector = Icons.Filled.Warning, contentDescription = null) },
         title = { Text("Warning") },
         text = {
             Text(
                 "Setting a new Material theme will reset the catalog and progress will be " +
-                    "lost. Please confirm before proceeding."
+                    "lost. Please confirm before proceeding.",
             )
         },
         onDismissRequest = onDismissRequest,

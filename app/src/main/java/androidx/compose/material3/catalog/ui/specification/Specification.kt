@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *     https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -13,10 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package androidx.compose.material3.catalog.ui.specification
 
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.WindowInsetsSides
@@ -30,20 +28,16 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.catalog.R
+import androidx.compose.material3.catalog.model.Specification
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.compose.material3.catalog.R
-import androidx.compose.material3.catalog.model.Specification
 
 @Composable
-fun Specification(
-    specifications: List<Specification>,
-    onSpecificationClick: (specification: Specification) -> Unit,
-) {
-    SpecificationScaffold(topBarTitle = stringResource(id = R.string.compose_material3_catalog)) {
-            paddingValues ->
+fun Specification(specifications: List<Specification>, onSpecificationClick: (specification: Specification) -> Unit) {
+    SpecificationScaffold(topBarTitle = stringResource(id = R.string.compose_material3_catalog)) { paddingValues ->
         LazyColumn(
             content = {
                 item {
@@ -59,16 +53,16 @@ fun Specification(
                 }
             },
             contentPadding =
-                WindowInsets.safeDrawing
-                    .only(WindowInsetsSides.Horizontal + WindowInsetsSides.Top)
-                    .add(
-                        WindowInsets(
-                            left = SpecificationPadding,
-                            top = SpecificationPadding,
-                            right = SpecificationPadding,
-                        )
-                    )
-                    .asPaddingValues(),
+            WindowInsets.safeDrawing
+                .only(WindowInsetsSides.Horizontal + WindowInsetsSides.Top)
+                .add(
+                    WindowInsets(
+                        left = SpecificationPadding,
+                        top = SpecificationPadding,
+                        right = SpecificationPadding,
+                    ),
+                )
+                .asPaddingValues(),
             modifier = Modifier.padding(paddingValues),
         )
     }

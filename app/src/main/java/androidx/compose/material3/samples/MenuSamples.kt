@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *     https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -13,10 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package androidx.compose.material3.samples
 
-import androidx.compose.material3.catalog.library.Sampled
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.wrapContentSize
@@ -37,6 +35,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TooltipAnchorPosition
 import androidx.compose.material3.TooltipBox
 import androidx.compose.material3.TooltipDefaults
+import androidx.compose.material3.catalog.library.Sampled
 import androidx.compose.material3.rememberTooltipState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -61,7 +60,7 @@ fun MenuSample() {
         // Icon button should have a tooltip associated with it for a11y.
         TooltipBox(
             positionProvider =
-                TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+            TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
             tooltip = { PlainTooltip { Text(description) } },
             state = rememberTooltipState(),
         ) {
@@ -103,7 +102,7 @@ fun MenuWithScrollStateSample() {
         // Icon button should have a tooltip associated with it for a11y.
         TooltipBox(
             positionProvider =
-                TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+            TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
             tooltip = { PlainTooltip { Text(description) } },
             state = rememberTooltipState(),
         ) {

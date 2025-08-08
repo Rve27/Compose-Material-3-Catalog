@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *     https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package androidx.compose.material3.catalog.library
 
 import androidx.compose.material3.catalog.library.data.UserPreferencesRepository
@@ -89,10 +88,10 @@ fun NavGraph(initialFavoriteRoute: String?, theme: Theme, onThemeChange: (theme:
         composable(
             route = "$ExampleRoute/" + "{$ComponentIdArgName}/" + "{$ExampleIndexArgName}",
             arguments =
-                listOf(
-                    navArgument(ComponentIdArgName) { type = NavType.IntType },
-                    navArgument(ExampleIndexArgName) { type = NavType.IntType },
-                ),
+            listOf(
+                navArgument(ComponentIdArgName) { type = NavType.IntType },
+                navArgument(ExampleIndexArgName) { type = NavType.IntType },
+            ),
         ) { navBackStackEntry ->
             val arguments = requireNotNull(navBackStackEntry.arguments) { "No arguments" }
             val componentId = arguments.getInt(ComponentIdArgName)
@@ -140,8 +139,7 @@ private fun maybeNavigate(navController: NavHostController, route: String?) {
 
 private fun Component.route() = "$ComponentRoute/$id"
 
-private fun Example.route(component: Component) =
-    "$ExampleRoute/${component.id}/${component.examples.indexOf(this)}"
+private fun Example.route(component: Component) = "$ExampleRoute/${component.id}/${component.examples.indexOf(this)}"
 
 const val Material3Route = "material3"
 private const val HomeRoute = "home"

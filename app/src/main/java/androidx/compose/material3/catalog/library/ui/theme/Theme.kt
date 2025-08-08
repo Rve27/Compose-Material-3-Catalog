@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *     https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package androidx.compose.material3.catalog.library.ui.theme
 
 import android.annotation.SuppressLint
@@ -96,11 +95,11 @@ fun CatalogTheme(theme: Theme, content: @Composable () -> Unit) {
             Density(
                 density = LocalDensity.current.density,
                 fontScale =
-                    if (theme.fontScaleMode == FontScaleMode.System) {
-                        LocalDensity.current.fontScale
-                    } else {
-                        theme.fontScale
-                    },
+                if (theme.fontScaleMode == FontScaleMode.System) {
+                    LocalDensity.current.fontScale
+                } else {
+                    theme.fontScale
+                },
             ),
     ) {
         if (theme.expressiveThemeMode == ExpressiveThemeMode.Expressive) {
@@ -112,11 +111,7 @@ fun CatalogTheme(theme: Theme, content: @Composable () -> Unit) {
 }
 
 @Composable
-fun colorSchemeFromThemeMode(
-    themeColorMode: ThemeColorMode,
-    lightColorScheme: ColorScheme,
-    darkColorScheme: ColorScheme,
-): ColorScheme {
+fun colorSchemeFromThemeMode(themeColorMode: ThemeColorMode, lightColorScheme: ColorScheme, darkColorScheme: ColorScheme): ColorScheme {
     return when (themeColorMode) {
         ThemeColorMode.Light -> lightColorScheme
         ThemeColorMode.Dark -> darkColorScheme
@@ -209,9 +204,8 @@ private val DarkCustomColorScheme =
         surfaceDim = Color(0xFF0F150F),
     )
 
-private tailrec fun Context.findActivity(): Activity =
-    when (this) {
-        is Activity -> this
-        is ContextWrapper -> this.baseContext.findActivity()
-        else -> throw IllegalArgumentException("Could not find activity!")
-    }
+private tailrec fun Context.findActivity(): Activity = when (this) {
+    is Activity -> this
+    is ContextWrapper -> this.baseContext.findActivity()
+    else -> throw IllegalArgumentException("Could not find activity!")
+}

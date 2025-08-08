@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *     https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -13,10 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package androidx.compose.material3.samples
 
-import androidx.compose.material3.catalog.library.Sampled
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -43,6 +41,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.WideNavigationRail
 import androidx.compose.material3.WideNavigationRailItem
 import androidx.compose.material3.WideNavigationRailValue
+import androidx.compose.material3.catalog.library.Sampled
 import androidx.compose.material3.rememberWideNavigationRailState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -78,16 +77,16 @@ fun WideNavigationRailResponsiveSample() {
             header = {
                 IconButton(
                     modifier =
-                        Modifier.padding(start = 24.dp).semantics {
-                            // The button must announce the expanded or collapsed state of the rail
-                            // for accessibility.
-                            stateDescription =
-                                if (state.currentValue == WideNavigationRailValue.Expanded) {
-                                    "Expanded"
-                                } else {
-                                    "Collapsed"
-                                }
-                        },
+                    Modifier.padding(start = 24.dp).semantics {
+                        // The button must announce the expanded or collapsed state of the rail
+                        // for accessibility.
+                        stateDescription =
+                            if (state.currentValue == WideNavigationRailValue.Expanded) {
+                                "Expanded"
+                            } else {
+                                "Collapsed"
+                            }
+                    },
                     onClick = {
                         scope.launch {
                             if (state.targetValue == WideNavigationRailValue.Expanded)
@@ -135,9 +134,9 @@ fun WideNavigationRailResponsiveSample() {
             Text(
                 modifier = Modifier.padding(16.dp),
                 text =
-                    "Note: This demo is best shown in portrait mode, as landscape mode" +
-                        " may result in a compact height in certain devices. For any" +
-                        " compact screen dimensions, use a Navigation Bar instead.",
+                "Note: This demo is best shown in portrait mode, as landscape mode" +
+                    " may result in a compact height in certain devices. For any" +
+                    " compact screen dimensions, use a Navigation Bar instead.",
             )
         }
     }
@@ -164,16 +163,16 @@ fun ModalWideNavigationRailSample() {
             header = {
                 IconButton(
                     modifier =
-                        Modifier.padding(start = 24.dp).semantics {
-                            // The button must announce the expanded or collapsed state of the rail
-                            // for accessibility.
-                            stateDescription =
-                                if (state.currentValue == WideNavigationRailValue.Expanded) {
-                                    "Expanded"
-                                } else {
-                                    "Collapsed"
-                                }
-                        },
+                    Modifier.padding(start = 24.dp).semantics {
+                        // The button must announce the expanded or collapsed state of the rail
+                        // for accessibility.
+                        stateDescription =
+                            if (state.currentValue == WideNavigationRailValue.Expanded) {
+                                "Expanded"
+                            } else {
+                                "Collapsed"
+                            }
+                    },
                     onClick = {
                         scope.launch {
                             if (state.targetValue == WideNavigationRailValue.Expanded)
@@ -218,9 +217,9 @@ fun ModalWideNavigationRailSample() {
             Text(
                 modifier = Modifier.padding(16.dp),
                 text =
-                    "Note: This demo is best shown in portrait mode, as landscape mode" +
-                        " may result in a compact height in certain devices. For any" +
-                        " compact screen dimensions, use a Navigation Bar instead.",
+                "Note: This demo is best shown in portrait mode, as landscape mode" +
+                    " may result in a compact height in certain devices. For any" +
+                    " compact screen dimensions, use a Navigation Bar instead.",
             )
         }
     }
@@ -306,7 +305,7 @@ fun WideNavigationRailExpandedSample() {
     val unselectedIcons =
         listOf(Icons.Outlined.Home, Icons.Outlined.FavoriteBorder, Icons.Outlined.StarBorder)
     WideNavigationRail(
-        state = rememberWideNavigationRailState(initialValue = WideNavigationRailValue.Expanded)
+        state = rememberWideNavigationRailState(initialValue = WideNavigationRailValue.Expanded),
     ) {
         items.forEachIndexed { index, item ->
             WideNavigationRailItem(
@@ -344,16 +343,16 @@ fun WideNavigationRailArrangementsSample() {
             header = {
                 IconButton(
                     modifier =
-                        Modifier.padding(start = 24.dp).semantics {
-                            // The button must announce the expanded or collapsed state of the rail
-                            // for accessibility.
-                            stateDescription =
-                                if (state.currentValue == WideNavigationRailValue.Expanded) {
-                                    "Expanded"
-                                } else {
-                                    "Collapsed"
-                                }
-                        },
+                    Modifier.padding(start = 24.dp).semantics {
+                        // The button must announce the expanded or collapsed state of the rail
+                        // for accessibility.
+                        stateDescription =
+                            if (state.currentValue == WideNavigationRailValue.Expanded) {
+                                "Expanded"
+                            } else {
+                                "Collapsed"
+                            }
+                    },
                     onClick = {
                         scope.launch {
                             if (state.targetValue == WideNavigationRailValue.Expanded) {
@@ -408,9 +407,9 @@ fun WideNavigationRailArrangementsSample() {
             Text(
                 modifier = Modifier.padding(16.dp),
                 text =
-                    "Note: This demo is best shown in portrait mode, as landscape mode" +
-                        " may result in a compact height in certain devices. For any" +
-                        " compact screen dimensions, use a Navigation Bar instead.",
+                "Note: This demo is best shown in portrait mode, as landscape mode" +
+                    " may result in a compact height in certain devices. For any" +
+                    " compact screen dimensions, use a Navigation Bar instead.",
             )
         }
     }

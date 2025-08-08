@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *     https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -13,10 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package androidx.compose.material3.samples
 
-import androidx.compose.material3.catalog.library.Sampled
 import androidx.compose.animation.core.LinearOutSlowInEasing
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.animateFloatAsState
@@ -42,6 +40,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Slider
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.catalog.library.Sampled
 import androidx.compose.material3.pulltorefresh.PullToRefreshDefaults
 import androidx.compose.material3.pulltorefresh.pullToRefresh
 import androidx.compose.material3.pulltorefresh.rememberPullToRefreshState
@@ -86,11 +85,11 @@ fun DeterminateLoadingIndicatorSample() {
         animateFloatAsState(
             targetValue = progress,
             animationSpec =
-                spring(
-                    dampingRatio = Spring.DampingRatioNoBouncy,
-                    stiffness = Spring.StiffnessVeryLow,
-                    visibilityThreshold = 1 / 1000f,
-                ),
+            spring(
+                dampingRatio = Spring.DampingRatioNoBouncy,
+                stiffness = Spring.StiffnessVeryLow,
+                visibilityThreshold = 1 / 1000f,
+            ),
         )
 
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
@@ -116,11 +115,11 @@ fun DeterminateContainedLoadingIndicatorSample() {
         animateFloatAsState(
             targetValue = progress,
             animationSpec =
-                spring(
-                    dampingRatio = Spring.DampingRatioNoBouncy,
-                    stiffness = Spring.StiffnessVeryLow,
-                    visibilityThreshold = 1 / 1000f,
-                ),
+            spring(
+                dampingRatio = Spring.DampingRatioNoBouncy,
+                stiffness = Spring.StiffnessVeryLow,
+                visibilityThreshold = 1 / 1000f,
+            ),
         )
 
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
@@ -162,11 +161,11 @@ fun LoadingIndicatorPullToRefreshSample() {
 
     Scaffold(
         modifier =
-            Modifier.pullToRefresh(
-                state = state,
-                isRefreshing = isRefreshing,
-                onRefresh = onRefresh,
-            ),
+        Modifier.pullToRefresh(
+            state = state,
+            isRefreshing = isRefreshing,
+            onRefresh = onRefresh,
+        ),
         topBar = {
             TopAppBar(
                 title = { Text("TopAppBar") },
@@ -189,7 +188,7 @@ fun LoadingIndicatorPullToRefreshSample() {
                 Modifier.align(Alignment.TopCenter).graphicsLayer {
                     scaleX = scaleFraction()
                     scaleY = scaleFraction()
-                }
+                },
             ) {
                 PullToRefreshDefaults.LoadingIndicator(state = state, isRefreshing = isRefreshing)
             }

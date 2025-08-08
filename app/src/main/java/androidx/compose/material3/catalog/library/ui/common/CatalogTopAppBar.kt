@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *     https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package androidx.compose.material3.catalog.library.ui.common
 
 import androidx.compose.foundation.layout.Box
@@ -69,10 +68,10 @@ fun CatalogTopAppBar(
     var moreMenuExpanded by remember { mutableStateOf(false) }
     TopAppBar(
         modifier =
-            Modifier.semantics {
-                traversalIndex = -2f
-                isTraversalGroup = true
-            },
+        Modifier.semantics {
+            traversalIndex = -2f
+            isTraversalGroup = true
+        },
         title = { Text(text = title, maxLines = 1, overflow = TextOverflow.Ellipsis) },
         actions = {
             Box {
@@ -80,10 +79,10 @@ fun CatalogTopAppBar(
                     IconButton(onClick = onFavoriteClick) {
                         Icon(
                             imageVector =
-                                if (favorite) Icons.Filled.PushPin else Icons.Outlined.PushPin,
+                            if (favorite) Icons.Filled.PushPin else Icons.Outlined.PushPin,
                             tint =
-                                if (favorite) MaterialTheme.colorScheme.primary
-                                else LocalContentColor.current,
+                            if (favorite) MaterialTheme.colorScheme.primary
+                            else LocalContentColor.current,
                             contentDescription = stringResource(id = R.string.favorite_button),
                         )
                     }

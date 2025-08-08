@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *     https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -13,12 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 @file:OptIn(ExperimentalMaterial3Api::class)
 
 package androidx.compose.material3.samples
 
-import androidx.compose.material3.catalog.library.Sampled
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsFocusedAsState
 import androidx.compose.foundation.layout.Column
@@ -58,6 +56,7 @@ import androidx.compose.material3.TextFieldLabelPosition
 import androidx.compose.material3.TooltipAnchorPosition
 import androidx.compose.material3.TooltipBox
 import androidx.compose.material3.TooltipDefaults
+import androidx.compose.material3.catalog.library.Sampled
 import androidx.compose.material3.rememberTooltipState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -119,11 +118,11 @@ fun TextFieldWithTransformations() {
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
         // Input transformation to limit user input to 10 digits
         inputTransformation =
-            InputTransformation.maxLength(10).then {
-                if (!this.asCharSequence().isDigitsOnly()) {
-                    revertAllChanges()
-                }
-            },
+        InputTransformation.maxLength(10).then {
+            if (!this.asCharSequence().isDigitsOnly()) {
+                revertAllChanges()
+            }
+        },
         outputTransformation = {
             // Output transformation to format as a phone number: (XXX) XXX-XXXX
             if (length > 0) insert(0, "(")
@@ -147,7 +146,7 @@ fun TextFieldWithIcons() {
         trailingIcon = {
             TooltipBox(
                 positionProvider =
-                    TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+                TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
                 tooltip = { PlainTooltip { Text("Clear text") } },
                 state = rememberTooltipState(),
             ) {
@@ -234,11 +233,11 @@ fun TextFieldWithErrorState() {
         isError = isError,
         onKeyboardAction = { validate(state.text) },
         modifier =
-            Modifier.semantics {
-                maxTextLength = charLimit
-                // Provide localized description of the error
-                if (isError) error(errorMessage)
-            },
+        Modifier.semantics {
+            maxTextLength = charLimit
+            // Provide localized description of the error
+            if (isError) error(errorMessage)
+        },
     )
 }
 
@@ -265,14 +264,14 @@ fun PasswordTextField() {
         state = rememberTextFieldState(),
         label = { Text("Enter password") },
         textObfuscationMode =
-            if (passwordHidden) TextObfuscationMode.RevealLastTyped
-            else TextObfuscationMode.Visible,
+        if (passwordHidden) TextObfuscationMode.RevealLastTyped
+        else TextObfuscationMode.Visible,
         trailingIcon = {
             // Provide localized description for accessibility services
             val description = if (passwordHidden) "Show password" else "Hide password"
             TooltipBox(
                 positionProvider =
-                    TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+                TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
                 tooltip = { PlainTooltip { Text(description) } },
                 state = rememberTooltipState(),
             ) {
@@ -342,7 +341,7 @@ fun TextArea() {
                 "nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. " +
                 "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu " +
                 "fugiat nulla pariatur. Excepteur sint occaecat cupidatat non  proident, sunt in " +
-                "culpa qui officia deserunt mollit anim id est laborum."
+                "culpa qui officia deserunt mollit anim id est laborum.",
         )
     TextField(state = state, modifier = Modifier.height(120.dp), label = { Text("Label") })
 }
@@ -384,25 +383,25 @@ fun CustomTextFieldUsingDecorator() {
         textStyle = LocalTextStyle.current.merge(TextStyle(color = textColor)),
         cursorBrush = SolidColor(customColors.cursorColor),
         decorator =
-            TextFieldDefaults.decorator(
-                state = state,
-                outputTransformation = null,
-                lineLimits = lineLimits,
-                enabled = enabled,
-                isError = isError,
-                interactionSource = interactionSource,
-                container = {
-                    TextFieldDefaults.Container(
-                        enabled = enabled,
-                        isError = isError,
-                        interactionSource = interactionSource,
-                        colors = customColors,
-                        // Update indicator line thickness
-                        unfocusedIndicatorLineThickness = 2.dp,
-                        focusedIndicatorLineThickness = 4.dp,
-                    )
-                },
-            ),
+        TextFieldDefaults.decorator(
+            state = state,
+            outputTransformation = null,
+            lineLimits = lineLimits,
+            enabled = enabled,
+            isError = isError,
+            interactionSource = interactionSource,
+            container = {
+                TextFieldDefaults.Container(
+                    enabled = enabled,
+                    isError = isError,
+                    interactionSource = interactionSource,
+                    colors = customColors,
+                    // Update indicator line thickness
+                    unfocusedIndicatorLineThickness = 2.dp,
+                    focusedIndicatorLineThickness = 4.dp,
+                )
+            },
+        ),
     )
 }
 
@@ -443,26 +442,26 @@ fun CustomOutlinedTextFieldUsingDecorator() {
         textStyle = LocalTextStyle.current.merge(TextStyle(color = textColor)),
         cursorBrush = SolidColor(customColors.cursorColor),
         decorator =
-            OutlinedTextFieldDefaults.decorator(
-                state = state,
-                outputTransformation = null,
-                lineLimits = lineLimits,
-                enabled = enabled,
-                isError = isError,
-                interactionSource = interactionSource,
-                container = {
-                    OutlinedTextFieldDefaults.Container(
-                        enabled = enabled,
-                        isError = isError,
-                        interactionSource = interactionSource,
-                        colors = customColors,
-                        // Update border thickness and shape
-                        shape = RectangleShape,
-                        unfocusedBorderThickness = 2.dp,
-                        focusedBorderThickness = 4.dp,
-                    )
-                },
-            ),
+        OutlinedTextFieldDefaults.decorator(
+            state = state,
+            outputTransformation = null,
+            lineLimits = lineLimits,
+            enabled = enabled,
+            isError = isError,
+            interactionSource = interactionSource,
+            container = {
+                OutlinedTextFieldDefaults.Container(
+                    enabled = enabled,
+                    isError = isError,
+                    interactionSource = interactionSource,
+                    colors = customColors,
+                    // Update border thickness and shape
+                    shape = RectangleShape,
+                    unfocusedBorderThickness = 2.dp,
+                    focusedBorderThickness = 4.dp,
+                )
+            },
+        ),
     )
 }
 

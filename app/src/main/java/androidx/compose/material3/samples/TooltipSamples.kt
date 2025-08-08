@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *     https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -13,10 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package androidx.compose.material3.samples
 
-import androidx.compose.material3.catalog.library.Sampled
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.requiredHeight
@@ -35,6 +33,7 @@ import androidx.compose.material3.TextButton
 import androidx.compose.material3.TooltipAnchorPosition
 import androidx.compose.material3.TooltipBox
 import androidx.compose.material3.TooltipDefaults
+import androidx.compose.material3.catalog.library.Sampled
 import androidx.compose.material3.rememberTooltipState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -54,7 +53,7 @@ import kotlinx.coroutines.launch
 fun PlainTooltipSample() {
     TooltipBox(
         positionProvider =
-            TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+        TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
         tooltip = { PlainTooltip { Text("Add to favorites") } },
         state = rememberTooltipState(),
     ) {
@@ -74,7 +73,7 @@ fun PlainTooltipWithManualInvocationSample() {
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         TooltipBox(
             positionProvider =
-                TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+            TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
             tooltip = { PlainTooltip { Text("Add to list") } },
             state = tooltipState,
         ) {
@@ -98,7 +97,7 @@ fun PlainTooltipWithManualInvocationSample() {
 fun PlainTooltipWithCaret() {
     TooltipBox(
         positionProvider =
-            TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+        TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
         tooltip = {
             PlainTooltip(caretShape = TooltipDefaults.caretShape()) { Text("Add to favorites") }
         },
@@ -116,7 +115,7 @@ fun PlainTooltipWithCaret() {
 fun PlainTooltipWithCaretBelowAnchor() {
     TooltipBox(
         positionProvider =
-            TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Below),
+        TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Below),
         tooltip = {
             PlainTooltip(caretShape = TooltipDefaults.caretShape()) { Text("Add to favorites") }
         },
@@ -134,7 +133,7 @@ fun PlainTooltipWithCaretBelowAnchor() {
 fun PlainTooltipWithCaretLeftOfAnchor() {
     TooltipBox(
         positionProvider =
-            TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Left),
+        TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Left),
         tooltip = {
             PlainTooltip(caretShape = TooltipDefaults.caretShape()) { Text("Add to favorites") }
         },
@@ -152,7 +151,7 @@ fun PlainTooltipWithCaretLeftOfAnchor() {
 fun PlainTooltipWithCaretRightOfAnchor() {
     TooltipBox(
         positionProvider =
-            TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Right),
+        TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Right),
         tooltip = {
             PlainTooltip(caretShape = TooltipDefaults.caretShape()) { Text("Add to favorites") }
         },
@@ -170,7 +169,7 @@ fun PlainTooltipWithCaretRightOfAnchor() {
 fun PlainTooltipWithCaretStartOfAnchor() {
     TooltipBox(
         positionProvider =
-            TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Start),
+        TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Start),
         tooltip = {
             PlainTooltip(caretShape = TooltipDefaults.caretShape()) { Text("Add to favorites") }
         },
@@ -188,7 +187,7 @@ fun PlainTooltipWithCaretStartOfAnchor() {
 fun PlainTooltipWithCaretEndOfAnchor() {
     TooltipBox(
         positionProvider =
-            TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.End),
+        TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.End),
         tooltip = {
             PlainTooltip(caretShape = TooltipDefaults.caretShape()) { Text("Add to favorites") }
         },
@@ -206,7 +205,7 @@ fun PlainTooltipWithCaretEndOfAnchor() {
 fun PlainTooltipWithCustomCaret() {
     TooltipBox(
         positionProvider =
-            TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+        TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
         tooltip = {
             PlainTooltip(caretShape = TooltipDefaults.caretShape(DpSize(24.dp, 12.dp))) {
                 Text("Add to favorites")
@@ -228,7 +227,7 @@ fun RichTooltipSample() {
     val scope = rememberCoroutineScope()
     TooltipBox(
         positionProvider =
-            TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+        TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
         tooltip = {
             RichTooltip(
                 title = { Text(richTooltipSubheadText) },
@@ -259,7 +258,7 @@ fun RichTooltipWithManualInvocationSample() {
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         TooltipBox(
             positionProvider =
-                TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+            TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
             tooltip = {
                 RichTooltip(
                     title = { Text(richTooltipSubheadText) },
@@ -294,7 +293,7 @@ fun RichTooltipWithCaretSample() {
     val scope = rememberCoroutineScope()
     TooltipBox(
         positionProvider =
-            TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+        TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
         tooltip = {
             RichTooltip(
                 title = { Text(richTooltipSubheadText) },
@@ -325,7 +324,7 @@ fun RichTooltipWithCustomCaretSample() {
     val scope = rememberCoroutineScope()
     TooltipBox(
         positionProvider =
-            TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+        TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
         tooltip = {
             RichTooltip(
                 title = { Text(richTooltipSubheadText) },

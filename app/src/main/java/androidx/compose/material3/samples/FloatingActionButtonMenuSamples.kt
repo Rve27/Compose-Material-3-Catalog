@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *     https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -13,11 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package androidx.compose.material3.samples
 
 import androidx.activity.compose.BackHandler
-import androidx.compose.material3.catalog.library.Sampled
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -42,6 +40,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.ToggleFloatingActionButton
 import androidx.compose.material3.ToggleFloatingActionButtonDefaults.animateIcon
 import androidx.compose.material3.animateFloatingActionButton
+import androidx.compose.material3.catalog.library.Sampled
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
@@ -102,15 +101,15 @@ fun FloatingActionButtonMenuSample() {
             button = {
                 ToggleFloatingActionButton(
                     modifier =
-                        Modifier.semantics {
-                                traversalIndex = -1f
-                                stateDescription = if (fabMenuExpanded) "Expanded" else "Collapsed"
-                                contentDescription = "Toggle menu"
-                            }
-                            .animateFloatingActionButton(
-                                visible = fabVisible || fabMenuExpanded,
-                                alignment = Alignment.BottomEnd,
-                            ),
+                    Modifier.semantics {
+                        traversalIndex = -1f
+                        stateDescription = if (fabMenuExpanded) "Expanded" else "Collapsed"
+                        contentDescription = "Toggle menu"
+                    }
+                        .animateFloatingActionButton(
+                            visible = fabVisible || fabMenuExpanded,
+                            alignment = Alignment.BottomEnd,
+                        ),
                     checked = fabMenuExpanded,
                     onCheckedChange = { fabMenuExpanded = !fabMenuExpanded },
                 ) {
@@ -130,24 +129,24 @@ fun FloatingActionButtonMenuSample() {
             items.forEachIndexed { i, item ->
                 FloatingActionButtonMenuItem(
                     modifier =
-                        Modifier.semantics {
-                            isTraversalGroup = true
-                            // Add a custom a11y action to allow closing the menu when focusing
-                            // the last menu item, since the close button comes before the first
-                            // menu item in the traversal order.
-                            if (i == items.size - 1) {
-                                customActions =
-                                    listOf(
-                                        CustomAccessibilityAction(
-                                            label = "Close menu",
-                                            action = {
-                                                fabMenuExpanded = false
-                                                true
-                                            },
-                                        )
-                                    )
-                            }
-                        },
+                    Modifier.semantics {
+                        isTraversalGroup = true
+                        // Add a custom a11y action to allow closing the menu when focusing
+                        // the last menu item, since the close button comes before the first
+                        // menu item in the traversal order.
+                        if (i == items.size - 1) {
+                            customActions =
+                                listOf(
+                                    CustomAccessibilityAction(
+                                        label = "Close menu",
+                                        action = {
+                                            fabMenuExpanded = false
+                                            true
+                                        },
+                                    ),
+                                )
+                        }
+                    },
                     onClick = { fabMenuExpanded = false },
                     icon = { Icon(item.first, contentDescription = null) },
                     text = { Text(text = item.second) },

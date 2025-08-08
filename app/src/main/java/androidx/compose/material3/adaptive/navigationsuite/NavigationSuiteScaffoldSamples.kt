@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *     https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -13,12 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 @file:Suppress("DEPRECATION") // Suppress for WindowWidthSizeClass
 
 package androidx.compose.material3.adaptive.navigationsuite.samples
 
-import androidx.compose.material3.catalog.library.Sampled
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -35,6 +33,7 @@ import androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteScaffo
 import androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteScaffoldDefaults
 import androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteType
 import androidx.compose.material3.adaptive.navigationsuite.rememberNavigationSuiteScaffoldState
+import androidx.compose.material3.catalog.library.Sampled
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -88,8 +87,8 @@ fun NavigationSuiteScaffoldSample() {
             Text(
                 modifier = Modifier.padding(16.dp),
                 text =
-                    "Current NavigationSuiteType: $navSuiteType\n" +
-                        "Visibility: ${state.currentValue}",
+                "Current NavigationSuiteType: $navSuiteType\n" +
+                    "Visibility: ${state.currentValue}",
                 textAlign = TextAlign.Center,
             )
             Button(onClick = { scope.launch { state.toggle() } }) {
@@ -113,7 +112,7 @@ fun NavigationSuiteScaffoldCustomConfigSample() {
         with(currentWindowAdaptiveInfo()) {
             if (
                 windowSizeClass.windowWidthSizeClass == WindowWidthSizeClass.COMPACT ||
-                    windowSizeClass.windowWidthSizeClass == WindowWidthSizeClass.MEDIUM
+                windowSizeClass.windowWidthSizeClass == WindowWidthSizeClass.MEDIUM
             ) {
                 NavigationSuiteType.WideNavigationRailCollapsed
             } else if (windowSizeClass.windowHeightSizeClass == WindowHeightSizeClass.COMPACT) {
@@ -157,8 +156,8 @@ fun NavigationSuiteScaffoldCustomConfigSample() {
             Text(
                 modifier = Modifier.padding(16.dp),
                 text =
-                    "Current NavigationSuiteType: $navSuiteType\n" +
-                        "Visibility: ${state.currentValue}",
+                "Current NavigationSuiteType: $navSuiteType\n" +
+                    "Visibility: ${state.currentValue}",
                 textAlign = TextAlign.Center,
             )
             Button(onClick = { scope.launch { state.toggle() } }) {

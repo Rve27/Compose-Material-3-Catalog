@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *     https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package androidx.compose.material3.samples
 
 import androidx.compose.foundation.layout.Arrangement
@@ -54,6 +53,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.VerticalFloatingToolbar
+import androidx.compose.material3.catalog.library.Sampled
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -66,7 +66,6 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import androidx.compose.ui.unit.dp
-import androidx.compose.material3.catalog.library.Sampled
 
 @OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Preview
@@ -81,11 +80,11 @@ fun ExpandableHorizontalFloatingToolbarSample() {
                     // Apply a floatingToolbarVerticalNestedScroll Modifier toggle the expanded
                     // state of the HorizontalFloatingToolbar.
                     modifier =
-                        Modifier.floatingToolbarVerticalNestedScroll(
-                            expanded = expanded,
-                            onExpand = { expanded = true },
-                            onCollapse = { expanded = false },
-                        ),
+                    Modifier.floatingToolbarVerticalNestedScroll(
+                        expanded = expanded,
+                        onExpand = { expanded = true },
+                        onCollapse = { expanded = false },
+                    ),
                     state = rememberLazyListState(),
                     contentPadding = innerPadding,
                     verticalArrangement = Arrangement.spacedBy(8.dp),
@@ -114,7 +113,7 @@ fun ExpandableHorizontalFloatingToolbarSample() {
                     },
                 )
             }
-        }
+        },
     )
 }
 
@@ -154,14 +153,14 @@ fun OverflowingHorizontalFloatingToolbarSample() {
                                         } else {
                                             menuState.show()
                                         }
-                                    }
+                                    },
                                 ) {
                                     Icon(
                                         imageVector = Icons.Filled.MoreVert,
                                         contentDescription = "Localized description",
                                     )
                                 }
-                            }
+                            },
                         ) {
                             clickableItem(
                                 onClick = { /* doSomething() */ },
@@ -225,7 +224,7 @@ fun OverflowingHorizontalFloatingToolbarSample() {
                     },
                 )
             }
-        }
+        },
     )
 }
 
@@ -287,11 +286,11 @@ fun ExpandableVerticalFloatingToolbarSample() {
                     // Apply a floatingToolbarVerticalNestedScroll Modifier toggle the expanded
                     // state of the HorizontalFloatingToolbar.
                     modifier =
-                        Modifier.floatingToolbarVerticalNestedScroll(
-                            expanded = expanded,
-                            onExpand = { expanded = true },
-                            onCollapse = { expanded = false },
-                        ),
+                    Modifier.floatingToolbarVerticalNestedScroll(
+                        expanded = expanded,
+                        onExpand = { expanded = true },
+                        onCollapse = { expanded = false },
+                    ),
                     state = rememberLazyListState(),
                     contentPadding = innerPadding,
                     verticalArrangement = Arrangement.spacedBy(8.dp),
@@ -320,7 +319,7 @@ fun ExpandableVerticalFloatingToolbarSample() {
                     },
                 )
             }
-        }
+        },
     )
 }
 
@@ -360,14 +359,14 @@ fun OverflowingVerticalFloatingToolbarSample() {
                                         } else {
                                             menuState.show()
                                         }
-                                    }
+                                    },
                                 ) {
                                     Icon(
                                         imageVector = Icons.Filled.MoreVert,
                                         contentDescription = "Localized description",
                                     )
                                 }
-                            }
+                            },
                         ) {
                             clickableItem(
                                 onClick = { /* doSomething() */ },
@@ -431,7 +430,7 @@ fun OverflowingVerticalFloatingToolbarSample() {
                     },
                 )
             }
-        }
+        },
     )
 }
 
@@ -499,7 +498,7 @@ fun HorizontalFloatingToolbarWithFabSample() {
                         onExpand = { expanded = true },
                         onCollapse = { expanded = false },
                     )
-                    .verticalScroll(rememberScrollState())
+                    .verticalScroll(rememberScrollState()),
             ) {
                 Text(text = remember { LoremIpsum().values.first() })
             }
@@ -508,14 +507,14 @@ fun HorizontalFloatingToolbarWithFabSample() {
                 floatingActionButton = {
                     // Match the FAB to the vibrantColors. See also StandardFloatingActionButton.
                     FloatingToolbarDefaults.VibrantFloatingActionButton(
-                        onClick = { /* doSomething() */ }
+                        onClick = { /* doSomething() */ },
                     ) {
                         Icon(Icons.Filled.Add, "Localized description")
                     }
                 },
                 modifier =
-                    Modifier.align(Alignment.BottomEnd)
-                        .offset(x = -ScreenOffset, y = -ScreenOffset),
+                Modifier.align(Alignment.BottomEnd)
+                    .offset(x = -ScreenOffset, y = -ScreenOffset),
                 colors = vibrantColors,
                 content = {
                     IconButton(onClick = { /* doSomething() */ }) {
@@ -549,7 +548,7 @@ fun CenteredHorizontalFloatingToolbarWithFabSample() {
             Column(
                 Modifier.fillMaxWidth()
                     .padding(horizontal = 16.dp)
-                    .verticalScroll(rememberScrollState())
+                    .verticalScroll(rememberScrollState()),
             ) {
                 Text(text = remember { LoremIpsum().values.first() })
             }
@@ -560,7 +559,7 @@ fun CenteredHorizontalFloatingToolbarWithFabSample() {
                 floatingActionButton = {
                     // Match the FAB to the vibrantColors. See also StandardFloatingActionButton.
                     FloatingToolbarDefaults.VibrantFloatingActionButton(
-                        onClick = { /* doSomething() */ }
+                        onClick = { /* doSomething() */ },
                     ) {
                         Icon(Icons.Filled.Add, "Localized description")
                     }
@@ -606,9 +605,9 @@ fun VerticalFloatingToolbarWithFabSample() {
                             expanded = expanded,
                             onExpand = { expanded = true },
                             onCollapse = { expanded = false },
-                        )
+                        ),
                     )
-                    .verticalScroll(rememberScrollState())
+                    .verticalScroll(rememberScrollState()),
             ) {
                 Text(text = remember { LoremIpsum().values.first() })
             }
@@ -617,14 +616,14 @@ fun VerticalFloatingToolbarWithFabSample() {
                 floatingActionButton = {
                     // Match the FAB to the vibrantColors. See also StandardFloatingActionButton.
                     FloatingToolbarDefaults.VibrantFloatingActionButton(
-                        onClick = { /* doSomething() */ }
+                        onClick = { /* doSomething() */ },
                     ) {
                         Icon(Icons.Filled.Add, "Localized description")
                     }
                 },
                 modifier =
-                    Modifier.align(Alignment.BottomEnd)
-                        .offset(x = -ScreenOffset, y = -ScreenOffset),
+                Modifier.align(Alignment.BottomEnd)
+                    .offset(x = -ScreenOffset, y = -ScreenOffset),
                 colors = vibrantColors,
                 content = {
                     IconButton(onClick = { /* doSomething() */ }) {
@@ -658,7 +657,7 @@ fun CenteredVerticalFloatingToolbarWithFabSample() {
             Column(
                 Modifier.fillMaxWidth()
                     .padding(horizontal = 16.dp)
-                    .verticalScroll(rememberScrollState())
+                    .verticalScroll(rememberScrollState()),
             ) {
                 Text(text = remember { LoremIpsum().values.first() })
             }
@@ -669,7 +668,7 @@ fun CenteredVerticalFloatingToolbarWithFabSample() {
                 floatingActionButton = {
                     // Match the FAB to the vibrantColors. See also StandardFloatingActionButton.
                     FloatingToolbarDefaults.VibrantFloatingActionButton(
-                        onClick = { /* doSomething() */ }
+                        onClick = { /* doSomething() */ },
                     ) {
                         Icon(Icons.Filled.Add, "Localized description")
                     }
@@ -710,7 +709,7 @@ fun HorizontalFloatingToolbarAsScaffoldFabSample() {
                 floatingActionButton = {
                     // Match the FAB to the vibrantColors. See also StandardFloatingActionButton.
                     FloatingToolbarDefaults.VibrantFloatingActionButton(
-                        onClick = { expanded = !expanded }
+                        onClick = { expanded = !expanded },
                     ) {
                         Icon(Icons.Filled.Add, "Localized description")
                     }
@@ -748,9 +747,9 @@ fun HorizontalFloatingToolbarAsScaffoldFabSample() {
                             expanded = expanded,
                             onExpand = { expanded = true },
                             onCollapse = { expanded = false },
-                        )
+                        ),
                     )
-                    .verticalScroll(rememberScrollState())
+                    .verticalScroll(rememberScrollState()),
             ) {
                 Text(text = remember { LoremIpsum().values.first() })
             }
