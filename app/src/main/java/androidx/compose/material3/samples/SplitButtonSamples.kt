@@ -16,6 +16,7 @@
 
 package androidx.compose.material3.samples
 
+import androidx.compose.material3.catalog.library.Sampled
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Spacer
@@ -50,7 +51,6 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.stateDescription
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.material3.catalog.library.Sampled
 
 @OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Sampled
@@ -61,9 +61,7 @@ fun FilledSplitButtonSample() {
 
     SplitButtonLayout(
         leadingButton = {
-            SplitButtonDefaults.LeadingButton(
-                onClick = { /* Do Nothing */ },
-            ) {
+            SplitButtonDefaults.LeadingButton(onClick = { /* Do Nothing */ }) {
                 Icon(
                     Icons.Filled.Edit,
                     modifier = Modifier.size(SplitButtonDefaults.LeadingIconSize),
@@ -84,20 +82,20 @@ fun FilledSplitButtonSample() {
                     },
             ) {
                 val rotation: Float by
-                animateFloatAsState(
-                    targetValue = if (checked) 180f else 0f,
-                    label = "Trailing Icon Rotation"
-                )
+                    animateFloatAsState(
+                        targetValue = if (checked) 180f else 0f,
+                        label = "Trailing Icon Rotation",
+                    )
                 Icon(
                     Icons.Filled.KeyboardArrowDown,
                     modifier =
                         Modifier.size(SplitButtonDefaults.TrailingIconSize).graphicsLayer {
                             this.rotationZ = rotation
                         },
-                    contentDescription = "Localized description"
+                    contentDescription = "Localized description",
                 )
             }
-        }
+        },
     )
 }
 
@@ -108,9 +106,7 @@ fun FilledSplitButtonSample() {
 fun SplitButtonWithUnCheckableTrailingButtonSample() {
     SplitButtonLayout(
         leadingButton = {
-            SplitButtonDefaults.LeadingButton(
-                onClick = { /* Do Nothing */ },
-            ) {
+            SplitButtonDefaults.LeadingButton(onClick = { /* Do Nothing */ }) {
                 Icon(
                     Icons.Filled.Edit,
                     modifier = Modifier.size(SplitButtonDefaults.LeadingIconSize),
@@ -121,16 +117,14 @@ fun SplitButtonWithUnCheckableTrailingButtonSample() {
             }
         },
         trailingButton = {
-            SplitButtonDefaults.TrailingButton(
-                onClick = { /* Do Nothing */ },
-            ) {
+            SplitButtonDefaults.TrailingButton(onClick = { /* Do Nothing */ }) {
                 Icon(
                     Icons.Filled.KeyboardArrowDown,
                     modifier = Modifier.size(SplitButtonDefaults.TrailingIconSize),
-                    contentDescription = "Localized description"
+                    contentDescription = "Localized description",
                 )
             }
-        }
+        },
     )
 }
 
@@ -144,9 +138,7 @@ fun SplitButtonWithDropdownMenuSample() {
     Box(modifier = Modifier.fillMaxSize().wrapContentSize()) {
         SplitButtonLayout(
             leadingButton = {
-                SplitButtonDefaults.LeadingButton(
-                    onClick = { /* Do Nothing */ },
-                ) {
+                SplitButtonDefaults.LeadingButton(onClick = { /* Do Nothing */ }) {
                     Icon(
                         Icons.Filled.Edit,
                         modifier = Modifier.size(SplitButtonDefaults.LeadingIconSize),
@@ -167,39 +159,39 @@ fun SplitButtonWithDropdownMenuSample() {
                         },
                 ) {
                     val rotation: Float by
-                    animateFloatAsState(
-                        targetValue = if (checked) 180f else 0f,
-                        label = "Trailing Icon Rotation"
-                    )
+                        animateFloatAsState(
+                            targetValue = if (checked) 180f else 0f,
+                            label = "Trailing Icon Rotation",
+                        )
                     Icon(
                         Icons.Filled.KeyboardArrowDown,
                         modifier =
                             Modifier.size(SplitButtonDefaults.TrailingIconSize).graphicsLayer {
                                 this.rotationZ = rotation
                             },
-                        contentDescription = "Localized description"
+                        contentDescription = "Localized description",
                     )
                 }
-            }
+            },
         )
 
         DropdownMenu(expanded = checked, onDismissRequest = { checked = false }) {
             DropdownMenuItem(
                 text = { Text("Edit") },
                 onClick = { /* Handle edit! */ },
-                leadingIcon = { Icon(Icons.Outlined.Edit, contentDescription = null) }
+                leadingIcon = { Icon(Icons.Outlined.Edit, contentDescription = null) },
             )
             DropdownMenuItem(
                 text = { Text("Settings") },
                 onClick = { /* Handle settings! */ },
-                leadingIcon = { Icon(Icons.Outlined.Settings, contentDescription = null) }
+                leadingIcon = { Icon(Icons.Outlined.Settings, contentDescription = null) },
             )
             HorizontalDivider()
             DropdownMenuItem(
                 text = { Text("Send Feedback") },
                 onClick = { /* Handle send feedback! */ },
                 leadingIcon = { Icon(Icons.Outlined.Email, contentDescription = null) },
-                trailingIcon = { Text("F11", textAlign = TextAlign.Center) }
+                trailingIcon = { Text("F11", textAlign = TextAlign.Center) },
             )
         }
     }
@@ -214,9 +206,7 @@ fun TonalSplitButtonSample() {
 
     SplitButtonLayout(
         leadingButton = {
-            SplitButtonDefaults.TonalLeadingButton(
-                onClick = { /* Do Nothing */ },
-            ) {
+            SplitButtonDefaults.TonalLeadingButton(onClick = { /* Do Nothing */ }) {
                 Icon(
                     Icons.Filled.Edit,
                     modifier = Modifier.size(SplitButtonDefaults.LeadingIconSize),
@@ -237,20 +227,20 @@ fun TonalSplitButtonSample() {
                     },
             ) {
                 val rotation: Float by
-                animateFloatAsState(
-                    targetValue = if (checked) 180f else 0f,
-                    label = "Trailing Icon Rotation"
-                )
+                    animateFloatAsState(
+                        targetValue = if (checked) 180f else 0f,
+                        label = "Trailing Icon Rotation",
+                    )
                 Icon(
                     Icons.Filled.KeyboardArrowDown,
                     modifier =
                         Modifier.size(SplitButtonDefaults.TrailingIconSize).graphicsLayer {
                             this.rotationZ = rotation
                         },
-                    contentDescription = "Localized description"
+                    contentDescription = "Localized description",
                 )
             }
-        }
+        },
     )
 }
 
@@ -263,9 +253,7 @@ fun ElevatedSplitButtonSample() {
 
     SplitButtonLayout(
         leadingButton = {
-            SplitButtonDefaults.ElevatedLeadingButton(
-                onClick = { /* Do Nothing */ },
-            ) {
+            SplitButtonDefaults.ElevatedLeadingButton(onClick = { /* Do Nothing */ }) {
                 Icon(
                     Icons.Filled.Edit,
                     modifier = Modifier.size(SplitButtonDefaults.LeadingIconSize),
@@ -286,20 +274,20 @@ fun ElevatedSplitButtonSample() {
                     },
             ) {
                 val rotation: Float by
-                animateFloatAsState(
-                    targetValue = if (checked) 180f else 0f,
-                    label = "Trailing Icon Rotation"
-                )
+                    animateFloatAsState(
+                        targetValue = if (checked) 180f else 0f,
+                        label = "Trailing Icon Rotation",
+                    )
                 Icon(
                     Icons.Filled.KeyboardArrowDown,
                     modifier =
                         Modifier.size(SplitButtonDefaults.TrailingIconSize).graphicsLayer {
                             this.rotationZ = rotation
                         },
-                    contentDescription = "Localized description"
+                    contentDescription = "Localized description",
                 )
             }
-        }
+        },
     )
 }
 
@@ -312,9 +300,7 @@ fun OutlinedSplitButtonSample() {
 
     SplitButtonLayout(
         leadingButton = {
-            SplitButtonDefaults.OutlinedLeadingButton(
-                onClick = { /* Do Nothing */ },
-            ) {
+            SplitButtonDefaults.OutlinedLeadingButton(onClick = { /* Do Nothing */ }) {
                 Icon(
                     Icons.Filled.Edit,
                     modifier = Modifier.size(SplitButtonDefaults.LeadingIconSize),
@@ -335,20 +321,20 @@ fun OutlinedSplitButtonSample() {
                     },
             ) {
                 val rotation: Float by
-                animateFloatAsState(
-                    targetValue = if (checked) 180f else 0f,
-                    label = "Trailing Icon Rotation"
-                )
+                    animateFloatAsState(
+                        targetValue = if (checked) 180f else 0f,
+                        label = "Trailing Icon Rotation",
+                    )
                 Icon(
                     Icons.Filled.KeyboardArrowDown,
                     modifier =
                         Modifier.size(SplitButtonDefaults.TrailingIconSize).graphicsLayer {
                             this.rotationZ = rotation
                         },
-                    contentDescription = "Localized description"
+                    contentDescription = "Localized description",
                 )
             }
-        }
+        },
     )
 }
 
@@ -361,11 +347,7 @@ fun SplitButtonWithTextSample() {
 
     SplitButtonLayout(
         leadingButton = {
-            SplitButtonDefaults.LeadingButton(
-                onClick = { /* Do Nothing */ },
-            ) {
-                Text("My Button")
-            }
+            SplitButtonDefaults.LeadingButton(onClick = { /* Do Nothing */ }) { Text("My Button") }
         },
         trailingButton = {
             SplitButtonDefaults.TrailingButton(
@@ -378,20 +360,20 @@ fun SplitButtonWithTextSample() {
                     },
             ) {
                 val rotation: Float by
-                animateFloatAsState(
-                    targetValue = if (checked) 180f else 0f,
-                    label = "Trailing Icon Rotation"
-                )
+                    animateFloatAsState(
+                        targetValue = if (checked) 180f else 0f,
+                        label = "Trailing Icon Rotation",
+                    )
                 Icon(
                     Icons.Filled.KeyboardArrowDown,
                     modifier =
                         Modifier.size(SplitButtonDefaults.TrailingIconSize).graphicsLayer {
                             this.rotationZ = rotation
                         },
-                    contentDescription = "Localized description"
+                    contentDescription = "Localized description",
                 )
             }
-        }
+        },
     )
 }
 
@@ -404,13 +386,11 @@ fun SplitButtonWithIconSample() {
 
     SplitButtonLayout(
         leadingButton = {
-            SplitButtonDefaults.LeadingButton(
-                onClick = { /* Do Nothing */ },
-            ) {
+            SplitButtonDefaults.LeadingButton(onClick = { /* Do Nothing */ }) {
                 Icon(
                     Icons.Filled.Edit,
                     contentDescription = "Localized description",
-                    Modifier.size(SplitButtonDefaults.LeadingIconSize)
+                    Modifier.size(SplitButtonDefaults.LeadingIconSize),
                 )
             }
         },
@@ -425,20 +405,20 @@ fun SplitButtonWithIconSample() {
                     },
             ) {
                 val rotation: Float by
-                animateFloatAsState(
-                    targetValue = if (checked) 180f else 0f,
-                    label = "Trailing Icon Rotation"
-                )
+                    animateFloatAsState(
+                        targetValue = if (checked) 180f else 0f,
+                        label = "Trailing Icon Rotation",
+                    )
                 Icon(
                     Icons.Filled.KeyboardArrowDown,
                     modifier =
                         Modifier.size(SplitButtonDefaults.TrailingIconSize).graphicsLayer {
                             this.rotationZ = rotation
                         },
-                    contentDescription = "Localized description"
+                    contentDescription = "Localized description",
                 )
             }
-        }
+        },
     )
 }
 
@@ -480,19 +460,19 @@ fun XSmallFilledSplitButtonSample() {
                 contentPadding = SplitButtonDefaults.trailingButtonContentPaddingFor(size),
             ) {
                 val rotation: Float by
-                animateFloatAsState(
-                    targetValue = if (checked) 180f else 0f,
-                    label = "Trailing Icon Rotation"
-                )
+                    animateFloatAsState(
+                        targetValue = if (checked) 180f else 0f,
+                        label = "Trailing Icon Rotation",
+                    )
                 Icon(
                     Icons.Filled.KeyboardArrowDown,
                     modifier =
                         Modifier.size(SplitButtonDefaults.trailingButtonIconSizeFor(size))
                             .graphicsLayer { this.rotationZ = rotation },
-                    contentDescription = "Localized description"
+                    contentDescription = "Localized description",
                 )
             }
-        }
+        },
     )
 }
 
@@ -534,19 +514,19 @@ fun MediumFilledSplitButtonSample() {
                 contentPadding = SplitButtonDefaults.trailingButtonContentPaddingFor(size),
             ) {
                 val rotation: Float by
-                animateFloatAsState(
-                    targetValue = if (checked) 180f else 0f,
-                    label = "Trailing Icon Rotation"
-                )
+                    animateFloatAsState(
+                        targetValue = if (checked) 180f else 0f,
+                        label = "Trailing Icon Rotation",
+                    )
                 Icon(
                     Icons.Filled.KeyboardArrowDown,
                     modifier =
                         Modifier.size(SplitButtonDefaults.trailingButtonIconSizeFor(size))
                             .graphicsLayer { this.rotationZ = rotation },
-                    contentDescription = "Localized description"
+                    contentDescription = "Localized description",
                 )
             }
-        }
+        },
     )
 }
 
@@ -588,19 +568,19 @@ fun LargeFilledSplitButtonSample() {
                 contentPadding = SplitButtonDefaults.trailingButtonContentPaddingFor(size),
             ) {
                 val rotation: Float by
-                animateFloatAsState(
-                    targetValue = if (checked) 180f else 0f,
-                    label = "Trailing Icon Rotation"
-                )
+                    animateFloatAsState(
+                        targetValue = if (checked) 180f else 0f,
+                        label = "Trailing Icon Rotation",
+                    )
                 Icon(
                     Icons.Filled.KeyboardArrowDown,
                     modifier =
                         Modifier.size(SplitButtonDefaults.trailingButtonIconSizeFor(size))
                             .graphicsLayer { this.rotationZ = rotation },
-                    contentDescription = "Localized description"
+                    contentDescription = "Localized description",
                 )
             }
-        }
+        },
     )
 }
 
@@ -642,18 +622,18 @@ fun ExtraLargeFilledSplitButtonSample() {
                 contentPadding = SplitButtonDefaults.trailingButtonContentPaddingFor(size),
             ) {
                 val rotation: Float by
-                animateFloatAsState(
-                    targetValue = if (checked) 180f else 0f,
-                    label = "Trailing Icon Rotation"
-                )
+                    animateFloatAsState(
+                        targetValue = if (checked) 180f else 0f,
+                        label = "Trailing Icon Rotation",
+                    )
                 Icon(
                     Icons.Filled.KeyboardArrowDown,
                     modifier =
                         Modifier.size(SplitButtonDefaults.trailingButtonIconSizeFor(size))
                             .graphicsLayer { this.rotationZ = rotation },
-                    contentDescription = "Localized description"
+                    contentDescription = "Localized description",
                 )
             }
-        }
+        },
     )
 }
