@@ -37,7 +37,7 @@ import androidx.compose.material.icons.filled.Mic
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Star
-import androidx.compose.material3.AppBarWithSearch
+// import androidx.compose.material3.AppBarWithSearch
 import androidx.compose.material3.ExpandedDockedSearchBar
 import androidx.compose.material3.ExpandedFullScreenSearchBar
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -51,6 +51,7 @@ import androidx.compose.material3.SearchBar
 import androidx.compose.material3.SearchBarDefaults
 import androidx.compose.material3.SearchBarValue
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopSearchBar
 import androidx.compose.material3.TooltipAnchorPosition
 import androidx.compose.material3.TooltipBox
 import androidx.compose.material3.TooltipDefaults
@@ -188,41 +189,10 @@ fun FullScreenSearchBarScaffoldSample() {
     Scaffold(
         modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
-            AppBarWithSearch(
+            TopSearchBar(
                 scrollBehavior = scrollBehavior,
                 state = searchBarState,
                 inputField = inputField,
-                navigationIcon = {
-                    TooltipBox(
-                        positionProvider =
-                            TooltipDefaults.rememberTooltipPositionProvider(
-                                TooltipAnchorPosition.Above
-                            ),
-                        tooltip = { PlainTooltip { Text("Menu") } },
-                        state = rememberTooltipState(),
-                    ) {
-                        IconButton(onClick = { /* doSomething() */ }) {
-                            Icon(imageVector = Icons.Default.Menu, contentDescription = "Menu")
-                        }
-                    }
-                },
-                actions = {
-                    TooltipBox(
-                        positionProvider =
-                            TooltipDefaults.rememberTooltipPositionProvider(
-                                TooltipAnchorPosition.Above
-                            ),
-                        tooltip = { PlainTooltip { Text("Account") } },
-                        state = rememberTooltipState(),
-                    ) {
-                        IconButton(onClick = { /* doSomething() */ }) {
-                            Icon(
-                                imageVector = Icons.Default.AccountCircle,
-                                contentDescription = "Account",
-                            )
-                        }
-                    }
-                },
             )
             ExpandedFullScreenSearchBar(state = searchBarState, inputField = inputField) {
                 SearchResults(
@@ -293,14 +263,10 @@ fun DockedSearchBarScaffoldSample() {
     Scaffold(
         modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
-            AppBarWithSearch(
+            TopSearchBar(
                 scrollBehavior = scrollBehavior,
                 state = searchBarState,
                 inputField = inputField,
-                colors =
-                    SearchBarDefaults.appBarWithSearchColors(
-                        appBarContainerColor = Color.Transparent
-                    ),
             )
             ExpandedDockedSearchBar(state = searchBarState, inputField = inputField) {
                 SearchResults(
