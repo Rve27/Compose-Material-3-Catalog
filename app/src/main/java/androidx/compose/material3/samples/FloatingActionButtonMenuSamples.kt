@@ -17,6 +17,7 @@
 package androidx.compose.material3.samples
 
 import androidx.activity.compose.BackHandler
+import androidx.compose.material3.catalog.library.Sampled
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -60,7 +61,6 @@ import androidx.compose.ui.semantics.stateDescription
 import androidx.compose.ui.semantics.traversalIndex
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.material3.catalog.library.Sampled
 
 @OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Preview
@@ -103,10 +103,10 @@ fun FloatingActionButtonMenuSample() {
                 ToggleFloatingActionButton(
                     modifier =
                         Modifier.semantics {
-                            traversalIndex = -1f
-                            stateDescription = if (fabMenuExpanded) "Expanded" else "Collapsed"
-                            contentDescription = "Toggle menu"
-                        }
+                                traversalIndex = -1f
+                                stateDescription = if (fabMenuExpanded) "Expanded" else "Collapsed"
+                                contentDescription = "Toggle menu"
+                            }
                             .animateFloatingActionButton(
                                 visible = fabVisible || fabMenuExpanded,
                                 alignment = Alignment.BottomEnd,
