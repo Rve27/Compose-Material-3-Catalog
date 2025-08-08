@@ -9,7 +9,8 @@ plugins {
 
 android {
     namespace = "androidx.compose.material3.catalog"
-    compileSdk = 35
+    compileSdk = 36
+    buildToolsVersion = "36.0.0"
     ndkVersion = "28.2.13676358"
 
     signingConfigs {
@@ -38,7 +39,7 @@ android {
     defaultConfig {
         applicationId = "androidx.compose.material3.catalog"
         minSdk = 24
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
 
