@@ -315,8 +315,8 @@ fun ScaffoldWithMultilineSnackbar() {
                     scope.launch {
                         val longMessage =
                             "Very very very very very very very very very very very very very " +
-                                    "very very very very very very very very very very very very " +
-                                    "very very very very very very very very very very long message"
+                                "very very very very very very very very very very very very " +
+                                "very very very very very very very very very very long message"
                         snackbarHostState.showSnackbar(longMessage)
                     }
                 }
