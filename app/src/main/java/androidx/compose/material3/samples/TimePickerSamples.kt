@@ -16,6 +16,7 @@
 
 package androidx.compose.material3.samples
 
+import androidx.compose.material3.catalog.library.Sampled
 import androidx.compose.foundation.layout.Box
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -41,7 +42,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.material3.catalog.library.Sampled
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
@@ -181,7 +181,7 @@ fun TimePickerSwitchableSample() {
             },
             dismissButton = { TextButton(onClick = { showTimePicker = false }) { Text("Cancel") } },
             modeToggleButton = {
-                if (configuration.screenHeightDp > 400) {
+                if (configuration.screenHeightDp.dp > MinHeightForTimePicker) {
                     TimePickerDialogDefaults.DisplayModeToggle(
                         onDisplayModeChange = {
                             displayMode =
