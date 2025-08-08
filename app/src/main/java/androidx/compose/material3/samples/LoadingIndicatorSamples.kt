@@ -16,6 +16,7 @@
 
 package androidx.compose.material3.samples
 
+import androidx.compose.material3.catalog.library.Sampled
 import androidx.compose.animation.core.LinearOutSlowInEasing
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.animateFloatAsState
@@ -56,7 +57,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.material3.catalog.library.Sampled
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -83,15 +83,15 @@ fun ContainedLoadingIndicatorSample() {
 fun DeterminateLoadingIndicatorSample() {
     var progress by remember { mutableFloatStateOf(0f) }
     val animatedProgress by
-    animateFloatAsState(
-        targetValue = progress,
-        animationSpec =
-            spring(
-                dampingRatio = Spring.DampingRatioNoBouncy,
-                stiffness = Spring.StiffnessVeryLow,
-                visibilityThreshold = 1 / 1000f,
-            ),
-    )
+        animateFloatAsState(
+            targetValue = progress,
+            animationSpec =
+                spring(
+                    dampingRatio = Spring.DampingRatioNoBouncy,
+                    stiffness = Spring.StiffnessVeryLow,
+                    visibilityThreshold = 1 / 1000f,
+                ),
+        )
 
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         LoadingIndicator(progress = { animatedProgress })
@@ -113,15 +113,15 @@ fun DeterminateLoadingIndicatorSample() {
 fun DeterminateContainedLoadingIndicatorSample() {
     var progress by remember { mutableFloatStateOf(0f) }
     val animatedProgress by
-    animateFloatAsState(
-        targetValue = progress,
-        animationSpec =
-            spring(
-                dampingRatio = Spring.DampingRatioNoBouncy,
-                stiffness = Spring.StiffnessVeryLow,
-                visibilityThreshold = 1 / 1000f,
-            ),
-    )
+        animateFloatAsState(
+            targetValue = progress,
+            animationSpec =
+                spring(
+                    dampingRatio = Spring.DampingRatioNoBouncy,
+                    stiffness = Spring.StiffnessVeryLow,
+                    visibilityThreshold = 1 / 1000f,
+                ),
+        )
 
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         ContainedLoadingIndicator(progress = { animatedProgress })
