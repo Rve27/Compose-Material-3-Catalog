@@ -16,8 +16,8 @@
 
 package androidx.compose.material3.samples
 
-import androidx.compose.animation.core.animate
 import androidx.compose.material3.catalog.library.Sampled
+import androidx.compose.animation.core.animate
 import androidx.compose.foundation.indication
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Column
@@ -44,10 +44,8 @@ import androidx.compose.material3.Label
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.PlainTooltip
 import androidx.compose.material3.RangeSlider
-import androidx.compose.material3.RangeSliderState
 import androidx.compose.material3.Slider
 import androidx.compose.material3.SliderDefaults
-import androidx.compose.material3.SliderState
 import androidx.compose.material3.Text
 import androidx.compose.material3.VerticalSlider
 import androidx.compose.material3.rememberRangeSliderState
@@ -71,14 +69,12 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.translate
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
-import androidx.compose.ui.semantics.contentDescription
-import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
+import kotlin.math.roundToInt
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import kotlin.math.roundToInt
 
 @Preview
 @Sampled
@@ -269,7 +265,7 @@ fun SliderWithTrackIconsSample() {
                             val activeTrackStart = 0f
                             val activeTrackEnd =
                                 size.width * sliderState.coercedValueAsFraction -
-                                        thumbTrackGapSize.toPx()
+                                    thumbTrackGapSize.toPx()
                             val inactiveTrackStart = activeTrackEnd + thumbTrackGapSize.toPx() * 2
                             val inactiveTrackEnd = size.width
 
@@ -283,7 +279,7 @@ fun SliderWithTrackIconsSample() {
                             }
                             if (
                                 iconSize.toSize().width <
-                                inactiveTrackWidth - iconPadding.toPx() * 2
+                                    inactiveTrackWidth - iconPadding.toPx() * 2
                             ) {
                                 trackIconStart(
                                     Offset(inactiveTrackStart, yOffset),
