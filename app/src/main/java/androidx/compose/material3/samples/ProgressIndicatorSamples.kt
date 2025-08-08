@@ -36,7 +36,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -54,10 +53,10 @@ import androidx.compose.ui.unit.dp
 fun LinearProgressIndicatorSample() {
     var progress by remember { mutableFloatStateOf(0.1f) }
     val animatedProgress by
-    animateFloatAsState(
-        targetValue = progress,
-        animationSpec = ProgressIndicatorDefaults.ProgressAnimationSpec,
-    )
+        animateFloatAsState(
+            targetValue = progress,
+            animationSpec = ProgressIndicatorDefaults.ProgressAnimationSpec,
+        )
 
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         LinearProgressIndicator(progress = { animatedProgress })
@@ -79,10 +78,10 @@ fun LinearProgressIndicatorSample() {
 fun LinearWavyProgressIndicatorSample() {
     var progress by remember { mutableFloatStateOf(0.1f) }
     val animatedProgress by
-    animateFloatAsState(
-        targetValue = progress,
-        animationSpec = ProgressIndicatorDefaults.ProgressAnimationSpec,
-    )
+        animateFloatAsState(
+            targetValue = progress,
+            animationSpec = ProgressIndicatorDefaults.ProgressAnimationSpec,
+        )
 
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         LinearWavyProgressIndicator(progress = { animatedProgress })
@@ -104,10 +103,10 @@ fun LinearWavyProgressIndicatorSample() {
 fun LinearThickWavyProgressIndicatorSample() {
     var progress by remember { mutableFloatStateOf(0.1f) }
     val animatedProgress by
-    animateFloatAsState(
-        targetValue = progress,
-        animationSpec = ProgressIndicatorDefaults.ProgressAnimationSpec,
-    )
+        animateFloatAsState(
+            targetValue = progress,
+            animationSpec = ProgressIndicatorDefaults.ProgressAnimationSpec,
+        )
 
     val thickStrokeWidth = with(LocalDensity.current) { 8.dp.toPx() }
     val thickStroke =
@@ -154,10 +153,10 @@ fun IndeterminateLinearWavyProgressIndicatorSample() {
 fun CircularProgressIndicatorSample() {
     var progress by remember { mutableFloatStateOf(0.1f) }
     val animatedProgress by
-    animateFloatAsState(
-        targetValue = progress,
-        animationSpec = ProgressIndicatorDefaults.ProgressAnimationSpec,
-    )
+        animateFloatAsState(
+            targetValue = progress,
+            animationSpec = ProgressIndicatorDefaults.ProgressAnimationSpec,
+        )
 
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         CircularProgressIndicator(progress = { animatedProgress })
@@ -179,10 +178,10 @@ fun CircularProgressIndicatorSample() {
 fun CircularWavyProgressIndicatorSample() {
     var progress by remember { mutableFloatStateOf(0.1f) }
     val animatedProgress by
-    animateFloatAsState(
-        targetValue = progress,
-        animationSpec = ProgressIndicatorDefaults.ProgressAnimationSpec,
-    )
+        animateFloatAsState(
+            targetValue = progress,
+            animationSpec = ProgressIndicatorDefaults.ProgressAnimationSpec,
+        )
 
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         CircularWavyProgressIndicator(progress = { animatedProgress })
@@ -204,10 +203,10 @@ fun CircularWavyProgressIndicatorSample() {
 fun CircularThickWavyProgressIndicatorSample() {
     var progress by remember { mutableFloatStateOf(0.1f) }
     val animatedProgress by
-    animateFloatAsState(
-        targetValue = progress,
-        animationSpec = ProgressIndicatorDefaults.ProgressAnimationSpec,
-    )
+        animateFloatAsState(
+            targetValue = progress,
+            animationSpec = ProgressIndicatorDefaults.ProgressAnimationSpec,
+        )
     val thickStrokeWidth = with(LocalDensity.current) { 8.dp.toPx() }
     val thickStroke =
         remember(thickStrokeWidth) { Stroke(width = thickStrokeWidth, cap = StrokeCap.Round) }
@@ -251,10 +250,10 @@ fun IndeterminateCircularWavyProgressIndicatorSample() {
 fun LegacyLinearProgressIndicatorSample() {
     var progress by remember { mutableFloatStateOf(0.1f) }
     val animatedProgress by
-    animateFloatAsState(
-        targetValue = progress,
-        animationSpec = ProgressIndicatorDefaults.ProgressAnimationSpec,
-    )
+        animateFloatAsState(
+            targetValue = progress,
+            animationSpec = ProgressIndicatorDefaults.ProgressAnimationSpec,
+        )
 
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         LinearProgressIndicator(
@@ -292,10 +291,10 @@ fun LegacyIndeterminateLinearProgressIndicatorSample() {
 fun LegacyCircularProgressIndicatorSample() {
     var progress by remember { mutableFloatStateOf(0.1f) }
     val animatedProgress by
-    animateFloatAsState(
-        targetValue = progress,
-        animationSpec = ProgressIndicatorDefaults.ProgressAnimationSpec,
-    )
+        animateFloatAsState(
+            targetValue = progress,
+            animationSpec = ProgressIndicatorDefaults.ProgressAnimationSpec,
+        )
 
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         CircularProgressIndicator(
