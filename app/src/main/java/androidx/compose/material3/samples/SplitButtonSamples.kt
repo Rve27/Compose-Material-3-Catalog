@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     https://www.apache.org/licenses/LICENSE-2.0
+ *      http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -13,10 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 @file:OptIn(ExperimentalMaterial3Api::class)
 
 package androidx.compose.material3.samples
 
+import androidx.annotation.Sampled
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Spacer
@@ -44,7 +46,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TooltipAnchorPosition
 import androidx.compose.material3.TooltipBox
 import androidx.compose.material3.TooltipDefaults
-import androidx.compose.material3.catalog.library.Sampled
 import androidx.compose.material3.rememberTooltipState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -83,7 +84,7 @@ fun FilledSplitButtonSample() {
             // Icon-only trailing button should have a tooltip for a11y.
             TooltipBox(
                 positionProvider =
-                TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+                    TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
                 tooltip = { PlainTooltip { Text(description) } },
                 state = rememberTooltipState(),
             ) {
@@ -91,10 +92,10 @@ fun FilledSplitButtonSample() {
                     checked = checked,
                     onCheckedChange = { checked = it },
                     modifier =
-                    Modifier.semantics {
-                        stateDescription = if (checked) "Expanded" else "Collapsed"
-                        contentDescription = description
-                    },
+                        Modifier.semantics {
+                            stateDescription = if (checked) "Expanded" else "Collapsed"
+                            contentDescription = description
+                        },
                 ) {
                     val rotation: Float by
                         animateFloatAsState(
@@ -104,9 +105,9 @@ fun FilledSplitButtonSample() {
                     Icon(
                         Icons.Filled.KeyboardArrowDown,
                         modifier =
-                        Modifier.size(SplitButtonDefaults.TrailingIconSize).graphicsLayer {
-                            this.rotationZ = rotation
-                        },
+                            Modifier.size(SplitButtonDefaults.TrailingIconSize).graphicsLayer {
+                                this.rotationZ = rotation
+                            },
                         contentDescription = "Localized description",
                     )
                 }
@@ -137,7 +138,7 @@ fun SplitButtonWithUnCheckableTrailingButtonSample() {
             // Icon-only trailing button should have a tooltip for a11y.
             TooltipBox(
                 positionProvider =
-                TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+                    TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
                 tooltip = { PlainTooltip { Text(description) } },
                 state = rememberTooltipState(),
             ) {
@@ -178,9 +179,9 @@ fun SplitButtonWithDropdownMenuSample() {
                 // Icon-only trailing button should have a tooltip for a11y.
                 TooltipBox(
                     positionProvider =
-                    TooltipDefaults.rememberTooltipPositionProvider(
-                        TooltipAnchorPosition.Above,
-                    ),
+                        TooltipDefaults.rememberTooltipPositionProvider(
+                            TooltipAnchorPosition.Above
+                        ),
                     tooltip = { PlainTooltip { Text(description) } },
                     state = rememberTooltipState(),
                 ) {
@@ -188,10 +189,10 @@ fun SplitButtonWithDropdownMenuSample() {
                         checked = checked,
                         onCheckedChange = { checked = it },
                         modifier =
-                        Modifier.semantics {
-                            stateDescription = if (checked) "Expanded" else "Collapsed"
-                            contentDescription = description
-                        },
+                            Modifier.semantics {
+                                stateDescription = if (checked) "Expanded" else "Collapsed"
+                                contentDescription = description
+                            },
                     ) {
                         val rotation: Float by
                             animateFloatAsState(
@@ -201,9 +202,9 @@ fun SplitButtonWithDropdownMenuSample() {
                         Icon(
                             Icons.Filled.KeyboardArrowDown,
                             modifier =
-                            Modifier.size(SplitButtonDefaults.TrailingIconSize).graphicsLayer {
-                                this.rotationZ = rotation
-                            },
+                                Modifier.size(SplitButtonDefaults.TrailingIconSize).graphicsLayer {
+                                    this.rotationZ = rotation
+                                },
                             contentDescription = "Localized description",
                         )
                     }
@@ -257,7 +258,7 @@ fun TonalSplitButtonSample() {
             // Icon-only trailing button should have a tooltip for a11y.
             TooltipBox(
                 positionProvider =
-                TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+                    TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
                 tooltip = { PlainTooltip { Text(description) } },
                 state = rememberTooltipState(),
             ) {
@@ -265,10 +266,10 @@ fun TonalSplitButtonSample() {
                     checked = checked,
                     onCheckedChange = { checked = it },
                     modifier =
-                    Modifier.semantics {
-                        stateDescription = if (checked) "Expanded" else "Collapsed"
-                        contentDescription = description
-                    },
+                        Modifier.semantics {
+                            stateDescription = if (checked) "Expanded" else "Collapsed"
+                            contentDescription = description
+                        },
                 ) {
                     val rotation: Float by
                         animateFloatAsState(
@@ -278,9 +279,9 @@ fun TonalSplitButtonSample() {
                     Icon(
                         Icons.Filled.KeyboardArrowDown,
                         modifier =
-                        Modifier.size(SplitButtonDefaults.TrailingIconSize).graphicsLayer {
-                            this.rotationZ = rotation
-                        },
+                            Modifier.size(SplitButtonDefaults.TrailingIconSize).graphicsLayer {
+                                this.rotationZ = rotation
+                            },
                         contentDescription = "Localized description",
                     )
                 }
@@ -313,7 +314,7 @@ fun ElevatedSplitButtonSample() {
             // Icon-only trailing button should have a tooltip for a11y.
             TooltipBox(
                 positionProvider =
-                TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+                    TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
                 tooltip = { PlainTooltip { Text(description) } },
                 state = rememberTooltipState(),
             ) {
@@ -321,10 +322,10 @@ fun ElevatedSplitButtonSample() {
                     checked = checked,
                     onCheckedChange = { checked = it },
                     modifier =
-                    Modifier.semantics {
-                        stateDescription = if (checked) "Expanded" else "Collapsed"
-                        contentDescription = description
-                    },
+                        Modifier.semantics {
+                            stateDescription = if (checked) "Expanded" else "Collapsed"
+                            contentDescription = description
+                        },
                 ) {
                     val rotation: Float by
                         animateFloatAsState(
@@ -334,9 +335,9 @@ fun ElevatedSplitButtonSample() {
                     Icon(
                         Icons.Filled.KeyboardArrowDown,
                         modifier =
-                        Modifier.size(SplitButtonDefaults.TrailingIconSize).graphicsLayer {
-                            this.rotationZ = rotation
-                        },
+                            Modifier.size(SplitButtonDefaults.TrailingIconSize).graphicsLayer {
+                                this.rotationZ = rotation
+                            },
                         contentDescription = "Localized description",
                     )
                 }
@@ -369,7 +370,7 @@ fun OutlinedSplitButtonSample() {
             // Icon-only trailing button should have a tooltip for a11y.
             TooltipBox(
                 positionProvider =
-                TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+                    TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
                 tooltip = { PlainTooltip { Text(description) } },
                 state = rememberTooltipState(),
             ) {
@@ -377,10 +378,10 @@ fun OutlinedSplitButtonSample() {
                     checked = checked,
                     onCheckedChange = { checked = it },
                     modifier =
-                    Modifier.semantics {
-                        stateDescription = if (checked) "Expanded" else "Collapsed"
-                        contentDescription = description
-                    },
+                        Modifier.semantics {
+                            stateDescription = if (checked) "Expanded" else "Collapsed"
+                            contentDescription = description
+                        },
                 ) {
                     val rotation: Float by
                         animateFloatAsState(
@@ -390,9 +391,9 @@ fun OutlinedSplitButtonSample() {
                     Icon(
                         Icons.Filled.KeyboardArrowDown,
                         modifier =
-                        Modifier.size(SplitButtonDefaults.TrailingIconSize).graphicsLayer {
-                            this.rotationZ = rotation
-                        },
+                            Modifier.size(SplitButtonDefaults.TrailingIconSize).graphicsLayer {
+                                this.rotationZ = rotation
+                            },
                         contentDescription = "Localized description",
                     )
                 }
@@ -417,7 +418,7 @@ fun SplitButtonWithTextSample() {
             // Icon-only trailing button should have a tooltip for a11y.
             TooltipBox(
                 positionProvider =
-                TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+                    TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
                 tooltip = { PlainTooltip { Text(description) } },
                 state = rememberTooltipState(),
             ) {
@@ -425,10 +426,10 @@ fun SplitButtonWithTextSample() {
                     checked = checked,
                     onCheckedChange = { checked = it },
                     modifier =
-                    Modifier.semantics {
-                        stateDescription = if (checked) "Expanded" else "Collapsed"
-                        contentDescription = description
-                    },
+                        Modifier.semantics {
+                            stateDescription = if (checked) "Expanded" else "Collapsed"
+                            contentDescription = description
+                        },
                 ) {
                     val rotation: Float by
                         animateFloatAsState(
@@ -438,9 +439,9 @@ fun SplitButtonWithTextSample() {
                     Icon(
                         Icons.Filled.KeyboardArrowDown,
                         modifier =
-                        Modifier.size(SplitButtonDefaults.TrailingIconSize).graphicsLayer {
-                            this.rotationZ = rotation
-                        },
+                            Modifier.size(SplitButtonDefaults.TrailingIconSize).graphicsLayer {
+                                this.rotationZ = rotation
+                            },
                         contentDescription = "Localized description",
                     )
                 }
@@ -462,7 +463,7 @@ fun SplitButtonWithIconSample() {
             // Icon-only leading button should have a tooltip for a11y.
             TooltipBox(
                 positionProvider =
-                TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+                    TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
                 tooltip = { PlainTooltip { Text(description) } },
                 state = rememberTooltipState(),
             ) {
@@ -480,7 +481,7 @@ fun SplitButtonWithIconSample() {
             // Icon-only trailing button should have a tooltip for a11y.
             TooltipBox(
                 positionProvider =
-                TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+                    TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
                 tooltip = { PlainTooltip { Text(description) } },
                 state = rememberTooltipState(),
             ) {
@@ -488,10 +489,10 @@ fun SplitButtonWithIconSample() {
                     checked = checked,
                     onCheckedChange = { checked = it },
                     modifier =
-                    Modifier.semantics {
-                        stateDescription = if (checked) "Expanded" else "Collapsed"
-                        contentDescription = description
-                    },
+                        Modifier.semantics {
+                            stateDescription = if (checked) "Expanded" else "Collapsed"
+                            contentDescription = description
+                        },
                 ) {
                     val rotation: Float by
                         animateFloatAsState(
@@ -501,9 +502,9 @@ fun SplitButtonWithIconSample() {
                     Icon(
                         Icons.Filled.KeyboardArrowDown,
                         modifier =
-                        Modifier.size(SplitButtonDefaults.TrailingIconSize).graphicsLayer {
-                            this.rotationZ = rotation
-                        },
+                            Modifier.size(SplitButtonDefaults.TrailingIconSize).graphicsLayer {
+                                this.rotationZ = rotation
+                            },
                         contentDescription = "Localized description",
                     )
                 }
@@ -542,7 +543,7 @@ fun XSmallFilledSplitButtonSample() {
             // Icon-only trailing button should have a tooltip for a11y.
             TooltipBox(
                 positionProvider =
-                TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+                    TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
                 tooltip = { PlainTooltip { Text(description) } },
                 state = rememberTooltipState(),
             ) {
@@ -550,10 +551,10 @@ fun XSmallFilledSplitButtonSample() {
                     checked = checked,
                     onCheckedChange = { checked = it },
                     modifier =
-                    Modifier.heightIn(size).semantics {
-                        stateDescription = if (checked) "Expanded" else "Collapsed"
-                        contentDescription = description
-                    },
+                        Modifier.heightIn(size).semantics {
+                            stateDescription = if (checked) "Expanded" else "Collapsed"
+                            contentDescription = description
+                        },
                     shapes = SplitButtonDefaults.trailingButtonShapesFor(size),
                     contentPadding = SplitButtonDefaults.trailingButtonContentPaddingFor(size),
                 ) {
@@ -565,8 +566,8 @@ fun XSmallFilledSplitButtonSample() {
                     Icon(
                         Icons.Filled.KeyboardArrowDown,
                         modifier =
-                        Modifier.size(SplitButtonDefaults.trailingButtonIconSizeFor(size))
-                            .graphicsLayer { this.rotationZ = rotation },
+                            Modifier.size(SplitButtonDefaults.trailingButtonIconSizeFor(size))
+                                .graphicsLayer { this.rotationZ = rotation },
                         contentDescription = "Localized description",
                     )
                 }
@@ -605,7 +606,7 @@ fun MediumFilledSplitButtonSample() {
             // Icon-only trailing button should have a tooltip for a11y.
             TooltipBox(
                 positionProvider =
-                TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+                    TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
                 tooltip = { PlainTooltip { Text(description) } },
                 state = rememberTooltipState(),
             ) {
@@ -613,10 +614,10 @@ fun MediumFilledSplitButtonSample() {
                     checked = checked,
                     onCheckedChange = { checked = it },
                     modifier =
-                    Modifier.heightIn(size).semantics {
-                        stateDescription = if (checked) "Expanded" else "Collapsed"
-                        contentDescription = description
-                    },
+                        Modifier.heightIn(size).semantics {
+                            stateDescription = if (checked) "Expanded" else "Collapsed"
+                            contentDescription = description
+                        },
                     shapes = SplitButtonDefaults.trailingButtonShapesFor(size),
                     contentPadding = SplitButtonDefaults.trailingButtonContentPaddingFor(size),
                 ) {
@@ -628,8 +629,8 @@ fun MediumFilledSplitButtonSample() {
                     Icon(
                         Icons.Filled.KeyboardArrowDown,
                         modifier =
-                        Modifier.size(SplitButtonDefaults.trailingButtonIconSizeFor(size))
-                            .graphicsLayer { this.rotationZ = rotation },
+                            Modifier.size(SplitButtonDefaults.trailingButtonIconSizeFor(size))
+                                .graphicsLayer { this.rotationZ = rotation },
                         contentDescription = "Localized description",
                     )
                 }
@@ -668,7 +669,7 @@ fun LargeFilledSplitButtonSample() {
             // Icon-only trailing button should have a tooltip for a11y.
             TooltipBox(
                 positionProvider =
-                TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+                    TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
                 tooltip = { PlainTooltip { Text(description) } },
                 state = rememberTooltipState(),
             ) {
@@ -676,10 +677,10 @@ fun LargeFilledSplitButtonSample() {
                     checked = checked,
                     onCheckedChange = { checked = it },
                     modifier =
-                    Modifier.heightIn(size).semantics {
-                        stateDescription = if (checked) "Expanded" else "Collapsed"
-                        contentDescription = description
-                    },
+                        Modifier.heightIn(size).semantics {
+                            stateDescription = if (checked) "Expanded" else "Collapsed"
+                            contentDescription = description
+                        },
                     shapes = SplitButtonDefaults.trailingButtonShapesFor(size),
                     contentPadding = SplitButtonDefaults.trailingButtonContentPaddingFor(size),
                 ) {
@@ -691,8 +692,8 @@ fun LargeFilledSplitButtonSample() {
                     Icon(
                         Icons.Filled.KeyboardArrowDown,
                         modifier =
-                        Modifier.size(SplitButtonDefaults.trailingButtonIconSizeFor(size))
-                            .graphicsLayer { this.rotationZ = rotation },
+                            Modifier.size(SplitButtonDefaults.trailingButtonIconSizeFor(size))
+                                .graphicsLayer { this.rotationZ = rotation },
                         contentDescription = "Localized description",
                     )
                 }
@@ -731,7 +732,7 @@ fun ExtraLargeFilledSplitButtonSample() {
             // Icon-only trailing button should have a tooltip for a11y.
             TooltipBox(
                 positionProvider =
-                TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+                    TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
                 tooltip = { PlainTooltip { Text(description) } },
                 state = rememberTooltipState(),
             ) {
@@ -739,10 +740,10 @@ fun ExtraLargeFilledSplitButtonSample() {
                     checked = checked,
                     onCheckedChange = { checked = it },
                     modifier =
-                    Modifier.heightIn(size).semantics {
-                        stateDescription = if (checked) "Expanded" else "Collapsed"
-                        contentDescription = description
-                    },
+                        Modifier.heightIn(size).semantics {
+                            stateDescription = if (checked) "Expanded" else "Collapsed"
+                            contentDescription = description
+                        },
                     shapes = SplitButtonDefaults.trailingButtonShapesFor(size),
                     contentPadding = SplitButtonDefaults.trailingButtonContentPaddingFor(size),
                 ) {
@@ -754,8 +755,8 @@ fun ExtraLargeFilledSplitButtonSample() {
                     Icon(
                         Icons.Filled.KeyboardArrowDown,
                         modifier =
-                        Modifier.size(SplitButtonDefaults.trailingButtonIconSizeFor(size))
-                            .graphicsLayer { this.rotationZ = rotation },
+                            Modifier.size(SplitButtonDefaults.trailingButtonIconSizeFor(size))
+                                .graphicsLayer { this.rotationZ = rotation },
                         contentDescription = "Localized description",
                     )
                 }

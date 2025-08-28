@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     https://www.apache.org/licenses/LICENSE-2.0
+ *      http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -13,8 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package androidx.compose.material3.samples
 
+import androidx.annotation.Sampled
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
@@ -44,7 +46,6 @@ import androidx.compose.material3.SnackbarVisuals
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.catalog.library.Sampled
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -118,7 +119,7 @@ fun ScaffoldWithSimpleSnackbar() {
                 onClick = {
                     // show snackbar as a suspend function
                     scope.launch { snackbarHostState.showSnackbar("Snackbar # ${++clickCount}") }
-                },
+                }
             ) {
                 Text("Show snackbar")
             }
@@ -153,7 +154,7 @@ fun ScaffoldWithIndefiniteSnackbar() {
                             duration = SnackbarDuration.Indefinite,
                         )
                     }
-                },
+                }
             ) {
                 Text("Show snackbar")
             }
@@ -171,7 +172,8 @@ fun ScaffoldWithIndefiniteSnackbar() {
 @Sampled
 @Composable
 fun ScaffoldWithCustomSnackbar() {
-    class SnackbarVisualsWithError(override val message: String, val isError: Boolean) : SnackbarVisuals {
+    class SnackbarVisualsWithError(override val message: String, val isError: Boolean) :
+        SnackbarVisuals {
         override val actionLabel: String
             get() = if (isError) "Error" else "OK"
 
@@ -198,13 +200,13 @@ fun ScaffoldWithCustomSnackbar() {
                         )
                     } else {
                         ButtonDefaults.textButtonColors(
-                            contentColor = MaterialTheme.colorScheme.inversePrimary,
+                            contentColor = MaterialTheme.colorScheme.inversePrimary
                         )
                     }
 
                 Snackbar(
                     modifier =
-                    Modifier.border(2.dp, MaterialTheme.colorScheme.secondary).padding(12.dp),
+                        Modifier.border(2.dp, MaterialTheme.colorScheme.secondary).padding(12.dp),
                     action = {
                         TextButton(
                             onClick = { if (isError) data.dismiss() else data.performAction() },
@@ -227,10 +229,10 @@ fun ScaffoldWithCustomSnackbar() {
                             SnackbarVisualsWithError(
                                 "Snackbar # ${++clickCount}",
                                 isError = clickCount % 2 != 0,
-                            ),
+                            )
                         )
                     }
-                },
+                }
             ) {
                 Text("Show snackbar")
             }
@@ -278,7 +280,7 @@ fun ScaffoldWithCoroutinesSnackbar() {
                 onClick = {
                     // offset snackbar data to the business logic
                     channel.trySend(++clickCount)
-                },
+                }
             ) {
                 Text("Show snackbar")
             }
@@ -317,7 +319,7 @@ fun ScaffoldWithMultilineSnackbar() {
                                 "very very very very very very very very very very long message"
                         snackbarHostState.showSnackbar(longMessage)
                     }
-                },
+                }
             ) {
                 Text("Show snackbar")
             }

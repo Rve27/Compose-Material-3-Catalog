@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package androidx.compose.material3.catalog.library
+package androidx.annotation
 
 /**
  * Denotes that the annotated function is considered a sample function, and is linked to from the

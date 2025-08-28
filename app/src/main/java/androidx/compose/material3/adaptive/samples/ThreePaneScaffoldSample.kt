@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     https://www.apache.org/licenses/LICENSE-2.0
+ *      http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -13,11 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package androidx.compose.material3.adaptive.samples
 
 import android.os.Parcel
 import android.os.Parcelable
 import androidx.annotation.FloatRange
+import androidx.annotation.Sampled
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.expandHorizontally
 import androidx.compose.animation.fadeIn
@@ -84,7 +86,6 @@ import androidx.compose.material3.adaptive.navigation.NavigableListDetailPaneSca
 import androidx.compose.material3.adaptive.navigation.ThreePaneScaffoldNavigator
 import androidx.compose.material3.adaptive.navigation.rememberListDetailPaneScaffoldNavigator
 import androidx.compose.material3.adaptive.navigation.rememberSupportingPaneScaffoldNavigator
-import androidx.compose.material3.catalog.library.Sampled
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -98,7 +99,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.contentDescription
-import androidx.compose.ui.semantics.selected
+import androidx.compose.ui.semantics.onClick
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -190,11 +192,11 @@ fun ListDetailPaneScaffoldSampleWithExtraPane() {
             }
         },
         paneExpansionState =
-        rememberPaneExpansionState(
-            keyProvider = scaffoldNavigator.scaffoldValue,
-            anchors = PaneExpansionAnchors,
-            initialAnchoredIndex = 1,
-        ),
+            rememberPaneExpansionState(
+                keyProvider = scaffoldNavigator.scaffoldValue,
+                anchors = PaneExpansionAnchors,
+                initialAnchoredIndex = 1,
+            ),
         paneExpansionDragHandle = { state -> PaneExpansionDragHandleSample(state) },
     )
 }
@@ -245,11 +247,11 @@ fun ListDetailPaneScaffoldSampleWithExtraPaneLevitatedAsDialog() {
             }
         },
         paneExpansionState =
-        rememberPaneExpansionState(
-            keyProvider = scaffoldNavigator.scaffoldValue,
-            anchors = PaneExpansionAnchors,
-            initialAnchoredIndex = 1,
-        ),
+            rememberPaneExpansionState(
+                keyProvider = scaffoldNavigator.scaffoldValue,
+                anchors = PaneExpansionAnchors,
+                initialAnchoredIndex = 1,
+            ),
         paneExpansionDragHandle = { state -> PaneExpansionDragHandleSample(state) },
     )
 }
@@ -290,10 +292,10 @@ fun SupportingPaneScaffoldSample() {
             }
         },
         paneExpansionState =
-        rememberPaneExpansionState(
-            keyProvider = scaffoldNavigator.scaffoldValue,
-            anchors = PaneExpansionAnchors,
-        ),
+            rememberPaneExpansionState(
+                keyProvider = scaffoldNavigator.scaffoldValue,
+                anchors = PaneExpansionAnchors,
+            ),
         paneExpansionDragHandle = { state -> PaneExpansionDragHandleSample(state) },
     )
 }
@@ -336,11 +338,12 @@ fun SupportingPaneScaffoldSampleWithExtraPaneLevitatedAsBottomSheet() {
             AnimatedPane(modifier = Modifier.preferredWidth(200.dp)) { SupportingPaneContent() }
         },
         extraPane = {
+            val dragToResizeState = rememberDragToResizeState(dockedEdge = DockedEdge.Bottom)
             AnimatedPane(
                 modifier =
-                Modifier.preferredWidth(1f)
-                    .preferredHeight(412.dp)
-                    .dragToResize(rememberDragToResizeState(dockedEdge = DockedEdge.Bottom)),
+                    Modifier.preferredWidth(1f)
+                        .preferredHeight(412.dp)
+                        .dragToResize(dragToResizeState)
             ) {
                 ExtraPaneContent(
                     extraItems = extraItems,
@@ -351,10 +354,10 @@ fun SupportingPaneScaffoldSampleWithExtraPaneLevitatedAsBottomSheet() {
             }
         },
         paneExpansionState =
-        rememberPaneExpansionState(
-            keyProvider = scaffoldNavigator.scaffoldValue,
-            anchors = PaneExpansionAnchors,
-        ),
+            rememberPaneExpansionState(
+                keyProvider = scaffoldNavigator.scaffoldValue,
+                anchors = PaneExpansionAnchors,
+            ),
         paneExpansionDragHandle = { state -> PaneExpansionDragHandleSample(state) },
     )
 }
@@ -370,7 +373,7 @@ fun ThreePaneScaffoldPaneScope.PreferredSizeModifierInDpSample(
 ) {
     AnimatedPane(
         modifier =
-        Modifier.preferredWidth(preferredWidth).preferredHeight(preferredHeight).then(modifier),
+            Modifier.preferredWidth(preferredWidth).preferredHeight(preferredHeight).then(modifier)
     ) {
         content()
     }
@@ -387,9 +390,9 @@ fun ThreePaneScaffoldPaneScope.PreferredSizeModifierInProportionSample(
 ) {
     AnimatedPane(
         modifier =
-        Modifier.preferredWidth(preferredWidthInProportion)
-            .preferredHeight(preferredHeightInProportion)
-            .then(modifier),
+            Modifier.preferredWidth(preferredWidthInProportion)
+                .preferredHeight(preferredHeightInProportion)
+                .then(modifier)
     ) {
         content()
     }
@@ -399,15 +402,17 @@ fun ThreePaneScaffoldPaneScope.PreferredSizeModifierInProportionSample(
 @Preview
 @Sampled
 @Composable
-fun ThreePaneScaffoldScope.PaneExpansionDragHandleSample(state: PaneExpansionState = rememberPaneExpansionState()) {
+fun ThreePaneScaffoldScope.PaneExpansionDragHandleSample(
+    state: PaneExpansionState = rememberPaneExpansionState()
+) {
     val interactionSource = remember { MutableInteractionSource() }
     VerticalDragHandle(
         modifier =
-        Modifier.paneExpansionDraggable(
-            state,
-            LocalMinimumInteractiveComponentSize.current,
-            interactionSource,
-        ),
+            Modifier.paneExpansionDraggable(
+                state,
+                LocalMinimumInteractiveComponentSize.current,
+                interactionSource,
+            ),
         interactionSource = interactionSource,
     )
 }
@@ -416,13 +421,14 @@ fun ThreePaneScaffoldScope.PaneExpansionDragHandleSample(state: PaneExpansionSta
 @Preview
 @Sampled
 @Composable
-fun <T> reflowAdaptStrategySample(): ThreePaneScaffoldNavigator<T> = rememberListDetailPaneScaffoldNavigator<T>(
-    adaptStrategies =
-    ListDetailPaneScaffoldDefaults.adaptStrategies(
-        extraPaneAdaptStrategy =
-        AdaptStrategy.Reflow(reflowUnder = ListDetailPaneScaffoldRole.Detail),
-    ),
-)
+fun <T> reflowAdaptStrategySample(): ThreePaneScaffoldNavigator<T> =
+    rememberListDetailPaneScaffoldNavigator<T>(
+        adaptStrategies =
+            ListDetailPaneScaffoldDefaults.adaptStrategies(
+                extraPaneAdaptStrategy =
+                    AdaptStrategy.Reflow(reflowUnder = ListDetailPaneScaffoldRole.Detail)
+            )
+    )
 
 /**
  * This sample shows how to create a [ThreePaneScaffoldNavigator] that will show the extra pane as a
@@ -437,23 +443,24 @@ fun <T> levitateAsDialogSample(): ThreePaneScaffoldNavigator<T> {
     val coroutineScope = rememberCoroutineScope()
     val scaffoldDirective = calculatePaneScaffoldDirective(currentWindowAdaptiveInfo())
     var navigator: ThreePaneScaffoldNavigator<T>? = null
+    val onClick: () -> Unit = { coroutineScope.launch { navigator?.navigateBack() } }
     navigator =
         rememberListDetailPaneScaffoldNavigator<T>(
             scaffoldDirective = scaffoldDirective,
             adaptStrategies =
-            ListDetailPaneScaffoldDefaults.adaptStrategies(
-                extraPaneAdaptStrategy =
-                AdaptStrategy.Levitate(
-                    alignment = Alignment.Center,
-                    scrim =
-                    Scrim(
-                        onClick = {
-                            coroutineScope.launch { navigator?.navigateBack() }
-                        },
-                    ),
-                )
-                    .onlyIfSinglePane(scaffoldDirective),
-            ),
+                SupportingPaneScaffoldDefaults.adaptStrategies(
+                    extraPaneAdaptStrategy =
+                        AdaptStrategy.Levitate(
+                            alignment = Alignment.Center,
+                            scrim =
+                                Scrim(
+                                    onClick = {
+                                        coroutineScope.launch { navigator?.navigateBack() }
+                                    },
+                                )
+                        )
+                        .onlyIfSinglePane(scaffoldDirective)
+                ),
         )
     return navigator
 }
@@ -478,11 +485,11 @@ fun <T> levitateAsBottomSheetSample(): ThreePaneScaffoldNavigator<T> {
         rememberSupportingPaneScaffoldNavigator<T>(
             scaffoldDirective = scaffoldDirective,
             adaptStrategies =
-            SupportingPaneScaffoldDefaults.adaptStrategies(
-                extraPaneAdaptStrategy =
-                AdaptStrategy.Levitate(alignment = Alignment.BottomCenter)
-                    .onlyIfSinglePane(scaffoldDirective),
-            ),
+                SupportingPaneScaffoldDefaults.adaptStrategies(
+                    extraPaneAdaptStrategy =
+                        AdaptStrategy.Levitate(alignment = Alignment.BottomCenter)
+                            .onlyIfSinglePane(scaffoldDirective)
+                ),
         )
     return navigator
 }
@@ -530,10 +537,10 @@ fun NavigableListDetailPaneScaffoldSample() {
             Scaffold(Modifier.fillMaxSize()) { paddingValues ->
                 Column(
                     modifier =
-                    Modifier.verticalScroll(rememberScrollState())
-                        .padding(paddingValues)
-                        .padding(24.dp)
-                        .fillMaxSize(),
+                        Modifier.verticalScroll(rememberScrollState())
+                            .padding(paddingValues)
+                            .padding(24.dp)
+                            .fillMaxSize(),
                     verticalArrangement = Arrangement.spacedBy(16.dp),
                 ) {
                     Text(
@@ -544,32 +551,32 @@ fun NavigableListDetailPaneScaffoldSample() {
                         selected = backBehaviorIndex == 0,
                         onClick = { backBehaviorIndex = 0 },
                         text =
-                        "PopUntilScaffoldValueChange - Back navigation forces a change in " +
-                            "which pane(s) is/are shown.",
+                            "PopUntilScaffoldValueChange - Back navigation forces a change in " +
+                                "which pane(s) is/are shown.",
                     )
                     RadioButtonRow(
                         selected = backBehaviorIndex == 1,
                         onClick = { backBehaviorIndex = 1 },
                         text =
-                        "PopUntilCurrentDestinationChange - Back navigation forces a " +
-                            "change in which pane is currently considered \"active\".",
+                            "PopUntilCurrentDestinationChange - Back navigation forces a " +
+                                "change in which pane is currently considered \"active\".",
                     )
                     RadioButtonRow(
                         selected = backBehaviorIndex == 2,
                         onClick = { backBehaviorIndex = 2 },
                         text =
-                        "PopUntilContentChange - Back navigation forces a change in the " +
-                            "content of any pane or which pane(s) is/are shown.\nNote: this " +
-                            "may result in unintuitive behavior if the device size changes " +
-                            "in the middle of the navigation.",
+                            "PopUntilContentChange - Back navigation forces a change in the " +
+                                "content of any pane or which pane(s) is/are shown.\nNote: this " +
+                                "may result in unintuitive behavior if the device size changes " +
+                                "in the middle of the navigation.",
                     )
                     RadioButtonRow(
                         selected = backBehaviorIndex == 3,
                         onClick = { backBehaviorIndex = 3 },
                         text =
-                        "PopLatest - No special back handling.\nNote: this may result in " +
-                            "unintuitive behavior if the device size changes in the middle " +
-                            "of the navigation.",
+                            "PopLatest - No special back handling.\nNote: this may result in " +
+                                "unintuitive behavior if the device size changes in the middle " +
+                                "of the navigation.",
                     )
                     Button(onClick = { navController.navigate(listDetailRoute) }) { Text("Next") }
                 }
@@ -619,7 +626,8 @@ fun NavigableListDetailPaneScaffoldSample() {
 }
 
 @OptIn(ExperimentalMaterial3AdaptiveApi::class)
-private fun ThreePaneScaffoldNavigator<*>.isExpanded(role: ThreePaneScaffoldRole) = scaffoldValue[role] == PaneAdaptedValue.Expanded
+private fun ThreePaneScaffoldNavigator<*>.isExpanded(role: ThreePaneScaffoldRole) =
+    scaffoldValue[role] == PaneAdaptedValue.Expanded
 
 private data class NavItemData(val index: Int, val showExtra: Boolean = false) : Parcelable {
     constructor(parcel: Parcel) : this(parcel.readInt(), parcel.readBoolean())
@@ -639,16 +647,21 @@ private data class NavItemData(val index: Int, val showExtra: Boolean = false) :
 }
 
 @Composable
-private fun ListCard(title: String, isSelected: Boolean, onClick: () -> Unit, modifier: Modifier = Modifier) {
+private fun ListCard(
+    title: String,
+    isSelected: Boolean,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
     OutlinedCard(
         onClick = onClick,
         colors =
-        CardDefaults.outlinedCardColors(
-            when {
-                isSelected -> MaterialTheme.colorScheme.primaryContainer
-                else -> MaterialTheme.colorScheme.surface
-            },
-        ),
+            CardDefaults.outlinedCardColors(
+                when {
+                    isSelected -> MaterialTheme.colorScheme.primaryContainer
+                    else -> MaterialTheme.colorScheme.surface
+                }
+            ),
         modifier = modifier.height(80.dp).fillMaxWidth().selectable(isSelected, onClick = onClick),
     ) {
         Row(
@@ -659,10 +672,10 @@ private fun ListCard(title: String, isSelected: Boolean, onClick: () -> Unit, mo
             Icon(
                 modifier = Modifier.fillMaxHeight(),
                 imageVector =
-                when {
-                    isSelected -> Icons.Filled.CheckCircle
-                    else -> Icons.Outlined.CheckCircle
-                },
+                    when {
+                        isSelected -> Icons.Filled.CheckCircle
+                        else -> Icons.Outlined.CheckCircle
+                    },
                 contentDescription = null,
             )
             Text(
@@ -691,8 +704,8 @@ private fun ListPaneContent(
             ListCard(
                 title = item,
                 isSelected =
-                index == selectedItem?.index &&
-                    scaffoldNavigator.isExpanded(ListDetailPaneScaffoldRole.Detail),
+                    index == selectedItem?.index &&
+                        scaffoldNavigator.isExpanded(ListDetailPaneScaffoldRole.Detail),
                 onClick = {
                     coroutineScope.launch {
                         scaffoldNavigator.navigateTo(
@@ -749,7 +762,7 @@ private fun DetailPaneContent(
                             contentKey = NavItemData(selectedItem.index, showExtra = true),
                         )
                     }
-                },
+                }
             ) {
                 Text("Show extra")
             }
@@ -786,7 +799,7 @@ private fun MainPaneContent(
                             contentKey = NavItemData(0, showExtra = true),
                         )
                     }
-                },
+                }
             ) {
                 Text("Show extra")
             }
@@ -883,10 +896,15 @@ private fun BackButton(visible: Boolean, onClick: () -> Unit, modifier: Modifier
 }
 
 @Composable
-private fun RadioButtonRow(selected: Boolean, onClick: () -> Unit, text: String, modifier: Modifier = Modifier) {
+private fun RadioButtonRow(
+    selected: Boolean,
+    onClick: () -> Unit,
+    text: String,
+    modifier: Modifier = Modifier,
+) {
     Row(
         modifier =
-        modifier.selectable(selected = selected, onClick = onClick, role = Role.RadioButton),
+            modifier.selectable(selected = selected, onClick = onClick, role = Role.RadioButton),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         RadioButton(selected = selected, onClick = onClick)

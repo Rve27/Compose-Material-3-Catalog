@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     https://www.apache.org/licenses/LICENSE-2.0
+ *      http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -13,8 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package androidx.compose.material3.samples
 
+import androidx.annotation.Sampled
 import androidx.compose.animation.core.animate
 import androidx.compose.foundation.indication
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -46,7 +48,6 @@ import androidx.compose.material3.Slider
 import androidx.compose.material3.SliderDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.VerticalSlider
-import androidx.compose.material3.catalog.library.Sampled
 import androidx.compose.material3.rememberRangeSliderState
 import androidx.compose.material3.rememberSliderState
 import androidx.compose.material3.ripple
@@ -257,36 +258,36 @@ fun SliderWithTrackIconsSample() {
                 SliderDefaults.Track(
                     sliderState = sliderState,
                     modifier =
-                    Modifier.height(36.dp).drawWithContent {
-                        drawContent()
+                        Modifier.height(36.dp).drawWithContent {
+                            drawContent()
 
-                        val yOffset = size.height / 2 - iconSize.toSize().height / 2
-                        val activeTrackStart = 0f
-                        val activeTrackEnd =
-                            size.width * sliderState.coercedValueAsFraction -
-                                thumbTrackGapSize.toPx()
-                        val inactiveTrackStart = activeTrackEnd + thumbTrackGapSize.toPx() * 2
-                        val inactiveTrackEnd = size.width
+                            val yOffset = size.height / 2 - iconSize.toSize().height / 2
+                            val activeTrackStart = 0f
+                            val activeTrackEnd =
+                                size.width * sliderState.coercedValueAsFraction -
+                                    thumbTrackGapSize.toPx()
+                            val inactiveTrackStart = activeTrackEnd + thumbTrackGapSize.toPx() * 2
+                            val inactiveTrackEnd = size.width
 
-                        val activeTrackWidth = activeTrackEnd - activeTrackStart
-                        val inactiveTrackWidth = inactiveTrackEnd - inactiveTrackStart
-                        if (
-                            iconSize.toSize().width < activeTrackWidth - iconPadding.toPx() * 2
-                        ) {
-                            trackIconStart(Offset(activeTrackStart, yOffset), activeIconColor)
-                            trackIconEnd(Offset(activeTrackEnd, yOffset), activeIconColor)
-                        }
-                        if (
-                            iconSize.toSize().width <
-                            inactiveTrackWidth - iconPadding.toPx() * 2
-                        ) {
-                            trackIconStart(
-                                Offset(inactiveTrackStart, yOffset),
-                                inactiveIconColor,
-                            )
-                            trackIconEnd(Offset(inactiveTrackEnd, yOffset), inactiveIconColor)
-                        }
-                    },
+                            val activeTrackWidth = activeTrackEnd - activeTrackStart
+                            val inactiveTrackWidth = inactiveTrackEnd - inactiveTrackStart
+                            if (
+                                iconSize.toSize().width < activeTrackWidth - iconPadding.toPx() * 2
+                            ) {
+                                trackIconStart(Offset(activeTrackStart, yOffset), activeIconColor)
+                                trackIconEnd(Offset(activeTrackEnd, yOffset), activeIconColor)
+                            }
+                            if (
+                                iconSize.toSize().width <
+                                    inactiveTrackWidth - iconPadding.toPx() * 2
+                            ) {
+                                trackIconStart(
+                                    Offset(inactiveTrackStart, yOffset),
+                                    inactiveIconColor,
+                                )
+                                trackIconEnd(Offset(inactiveTrackEnd, yOffset), inactiveIconColor)
+                            }
+                        },
                     trackCornerSize = 12.dp,
                     drawStopIndicator = null,
                     thumbTrackGapSize = thumbTrackGapSize,
@@ -368,13 +369,13 @@ fun VerticalSliderSample() {
         VerticalSlider(
             state = sliderState,
             modifier =
-            Modifier.height(300.dp)
-                .align(Alignment.CenterHorizontally)
-                .progressSemantics(
-                    currentValue,
-                    sliderState.valueRange.start..sliderState.valueRange.endInclusive,
-                    sliderState.steps,
-                ),
+                Modifier.height(300.dp)
+                    .align(Alignment.CenterHorizontally)
+                    .progressSemantics(
+                        currentValue,
+                        sliderState.valueRange.start..sliderState.valueRange.endInclusive,
+                        sliderState.steps,
+                    ),
             interactionSource = interactionSource,
             track = {
                 SliderDefaults.Track(
@@ -435,13 +436,13 @@ fun VerticalCenteredSliderSample() {
         VerticalSlider(
             state = sliderState,
             modifier =
-            Modifier.height(300.dp)
-                .align(Alignment.CenterHorizontally)
-                .progressSemantics(
-                    currentValue,
-                    sliderState.valueRange.start..sliderState.valueRange.endInclusive,
-                    sliderState.steps,
-                ),
+                Modifier.height(300.dp)
+                    .align(Alignment.CenterHorizontally)
+                    .progressSemantics(
+                        currentValue,
+                        sliderState.valueRange.start..sliderState.valueRange.endInclusive,
+                        sliderState.steps,
+                    ),
             interactionSource = interactionSource,
             track = { SliderDefaults.CenteredTrack(sliderState = sliderState) },
             reverseDirection = true,
@@ -606,7 +607,7 @@ fun RangeSliderWithCustomComponents() {
                 Label(
                     label = {
                         PlainTooltip(
-                            modifier = Modifier.requiredSize(45.dp, 25.dp).wrapContentWidth(),
+                            modifier = Modifier.requiredSize(45.dp, 25.dp).wrapContentWidth()
                         ) {
                             Text("%.2f".format(rangeSliderState.activeRangeEnd))
                         }

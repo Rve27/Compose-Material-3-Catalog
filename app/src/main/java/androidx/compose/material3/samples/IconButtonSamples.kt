@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     https://www.apache.org/licenses/LICENSE-2.0
+ *      http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -13,8 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package androidx.compose.material3.samples
 
+import androidx.annotation.Sampled
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Lock
@@ -36,7 +38,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TooltipAnchorPosition
 import androidx.compose.material3.TooltipBox
 import androidx.compose.material3.TooltipDefaults
-import androidx.compose.material3.catalog.library.Sampled
 import androidx.compose.material3.minimumInteractiveComponentSize
 import androidx.compose.material3.rememberTooltipState
 import androidx.compose.runtime.Composable
@@ -58,7 +59,7 @@ fun IconButtonSample() {
     // Icon button should have a tooltip associated with it for a11y.
     TooltipBox(
         positionProvider =
-        TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+            TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
         tooltip = { PlainTooltip { Text(description) } },
         state = rememberTooltipState(),
     ) {
@@ -77,7 +78,7 @@ fun IconButtonWithAnimatedShapeSample() {
     // Icon button should have a tooltip associated with it for a11y.
     TooltipBox(
         positionProvider =
-        TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+            TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
         tooltip = { PlainTooltip { Text(description) } },
         state = rememberTooltipState(),
     ) {
@@ -96,7 +97,7 @@ fun ExtraSmallNarrowSquareIconButtonsSample() {
     // Icon button should have a tooltip associated with it for a11y.
     TooltipBox(
         positionProvider =
-        TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+            TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
         tooltip = { PlainTooltip { Text(description) } },
         state = rememberTooltipState(),
     ) {
@@ -104,12 +105,12 @@ fun ExtraSmallNarrowSquareIconButtonsSample() {
         FilledIconButton(
             onClick = { /* doSomething() */ },
             modifier =
-            Modifier.minimumInteractiveComponentSize()
-                .size(
-                    IconButtonDefaults.extraSmallContainerSize(
-                        IconButtonDefaults.IconButtonWidthOption.Narrow,
+                Modifier.minimumInteractiveComponentSize()
+                    .size(
+                        IconButtonDefaults.extraSmallContainerSize(
+                            IconButtonDefaults.IconButtonWidthOption.Narrow
+                        )
                     ),
-                ),
             shape = IconButtonDefaults.extraSmallSquareShape,
         ) {
             Icon(
@@ -130,18 +131,18 @@ fun MediumRoundWideIconButtonSample() {
     // Icon button should have a tooltip associated with it for a11y.
     TooltipBox(
         positionProvider =
-        TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+            TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
         tooltip = { PlainTooltip { Text(description) } },
         state = rememberTooltipState(),
     ) {
         IconButton(
             onClick = { /* doSomething() */ },
             modifier =
-            Modifier.size(
-                IconButtonDefaults.mediumContainerSize(
-                    IconButtonDefaults.IconButtonWidthOption.Wide,
+                Modifier.size(
+                    IconButtonDefaults.mediumContainerSize(
+                        IconButtonDefaults.IconButtonWidthOption.Wide
+                    )
                 ),
-            ),
             shape = IconButtonDefaults.mediumRoundShape,
         ) {
             Icon(
@@ -162,7 +163,7 @@ fun LargeRoundUniformOutlinedIconButtonSample() {
     // Icon button should have a tooltip associated with it for a11y.
     TooltipBox(
         positionProvider =
-        TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+            TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
         tooltip = { PlainTooltip { Text(description) } },
         state = rememberTooltipState(),
     ) {
@@ -189,7 +190,7 @@ fun TintedIconButtonSample() {
     // Icon button should have a tooltip associated with it for a11y.
     TooltipBox(
         positionProvider =
-        TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+            TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
         tooltip = { PlainTooltip { Text(description) } },
         state = rememberTooltipState(),
     ) {
@@ -213,7 +214,7 @@ fun IconToggleButtonSample() {
     // Icon button should have a tooltip associated with it for a11y.
     TooltipBox(
         positionProvider =
-        TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+            TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
         tooltip = { PlainTooltip { Text(description) } },
         state = rememberTooltipState(),
     ) {
@@ -237,7 +238,7 @@ fun IconToggleButtonWithAnimatedShapeSample() {
     // Icon button should have a tooltip associated with it for a11y.
     TooltipBox(
         positionProvider =
-        TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+            TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
         tooltip = { PlainTooltip { Text(description) } },
         state = rememberTooltipState(),
     ) {
@@ -264,7 +265,7 @@ fun FilledIconButtonSample() {
     // Icon button should have a tooltip associated with it for a11y.
     TooltipBox(
         positionProvider =
-        TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+            TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
         tooltip = { PlainTooltip { Text(description) } },
         state = rememberTooltipState(),
     ) {
@@ -283,7 +284,7 @@ fun FilledIconButtonWithAnimatedShapeSample() {
     // Icon button should have a tooltip associated with it for a11y.
     TooltipBox(
         positionProvider =
-        TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+            TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
         tooltip = { PlainTooltip { Text(description) } },
         state = rememberTooltipState(),
     ) {
@@ -303,7 +304,7 @@ fun FilledIconToggleButtonSample() {
     // Icon button should have a tooltip associated with it for a11y.
     TooltipBox(
         positionProvider =
-        TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+            TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
         tooltip = { PlainTooltip { Text(description) } },
         state = rememberTooltipState(),
     ) {
@@ -327,7 +328,7 @@ fun FilledIconToggleButtonWithAnimatedShapeSample() {
     // Icon button should have a tooltip associated with it for a11y.
     TooltipBox(
         positionProvider =
-        TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+            TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
         tooltip = { PlainTooltip { Text(description) } },
         state = rememberTooltipState(),
     ) {
@@ -354,7 +355,7 @@ fun FilledTonalIconButtonSample() {
     // Icon button should have a tooltip associated with it for a11y.
     TooltipBox(
         positionProvider =
-        TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+            TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
         tooltip = { PlainTooltip { Text(description) } },
         state = rememberTooltipState(),
     ) {
@@ -373,7 +374,7 @@ fun FilledTonalIconButtonWithAnimatedShapeSample() {
     // Icon button should have a tooltip associated with it for a11y.
     TooltipBox(
         positionProvider =
-        TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+            TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
         tooltip = { PlainTooltip { Text(description) } },
         state = rememberTooltipState(),
     ) {
@@ -396,7 +397,7 @@ fun FilledTonalIconToggleButtonSample() {
     // Icon button should have a tooltip associated with it for a11y.
     TooltipBox(
         positionProvider =
-        TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+            TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
         tooltip = { PlainTooltip { Text(description) } },
         state = rememberTooltipState(),
     ) {
@@ -420,7 +421,7 @@ fun FilledTonalIconToggleButtonWithAnimatedShapeSample() {
     // Icon button should have a tooltip associated with it for a11y.
     TooltipBox(
         positionProvider =
-        TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+            TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
         tooltip = { PlainTooltip { Text(description) } },
         state = rememberTooltipState(),
     ) {
@@ -447,7 +448,7 @@ fun OutlinedIconButtonSample() {
     // Icon button should have a tooltip associated with it for a11y.
     TooltipBox(
         positionProvider =
-        TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+            TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
         tooltip = { PlainTooltip { Text(description) } },
         state = rememberTooltipState(),
     ) {
@@ -467,7 +468,7 @@ fun OutlinedIconButtonWithAnimatedShapeSample() {
     // Icon button should have a tooltip associated with it for a11y.
     TooltipBox(
         positionProvider =
-        TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+            TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
         tooltip = { PlainTooltip { Text(description) } },
         state = rememberTooltipState(),
     ) {
@@ -490,7 +491,7 @@ fun OutlinedIconToggleButtonSample() {
     // Icon button should have a tooltip associated with it for a11y.
     TooltipBox(
         positionProvider =
-        TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+            TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
         tooltip = { PlainTooltip { Text(description) } },
         state = rememberTooltipState(),
     ) {
@@ -514,7 +515,7 @@ fun OutlinedIconToggleButtonWithAnimatedShapeSample() {
     // Icon button should have a tooltip associated with it for a11y.
     TooltipBox(
         positionProvider =
-        TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+            TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
         tooltip = { PlainTooltip { Text(description) } },
         state = rememberTooltipState(),
     ) {

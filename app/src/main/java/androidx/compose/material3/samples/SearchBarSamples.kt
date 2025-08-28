@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     https://www.apache.org/licenses/LICENSE-2.0
+ *      http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -13,10 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 @file:OptIn(ExperimentalMaterial3Api::class)
 
 package androidx.compose.material3.samples
 
+import androidx.annotation.Sampled
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -29,10 +31,13 @@ import androidx.compose.foundation.text.input.setTextAndPlaceCursorAtEnd
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.AccountCircle
+import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Mic
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Star
+import androidx.compose.material3.AppBarWithSearch
 import androidx.compose.material3.ExpandedDockedSearchBar
 import androidx.compose.material3.ExpandedFullScreenSearchBar
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -49,8 +54,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TooltipAnchorPosition
 import androidx.compose.material3.TooltipBox
 import androidx.compose.material3.TooltipDefaults
-import androidx.compose.material3.TopSearchBar
-import androidx.compose.material3.catalog.library.Sampled
 import androidx.compose.material3.rememberSearchBarState
 import androidx.compose.material3.rememberTooltipState
 import androidx.compose.runtime.Composable
@@ -83,14 +86,14 @@ fun SimpleSearchBarSample() {
                     if (searchBarState.currentValue == SearchBarValue.Expanded) {
                         TooltipBox(
                             positionProvider =
-                            TooltipDefaults.rememberTooltipPositionProvider(
-                                TooltipAnchorPosition.Above,
-                            ),
+                                TooltipDefaults.rememberTooltipPositionProvider(
+                                    TooltipAnchorPosition.Above
+                                ),
                             tooltip = { PlainTooltip { Text("Back") } },
                             state = rememberTooltipState(),
                         ) {
                             IconButton(
-                                onClick = { scope.launch { searchBarState.animateToCollapsed() } },
+                                onClick = { scope.launch { searchBarState.animateToCollapsed() } }
                             ) {
                                 Icon(
                                     Icons.AutoMirrored.Default.ArrowBack,
@@ -112,7 +115,7 @@ fun SimpleSearchBarSample() {
             onResultClick = { result ->
                 textFieldState.setTextAndPlaceCursorAtEnd(result)
                 scope.launch { searchBarState.animateToCollapsed() }
-            },
+            }
         )
     }
 }
@@ -146,14 +149,14 @@ fun FullScreenSearchBarScaffoldSample() {
                     if (searchBarState.currentValue == SearchBarValue.Expanded) {
                         TooltipBox(
                             positionProvider =
-                            TooltipDefaults.rememberTooltipPositionProvider(
-                                TooltipAnchorPosition.Above,
-                            ),
+                                TooltipDefaults.rememberTooltipPositionProvider(
+                                    TooltipAnchorPosition.Above
+                                ),
                             tooltip = { PlainTooltip { Text("Back") } },
                             state = rememberTooltipState(),
                         ) {
                             IconButton(
-                                onClick = { scope.launch { searchBarState.animateToCollapsed() } },
+                                onClick = { scope.launch { searchBarState.animateToCollapsed() } }
                             ) {
                                 Icon(
                                     Icons.AutoMirrored.Default.ArrowBack,
@@ -168,9 +171,9 @@ fun FullScreenSearchBarScaffoldSample() {
                 trailingIcon = {
                     TooltipBox(
                         positionProvider =
-                        TooltipDefaults.rememberTooltipPositionProvider(
-                            TooltipAnchorPosition.Above,
-                        ),
+                            TooltipDefaults.rememberTooltipPositionProvider(
+                                TooltipAnchorPosition.Above
+                            ),
                         tooltip = { PlainTooltip { Text("Mic") } },
                         state = rememberTooltipState(),
                     ) {
@@ -185,17 +188,48 @@ fun FullScreenSearchBarScaffoldSample() {
     Scaffold(
         modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
-            TopSearchBar(
+            AppBarWithSearch(
                 scrollBehavior = scrollBehavior,
                 state = searchBarState,
                 inputField = inputField,
+                navigationIcon = {
+                    TooltipBox(
+                        positionProvider =
+                            TooltipDefaults.rememberTooltipPositionProvider(
+                                TooltipAnchorPosition.Above
+                            ),
+                        tooltip = { PlainTooltip { Text("Menu") } },
+                        state = rememberTooltipState(),
+                    ) {
+                        IconButton(onClick = { /* doSomething() */ }) {
+                            Icon(imageVector = Icons.Default.Menu, contentDescription = "Menu")
+                        }
+                    }
+                },
+                actions = {
+                    TooltipBox(
+                        positionProvider =
+                            TooltipDefaults.rememberTooltipPositionProvider(
+                                TooltipAnchorPosition.Above
+                            ),
+                        tooltip = { PlainTooltip { Text("Account") } },
+                        state = rememberTooltipState(),
+                    ) {
+                        IconButton(onClick = { /* doSomething() */ }) {
+                            Icon(
+                                imageVector = Icons.Default.AccountCircle,
+                                contentDescription = "Account",
+                            )
+                        }
+                    }
+                },
             )
             ExpandedFullScreenSearchBar(state = searchBarState, inputField = inputField) {
                 SearchResults(
                     onResultClick = { result ->
                         textFieldState.setTextAndPlaceCursorAtEnd(result)
                         scope.launch { searchBarState.animateToCollapsed() }
-                    },
+                    }
                 )
             }
         },
@@ -233,14 +267,14 @@ fun DockedSearchBarScaffoldSample() {
                     if (searchBarState.currentValue == SearchBarValue.Expanded) {
                         TooltipBox(
                             positionProvider =
-                            TooltipDefaults.rememberTooltipPositionProvider(
-                                TooltipAnchorPosition.Above,
-                            ),
+                                TooltipDefaults.rememberTooltipPositionProvider(
+                                    TooltipAnchorPosition.Above
+                                ),
                             tooltip = { PlainTooltip { Text("Back") } },
                             state = rememberTooltipState(),
                         ) {
                             IconButton(
-                                onClick = { scope.launch { searchBarState.animateToCollapsed() } },
+                                onClick = { scope.launch { searchBarState.animateToCollapsed() } }
                             ) {
                                 Icon(
                                     Icons.AutoMirrored.Default.ArrowBack,
@@ -259,17 +293,21 @@ fun DockedSearchBarScaffoldSample() {
     Scaffold(
         modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
-            TopSearchBar(
+            AppBarWithSearch(
                 scrollBehavior = scrollBehavior,
                 state = searchBarState,
                 inputField = inputField,
+                colors =
+                    SearchBarDefaults.appBarWithSearchColors(
+                        appBarContainerColor = Color.Transparent
+                    ),
             )
             ExpandedDockedSearchBar(state = searchBarState, inputField = inputField) {
                 SearchResults(
                     onResultClick = { result ->
                         textFieldState.setTextAndPlaceCursorAtEnd(result)
                         scope.launch { searchBarState.animateToCollapsed() }
-                    },
+                    }
                 )
             }
         },
@@ -297,9 +335,9 @@ private fun SearchResults(onResultClick: (String) -> Unit, modifier: Modifier = 
                 leadingContent = { Icon(Icons.Filled.Star, contentDescription = null) },
                 colors = ListItemDefaults.colors(containerColor = Color.Transparent),
                 modifier =
-                Modifier.clickable { onResultClick(resultText) }
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp, vertical = 4.dp),
+                    Modifier.clickable { onResultClick(resultText) }
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp, vertical = 4.dp),
             )
         }
     }

@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     https://www.apache.org/licenses/LICENSE-2.0
+ *      http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -13,26 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package androidx.compose.material3.samples
 
+import androidx.annotation.Sampled
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.gestures.draggable
 import androidx.compose.foundation.gestures.rememberDraggableState
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.systemGestureExclusion
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.VerticalDragHandle
-import androidx.compose.material3.catalog.library.Sampled
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.onGloballyPositioned
@@ -51,12 +45,12 @@ fun VerticalDragHandleSample() {
 
     Box(
         modifier =
-        Modifier.fillMaxSize().onGloballyPositioned { layoutCoordinates ->
-            screenSize = layoutCoordinates.size
-            if (offsetX == 0f) {
-                offsetX = screenSize.width / 2f
+            Modifier.fillMaxSize().onGloballyPositioned { layoutCoordinates ->
+                screenSize = layoutCoordinates.size
+                if (offsetX == 0f) {
+                    offsetX = screenSize.width / 2f
+                }
             }
-        },
     ) {
         Surface(
             modifier = Modifier.width(with(density) { offsetX.toDp() }).fillMaxHeight(),
@@ -66,18 +60,18 @@ fun VerticalDragHandleSample() {
             Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.CenterEnd) {
                 VerticalDragHandle(
                     modifier =
-                    Modifier.draggable(
-                        orientation = Orientation.Horizontal,
-                        state =
-                        rememberDraggableState { delta ->
-                            offsetX =
-                                (offsetX + delta).coerceIn(
-                                    with(density) { 48.dp.toPx() },
-                                    screenSize.width.toFloat(),
-                                )
-                        },
-                    )
-                        .systemGestureExclusion(), // To avoid colliding with the back gesture
+                        Modifier.draggable(
+                                orientation = Orientation.Horizontal,
+                                state =
+                                    rememberDraggableState { delta ->
+                                        offsetX =
+                                            (offsetX + delta).coerceIn(
+                                                with(density) { 48.dp.toPx() },
+                                                screenSize.width.toFloat(),
+                                            )
+                                    },
+                            )
+                            .systemGestureExclusion() // To avoid colliding with the back gesture
                 )
             }
         }

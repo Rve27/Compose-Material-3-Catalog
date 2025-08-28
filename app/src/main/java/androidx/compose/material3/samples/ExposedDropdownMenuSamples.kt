@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     https://www.apache.org/licenses/LICENSE-2.0
+ *      http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -13,10 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 @file:OptIn(ExperimentalMaterial3Api::class)
 
 package androidx.compose.material3.samples
 
+import androidx.annotation.Sampled
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.input.TextFieldLineLimits
@@ -32,7 +34,6 @@ import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
-import androidx.compose.material3.catalog.library.Sampled
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -105,7 +106,7 @@ fun EditableExposedDropdownMenuSample() {
             // expanding/collapsing the menu on click. An editable text field has
             // the anchor type `PrimaryEditable`.
             modifier =
-            Modifier.width(280.dp).menuAnchor(ExposedDropdownMenuAnchorType.PrimaryEditable),
+                Modifier.width(280.dp).menuAnchor(ExposedDropdownMenuAnchorType.PrimaryEditable),
             state = textFieldState,
             lineLimits = TextFieldLineLimits.SingleLine,
             label = { Text("Label") },
@@ -192,7 +193,7 @@ fun MultiAutocompleteExposedDropdownMenuSample() {
     ExposedDropdownMenuBox(expanded = expanded, onExpandedChange = setExpanded) {
         TextField(
             modifier =
-            Modifier.width(280.dp).menuAnchor(ExposedDropdownMenuAnchorType.PrimaryEditable),
+                Modifier.width(280.dp).menuAnchor(ExposedDropdownMenuAnchorType.PrimaryEditable),
             state = textFieldState,
             lineLimits = TextFieldLineLimits.SingleLine,
             label = { Text("Label") },

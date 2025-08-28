@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     https://www.apache.org/licenses/LICENSE-2.0
+ *      http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -13,8 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package androidx.compose.material3.samples
 
+import androidx.annotation.Sampled
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -27,7 +29,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.selection.toggleable
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.Text
-import androidx.compose.material3.catalog.library.Sampled
 import androidx.compose.material3.minimumInteractiveComponentSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -58,20 +59,20 @@ fun MinimumInteractiveComponentSizeSample() {
         Widget(
             color = Color.Green,
             modifier =
-            Modifier.clickable { /* do something */ }
-                // Component is now interactable, so it should enforce a sufficient touch target
-                .minimumInteractiveComponentSize(),
+                Modifier.clickable { /* do something */ }
+                    // Component is now interactable, so it should enforce a sufficient touch target
+                    .minimumInteractiveComponentSize(),
         )
 
         Widget(
             color = Color.Blue,
             modifier =
-            Modifier.clickable { /* do something */ }
-                // Component is now interactable, so it should enforce a sufficient touch target
-                .minimumInteractiveComponentSize()
-                // Any size modifiers should come after `minimumInteractiveComponentSize`
-                // so as not to interfere with layout expansion
-                .size(36.dp),
+                Modifier.clickable { /* do something */ }
+                    // Component is now interactable, so it should enforce a sufficient touch target
+                    .minimumInteractiveComponentSize()
+                    // Any size modifiers should come after `minimumInteractiveComponentSize`
+                    // so as not to interfere with layout expansion
+                    .size(36.dp),
         )
     }
 }
@@ -87,12 +88,12 @@ fun MinimumInteractiveComponentSizeCheckboxRowSample() {
     Row(
         verticalAlignment = Alignment.CenterVertically,
         modifier =
-        Modifier.toggleable(
-            value = checked,
-            onValueChange = { checked = it },
-            role = Role.Checkbox,
-        )
-            .minimumInteractiveComponentSize(),
+            Modifier.toggleable(
+                    value = checked,
+                    onValueChange = { checked = it },
+                    role = Role.Checkbox,
+                )
+                .minimumInteractiveComponentSize(),
     ) {
         // Cannot rely on Checkbox for touch target expansion because it only enforces
         // `minimumInteractiveComponentSize` if onCheckedChange is non-null

@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     https://www.apache.org/licenses/LICENSE-2.0
+ *      http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -13,8 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package androidx.compose.material3.samples
 
+import androidx.annotation.Sampled
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
@@ -33,7 +35,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
-import androidx.compose.material3.catalog.library.Sampled
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -91,7 +92,7 @@ fun AlertDialogWithIconSample() {
             text = {
                 Text(
                     "This area typically contains the supportive text " +
-                        "which presents the details regarding the Dialog's purpose.",
+                        "which presents the details regarding the Dialog's purpose."
                 )
             },
             confirmButton = {
@@ -120,7 +121,7 @@ fun BasicAlertDialogSample() {
                 // button. If you want to disable that functionality, simply use an empty
                 // onDismissRequest.
                 openDialog.value = false
-            },
+            }
         ) {
             Surface(
                 modifier = Modifier.wrapContentWidth().wrapContentHeight(),
@@ -130,8 +131,8 @@ fun BasicAlertDialogSample() {
                 Column(modifier = Modifier.padding(16.dp)) {
                     Text(
                         text =
-                        "This area typically contains the supportive text " +
-                            "which presents the details regarding the Dialog's purpose.",
+                            "This area typically contains the supportive text " +
+                                "which presents the details regarding the Dialog's purpose."
                     )
                     Spacer(modifier = Modifier.height(24.dp))
                     TextButton(

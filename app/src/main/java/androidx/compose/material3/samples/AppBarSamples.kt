@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     https://www.apache.org/licenses/LICENSE-2.0
+ *      http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -13,8 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package androidx.compose.material3.samples
 
+import androidx.annotation.Sampled
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -68,7 +70,6 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.TwoRowsTopAppBar
 import androidx.compose.material3.adaptive.currentWindowAdaptiveInfo
-import androidx.compose.material3.catalog.library.Sampled
 import androidx.compose.material3.rememberTooltipState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
@@ -101,9 +102,9 @@ fun SimpleTopAppBar() {
                 navigationIcon = {
                     TooltipBox(
                         positionProvider =
-                        TooltipDefaults.rememberTooltipPositionProvider(
-                            TooltipAnchorPosition.Above,
-                        ),
+                            TooltipDefaults.rememberTooltipPositionProvider(
+                                TooltipAnchorPosition.Above
+                            ),
                         tooltip = { PlainTooltip { Text("Menu") } },
                         state = rememberTooltipState(),
                     ) {
@@ -115,9 +116,9 @@ fun SimpleTopAppBar() {
                 actions = {
                     TooltipBox(
                         positionProvider =
-                        TooltipDefaults.rememberTooltipPositionProvider(
-                            TooltipAnchorPosition.Above,
-                        ),
+                            TooltipDefaults.rememberTooltipPositionProvider(
+                                TooltipAnchorPosition.Above
+                            ),
                         tooltip = { PlainTooltip { Text("Add to favorites") } },
                         state = rememberTooltipState(),
                     ) {
@@ -182,9 +183,9 @@ fun SimpleTopAppBarWithAdaptiveActions() {
                 navigationIcon = {
                     TooltipBox(
                         positionProvider =
-                        TooltipDefaults.rememberTooltipPositionProvider(
-                            TooltipAnchorPosition.Above,
-                        ),
+                            TooltipDefaults.rememberTooltipPositionProvider(
+                                TooltipAnchorPosition.Above
+                            ),
                         tooltip = { PlainTooltip { Text("Menu") } },
                         state = rememberTooltipState(),
                     ) {
@@ -199,9 +200,9 @@ fun SimpleTopAppBarWithAdaptiveActions() {
                         overflowIndicator = {
                             TooltipBox(
                                 positionProvider =
-                                TooltipDefaults.rememberTooltipPositionProvider(
-                                    TooltipAnchorPosition.Above,
-                                ),
+                                    TooltipDefaults.rememberTooltipPositionProvider(
+                                        TooltipAnchorPosition.Above
+                                    ),
                                 tooltip = { PlainTooltip { Text("Overflow") } },
                                 state = rememberTooltipState(),
                             ) {
@@ -267,9 +268,9 @@ fun SimpleTopAppBarWithSubtitle() {
                 navigationIcon = {
                     TooltipBox(
                         positionProvider =
-                        TooltipDefaults.rememberTooltipPositionProvider(
-                            TooltipAnchorPosition.Above,
-                        ),
+                            TooltipDefaults.rememberTooltipPositionProvider(
+                                TooltipAnchorPosition.Above
+                            ),
                         tooltip = { PlainTooltip { Text("Menu") } },
                         state = rememberTooltipState(),
                     ) {
@@ -281,9 +282,9 @@ fun SimpleTopAppBarWithSubtitle() {
                 actions = {
                     TooltipBox(
                         positionProvider =
-                        TooltipDefaults.rememberTooltipPositionProvider(
-                            TooltipAnchorPosition.Above,
-                        ),
+                            TooltipDefaults.rememberTooltipPositionProvider(
+                                TooltipAnchorPosition.Above
+                            ),
                         tooltip = { PlainTooltip { Text("Add to favorites") } },
                         state = rememberTooltipState(),
                     ) {
@@ -335,9 +336,9 @@ fun SimpleCenterAlignedTopAppBar() {
                 navigationIcon = {
                     TooltipBox(
                         positionProvider =
-                        TooltipDefaults.rememberTooltipPositionProvider(
-                            TooltipAnchorPosition.Above,
-                        ),
+                            TooltipDefaults.rememberTooltipPositionProvider(
+                                TooltipAnchorPosition.Above
+                            ),
                         tooltip = { PlainTooltip { Text("Menu") } },
                         state = rememberTooltipState(),
                     ) {
@@ -349,9 +350,9 @@ fun SimpleCenterAlignedTopAppBar() {
                 actions = {
                     TooltipBox(
                         positionProvider =
-                        TooltipDefaults.rememberTooltipPositionProvider(
-                            TooltipAnchorPosition.Above,
-                        ),
+                            TooltipDefaults.rememberTooltipPositionProvider(
+                                TooltipAnchorPosition.Above
+                            ),
                         tooltip = { PlainTooltip { Text("Add to favorites") } },
                         state = rememberTooltipState(),
                     ) {
@@ -406,9 +407,9 @@ fun SimpleCenterAlignedTopAppBarWithSubtitle() {
                 navigationIcon = {
                     TooltipBox(
                         positionProvider =
-                        TooltipDefaults.rememberTooltipPositionProvider(
-                            TooltipAnchorPosition.Above,
-                        ),
+                            TooltipDefaults.rememberTooltipPositionProvider(
+                                TooltipAnchorPosition.Above
+                            ),
                         tooltip = { PlainTooltip { Text("Menu") } },
                         state = rememberTooltipState(),
                     ) {
@@ -420,9 +421,9 @@ fun SimpleCenterAlignedTopAppBarWithSubtitle() {
                 actions = {
                     TooltipBox(
                         positionProvider =
-                        TooltipDefaults.rememberTooltipPositionProvider(
-                            TooltipAnchorPosition.Above,
-                        ),
+                            TooltipDefaults.rememberTooltipPositionProvider(
+                                TooltipAnchorPosition.Above
+                            ),
                         tooltip = { PlainTooltip { Text("Add to favorites") } },
                         state = rememberTooltipState(),
                     ) {
@@ -475,9 +476,9 @@ fun PinnedTopAppBar() {
                 navigationIcon = {
                     TooltipBox(
                         positionProvider =
-                        TooltipDefaults.rememberTooltipPositionProvider(
-                            TooltipAnchorPosition.Above,
-                        ),
+                            TooltipDefaults.rememberTooltipPositionProvider(
+                                TooltipAnchorPosition.Above
+                            ),
                         tooltip = { PlainTooltip { Text("Menu") } },
                         state = rememberTooltipState(),
                     ) {
@@ -490,9 +491,9 @@ fun PinnedTopAppBar() {
                     // RowScope here, so these icons will be placed horizontally
                     TooltipBox(
                         positionProvider =
-                        TooltipDefaults.rememberTooltipPositionProvider(
-                            TooltipAnchorPosition.Above,
-                        ),
+                            TooltipDefaults.rememberTooltipPositionProvider(
+                                TooltipAnchorPosition.Above
+                            ),
                         tooltip = { PlainTooltip { Text("Add to favorites") } },
                         state = rememberTooltipState(),
                     ) {
@@ -505,9 +506,9 @@ fun PinnedTopAppBar() {
                     }
                     TooltipBox(
                         positionProvider =
-                        TooltipDefaults.rememberTooltipPositionProvider(
-                            TooltipAnchorPosition.Above,
-                        ),
+                            TooltipDefaults.rememberTooltipPositionProvider(
+                                TooltipAnchorPosition.Above
+                            ),
                         tooltip = { PlainTooltip { Text("Add to starred") } },
                         state = rememberTooltipState(),
                     ) {
@@ -556,9 +557,9 @@ fun EnterAlwaysTopAppBar() {
                 navigationIcon = {
                     TooltipBox(
                         positionProvider =
-                        TooltipDefaults.rememberTooltipPositionProvider(
-                            TooltipAnchorPosition.Above,
-                        ),
+                            TooltipDefaults.rememberTooltipPositionProvider(
+                                TooltipAnchorPosition.Above
+                            ),
                         tooltip = { PlainTooltip { Text("Menu") } },
                         state = rememberTooltipState(),
                     ) {
@@ -570,9 +571,9 @@ fun EnterAlwaysTopAppBar() {
                 actions = {
                     TooltipBox(
                         positionProvider =
-                        TooltipDefaults.rememberTooltipPositionProvider(
-                            TooltipAnchorPosition.Above,
-                        ),
+                            TooltipDefaults.rememberTooltipPositionProvider(
+                                TooltipAnchorPosition.Above
+                            ),
                         tooltip = { PlainTooltip { Text("Add to favorites") } },
                         state = rememberTooltipState(),
                     ) {
@@ -625,9 +626,9 @@ fun ExitUntilCollapsedMediumTopAppBar() {
                 navigationIcon = {
                     TooltipBox(
                         positionProvider =
-                        TooltipDefaults.rememberTooltipPositionProvider(
-                            TooltipAnchorPosition.Above,
-                        ),
+                            TooltipDefaults.rememberTooltipPositionProvider(
+                                TooltipAnchorPosition.Above
+                            ),
                         tooltip = { PlainTooltip { Text("Menu") } },
                         state = rememberTooltipState(),
                     ) {
@@ -639,9 +640,9 @@ fun ExitUntilCollapsedMediumTopAppBar() {
                 actions = {
                     TooltipBox(
                         positionProvider =
-                        TooltipDefaults.rememberTooltipPositionProvider(
-                            TooltipAnchorPosition.Above,
-                        ),
+                            TooltipDefaults.rememberTooltipPositionProvider(
+                                TooltipAnchorPosition.Above
+                            ),
                         tooltip = { PlainTooltip { Text("Add to favorites") } },
                         state = rememberTooltipState(),
                     ) {
@@ -696,9 +697,9 @@ fun ExitUntilCollapsedCenterAlignedMediumFlexibleTopAppBar() {
                 navigationIcon = {
                     TooltipBox(
                         positionProvider =
-                        TooltipDefaults.rememberTooltipPositionProvider(
-                            TooltipAnchorPosition.Above,
-                        ),
+                            TooltipDefaults.rememberTooltipPositionProvider(
+                                TooltipAnchorPosition.Above
+                            ),
                         tooltip = { PlainTooltip { Text("Menu") } },
                         state = rememberTooltipState(),
                     ) {
@@ -710,9 +711,9 @@ fun ExitUntilCollapsedCenterAlignedMediumFlexibleTopAppBar() {
                 actions = {
                     TooltipBox(
                         positionProvider =
-                        TooltipDefaults.rememberTooltipPositionProvider(
-                            TooltipAnchorPosition.Above,
-                        ),
+                            TooltipDefaults.rememberTooltipPositionProvider(
+                                TooltipAnchorPosition.Above
+                            ),
                         tooltip = { PlainTooltip { Text("Add to favorites") } },
                         state = rememberTooltipState(),
                     ) {
@@ -763,9 +764,9 @@ fun ExitUntilCollapsedLargeTopAppBar() {
                 navigationIcon = {
                     TooltipBox(
                         positionProvider =
-                        TooltipDefaults.rememberTooltipPositionProvider(
-                            TooltipAnchorPosition.Above,
-                        ),
+                            TooltipDefaults.rememberTooltipPositionProvider(
+                                TooltipAnchorPosition.Above
+                            ),
                         tooltip = { PlainTooltip { Text("Menu") } },
                         state = rememberTooltipState(),
                     ) {
@@ -777,9 +778,9 @@ fun ExitUntilCollapsedLargeTopAppBar() {
                 actions = {
                     TooltipBox(
                         positionProvider =
-                        TooltipDefaults.rememberTooltipPositionProvider(
-                            TooltipAnchorPosition.Above,
-                        ),
+                            TooltipDefaults.rememberTooltipPositionProvider(
+                                TooltipAnchorPosition.Above
+                            ),
                         tooltip = { PlainTooltip { Text("Add to favorites") } },
                         state = rememberTooltipState(),
                     ) {
@@ -832,9 +833,9 @@ fun ExitUntilCollapsedCenterAlignedLargeFlexibleTopAppBar() {
                 navigationIcon = {
                     TooltipBox(
                         positionProvider =
-                        TooltipDefaults.rememberTooltipPositionProvider(
-                            TooltipAnchorPosition.Above,
-                        ),
+                            TooltipDefaults.rememberTooltipPositionProvider(
+                                TooltipAnchorPosition.Above
+                            ),
                         tooltip = { PlainTooltip { Text("Menu") } },
                         state = rememberTooltipState(),
                     ) {
@@ -846,9 +847,9 @@ fun ExitUntilCollapsedCenterAlignedLargeFlexibleTopAppBar() {
                 actions = {
                     TooltipBox(
                         positionProvider =
-                        TooltipDefaults.rememberTooltipPositionProvider(
-                            TooltipAnchorPosition.Above,
-                        ),
+                            TooltipDefaults.rememberTooltipPositionProvider(
+                                TooltipAnchorPosition.Above
+                            ),
                         tooltip = { PlainTooltip { Text("Add to favorites") } },
                         state = rememberTooltipState(),
                     ) {
@@ -919,9 +920,9 @@ fun CustomTwoRowsTopAppBar() {
                 navigationIcon = {
                     TooltipBox(
                         positionProvider =
-                        TooltipDefaults.rememberTooltipPositionProvider(
-                            TooltipAnchorPosition.Above,
-                        ),
+                            TooltipDefaults.rememberTooltipPositionProvider(
+                                TooltipAnchorPosition.Above
+                            ),
                         tooltip = { PlainTooltip { Text("Menu") } },
                         state = rememberTooltipState(),
                     ) {
@@ -935,10 +936,10 @@ fun CustomTwoRowsTopAppBar() {
         },
         content = { innerPadding ->
             Column(
-                Modifier.fillMaxWidth().padding(innerPadding).verticalScroll(rememberScrollState()),
+                Modifier.fillMaxWidth().padding(innerPadding).verticalScroll(rememberScrollState())
             ) {
                 CompositionLocalProvider(
-                    LocalTextStyle provides MaterialTheme.typography.bodyLarge,
+                    LocalTextStyle provides MaterialTheme.typography.bodyLarge
                 ) {
                     Text(text = remember { LoremIpsum().values.first() })
                 }
@@ -956,7 +957,7 @@ fun SimpleBottomAppBar() {
         actions = {
             TooltipBox(
                 positionProvider =
-                TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+                    TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
                 tooltip = { PlainTooltip { Text("Menu") } },
                 state = rememberTooltipState(),
             ) {
@@ -964,7 +965,7 @@ fun SimpleBottomAppBar() {
                     Icon(Icons.Filled.Menu, contentDescription = "Menu button")
                 }
             }
-        },
+        }
     )
 }
 
@@ -977,7 +978,7 @@ fun BottomAppBarWithFAB() {
         actions = {
             TooltipBox(
                 positionProvider =
-                TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+                    TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
                 tooltip = { PlainTooltip { Text("Check") } },
                 state = rememberTooltipState(),
             ) {
@@ -987,7 +988,7 @@ fun BottomAppBarWithFAB() {
             }
             TooltipBox(
                 positionProvider =
-                TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+                    TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
                 tooltip = { PlainTooltip { Text("Edit") } },
                 state = rememberTooltipState(),
             ) {
@@ -999,7 +1000,7 @@ fun BottomAppBarWithFAB() {
         floatingActionButton = {
             TooltipBox(
                 positionProvider =
-                TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+                    TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
                 tooltip = { PlainTooltip { Text("Add") } },
                 state = rememberTooltipState(),
             ) {
@@ -1032,9 +1033,9 @@ fun ExitAlwaysBottomAppBar() {
                 actions = {
                     TooltipBox(
                         positionProvider =
-                        TooltipDefaults.rememberTooltipPositionProvider(
-                            TooltipAnchorPosition.Above,
-                        ),
+                            TooltipDefaults.rememberTooltipPositionProvider(
+                                TooltipAnchorPosition.Above
+                            ),
                         tooltip = { PlainTooltip { Text("Check") } },
                         state = rememberTooltipState(),
                     ) {
@@ -1044,9 +1045,9 @@ fun ExitAlwaysBottomAppBar() {
                     }
                     TooltipBox(
                         positionProvider =
-                        TooltipDefaults.rememberTooltipPositionProvider(
-                            TooltipAnchorPosition.Above,
-                        ),
+                            TooltipDefaults.rememberTooltipPositionProvider(
+                                TooltipAnchorPosition.Above
+                            ),
                         tooltip = { PlainTooltip { Text("Edit") } },
                         state = rememberTooltipState(),
                     ) {
@@ -1061,7 +1062,7 @@ fun ExitAlwaysBottomAppBar() {
         floatingActionButton = {
             TooltipBox(
                 positionProvider =
-                TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+                    TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
                 tooltip = { PlainTooltip { Text("Add") } },
                 state = rememberTooltipState(),
             ) {
@@ -1125,9 +1126,9 @@ fun ExitAlwaysBottomAppBarSpacedAround() {
                     buttons.forEachIndexed { index, button ->
                         TooltipBox(
                             positionProvider =
-                            TooltipDefaults.rememberTooltipPositionProvider(
-                                TooltipAnchorPosition.Above,
-                            ),
+                                TooltipDefaults.rememberTooltipPositionProvider(
+                                    TooltipAnchorPosition.Above
+                                ),
                             tooltip = { PlainTooltip { Text(button) } },
                             state = rememberTooltipState(),
                         ) {
@@ -1195,9 +1196,9 @@ fun ExitAlwaysBottomAppBarSpacedBetween() {
                     buttons.forEachIndexed { index, button ->
                         TooltipBox(
                             positionProvider =
-                            TooltipDefaults.rememberTooltipPositionProvider(
-                                TooltipAnchorPosition.Above,
-                            ),
+                                TooltipDefaults.rememberTooltipPositionProvider(
+                                    TooltipAnchorPosition.Above
+                                ),
                             tooltip = { PlainTooltip { Text(button) } },
                             state = rememberTooltipState(),
                         ) {
@@ -1266,9 +1267,9 @@ fun ExitAlwaysBottomAppBarSpacedEvenly() {
                     buttons.forEachIndexed { index, button ->
                         TooltipBox(
                             positionProvider =
-                            TooltipDefaults.rememberTooltipPositionProvider(
-                                TooltipAnchorPosition.Above,
-                            ),
+                                TooltipDefaults.rememberTooltipPositionProvider(
+                                    TooltipAnchorPosition.Above
+                                ),
                             tooltip = { PlainTooltip { Text(button) } },
                             state = rememberTooltipState(),
                         ) {
@@ -1336,9 +1337,9 @@ fun ExitAlwaysBottomAppBarFixed() {
                     buttons.forEachIndexed { index, button ->
                         TooltipBox(
                             positionProvider =
-                            TooltipDefaults.rememberTooltipPositionProvider(
-                                TooltipAnchorPosition.Above,
-                            ),
+                                TooltipDefaults.rememberTooltipPositionProvider(
+                                    TooltipAnchorPosition.Above
+                                ),
                             tooltip = { PlainTooltip { Text(button) } },
                             state = rememberTooltipState(),
                         ) {
@@ -1403,14 +1404,14 @@ fun ExitAlwaysBottomAppBarFixedVibrant() {
                 horizontalArrangement = BottomAppBarDefaults.FlexibleFixedHorizontalArrangement,
                 scrollBehavior = scrollBehavior,
                 containerColor =
-                MaterialTheme.colorScheme.primaryContainer, // TODO(b/356885344): tokens
+                    MaterialTheme.colorScheme.primaryContainer, // TODO(b/356885344): tokens
                 content = {
                     buttons.forEachIndexed { index, button ->
                         TooltipBox(
                             positionProvider =
-                            TooltipDefaults.rememberTooltipPositionProvider(
-                                TooltipAnchorPosition.Above,
-                            ),
+                                TooltipDefaults.rememberTooltipPositionProvider(
+                                    TooltipAnchorPosition.Above
+                                ),
                             tooltip = { PlainTooltip { Text(button) } },
                             state = rememberTooltipState(),
                         ) {
@@ -1473,9 +1474,9 @@ fun BottomAppBarWithOverflow() {
             overflowIndicator = { menuState ->
                 TooltipBox(
                     positionProvider =
-                    TooltipDefaults.rememberTooltipPositionProvider(
-                        TooltipAnchorPosition.Above,
-                    ),
+                        TooltipDefaults.rememberTooltipPositionProvider(
+                            TooltipAnchorPosition.Above
+                        ),
                     tooltip = { PlainTooltip { Text("Overflow") } },
                     state = rememberTooltipState(),
                 ) {
@@ -1486,12 +1487,12 @@ fun BottomAppBarWithOverflow() {
                             } else {
                                 menuState.show()
                             }
-                        },
+                        }
                     ) {
                         Icon(imageVector = Icons.Filled.MoreVert, contentDescription = "Overflow")
                     }
                 }
-            },
+            }
         ) {
             items.forEachIndexed { index, item ->
                 clickableItem(

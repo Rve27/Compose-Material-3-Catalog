@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     https://www.apache.org/licenses/LICENSE-2.0
+ *      http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,6 +19,7 @@ import android.content.res.Configuration
 import android.os.Build
 import android.os.LocaleList
 import androidx.annotation.RequiresApi
+import androidx.annotation.Sampled
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -48,7 +49,6 @@ import androidx.compose.material3.TextButton
 import androidx.compose.material3.TooltipAnchorPosition
 import androidx.compose.material3.TooltipBox
 import androidx.compose.material3.TooltipDefaults
-import androidx.compose.material3.catalog.library.Sampled
 import androidx.compose.material3.getSelectedDate
 import androidx.compose.material3.getSelectedEndDate
 import androidx.compose.material3.getSelectedStartDate
@@ -147,7 +147,7 @@ fun DatePickerDialogSample() {
                         openDialog.value = false
                         snackScope.launch {
                             snackState.showSnackbar(
-                                "Selected date timestamp: ${datePickerState.selectedDateMillis}",
+                                "Selected date timestamp: ${datePickerState.selectedDateMillis}"
                             )
                         }
                     },
@@ -179,29 +179,29 @@ fun DatePickerWithDateSelectableDatesSample() {
     val datePickerState =
         rememberDatePickerState(
             selectableDates =
-            object : SelectableDates {
-                // Blocks Sunday and Saturday from being selected.
-                override fun isSelectableDate(utcTimeMillis: Long): Boolean {
-                    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                        val dayOfWeek =
-                            Instant.ofEpochMilli(utcTimeMillis)
-                                .atZone(ZoneId.of("UTC"))
-                                .toLocalDate()
-                                .dayOfWeek
-                        dayOfWeek != DayOfWeek.SUNDAY && dayOfWeek != DayOfWeek.SATURDAY
-                    } else {
-                        val calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"))
-                        calendar.timeInMillis = utcTimeMillis
-                        calendar[Calendar.DAY_OF_WEEK] != Calendar.SUNDAY &&
-                            calendar[Calendar.DAY_OF_WEEK] != Calendar.SATURDAY
+                object : SelectableDates {
+                    // Blocks Sunday and Saturday from being selected.
+                    override fun isSelectableDate(utcTimeMillis: Long): Boolean {
+                        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                            val dayOfWeek =
+                                Instant.ofEpochMilli(utcTimeMillis)
+                                    .atZone(ZoneId.of("UTC"))
+                                    .toLocalDate()
+                                    .dayOfWeek
+                            dayOfWeek != DayOfWeek.SUNDAY && dayOfWeek != DayOfWeek.SATURDAY
+                        } else {
+                            val calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"))
+                            calendar.timeInMillis = utcTimeMillis
+                            calendar[Calendar.DAY_OF_WEEK] != Calendar.SUNDAY &&
+                                calendar[Calendar.DAY_OF_WEEK] != Calendar.SATURDAY
+                        }
+                    }
+
+                    // Allow selecting dates from year 2023 forward.
+                    override fun isSelectableYear(year: Int): Boolean {
+                        return year > 2022
                     }
                 }
-
-                // Allow selecting dates from year 2023 forward.
-                override fun isSelectableYear(year: Int): Boolean {
-                    return year > 2022
-                }
-            },
         )
 
     Column(
@@ -246,15 +246,15 @@ fun DateRangePickerSample() {
         // Add a row with "Save" and dismiss actions.
         Row(
             modifier =
-            Modifier.fillMaxWidth()
-                .background(DatePickerDefaults.colors().containerColor)
-                .padding(start = 12.dp, end = 12.dp),
+                Modifier.fillMaxWidth()
+                    .background(DatePickerDefaults.colors().containerColor)
+                    .padding(start = 12.dp, end = 12.dp),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween,
         ) {
             TooltipBox(
                 positionProvider =
-                TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+                    TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
                 tooltip = { PlainTooltip { Text("Close") } },
                 state = rememberTooltipState(),
             ) {
@@ -299,15 +299,15 @@ fun DateRangePickerApi26Sample() {
         // Add a row with "Save" and dismiss actions.
         Row(
             modifier =
-            Modifier.fillMaxWidth()
-                .background(DatePickerDefaults.colors().containerColor)
-                .padding(start = 12.dp, end = 12.dp),
+                Modifier.fillMaxWidth()
+                    .background(DatePickerDefaults.colors().containerColor)
+                    .padding(start = 12.dp, end = 12.dp),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween,
         ) {
             TooltipBox(
                 positionProvider =
-                TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
+                    TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
                 tooltip = { PlainTooltip { Text("Close") } },
                 state = rememberTooltipState(),
             ) {

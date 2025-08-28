@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     https://www.apache.org/licenses/LICENSE-2.0
+ *      http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -13,8 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package androidx.compose.material3.samples
 
+import androidx.annotation.Sampled
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
@@ -42,7 +44,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.material3.ToggleButton
 import androidx.compose.material3.ToggleButtonDefaults
-import androidx.compose.material3.catalog.library.Sampled
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -71,14 +72,14 @@ fun ButtonGroupSample() {
                     } else {
                         menuState.show()
                     }
-                },
+                }
             ) {
                 Icon(
                     imageVector = Icons.Filled.MoreVert,
                     contentDescription = "Localized description",
                 )
             }
-        },
+        }
     ) {
         for (i in 0 until numButtons) {
             clickableItem(onClick = {}, label = "$i")
@@ -108,11 +109,11 @@ fun SingleSelectConnectedButtonGroupSample() {
                 onCheckedChange = { selectedIndex = index },
                 modifier = modifiers[index].semantics { role = Role.RadioButton },
                 shapes =
-                when (index) {
-                    0 -> ButtonGroupDefaults.connectedLeadingButtonShapes()
-                    options.lastIndex -> ButtonGroupDefaults.connectedTrailingButtonShapes()
-                    else -> ButtonGroupDefaults.connectedMiddleButtonShapes()
-                },
+                    when (index) {
+                        0 -> ButtonGroupDefaults.connectedLeadingButtonShapes()
+                        options.lastIndex -> ButtonGroupDefaults.connectedTrailingButtonShapes()
+                        else -> ButtonGroupDefaults.connectedMiddleButtonShapes()
+                    },
             ) {
                 Icon(
                     if (selectedIndex == index) checkedIcons[index] else unCheckedIcons[index],
@@ -158,11 +159,11 @@ fun SingleSelectConnectedButtonGroupWithFlowLayoutSample() {
                 checked = selectedIndex == index,
                 onCheckedChange = { selectedIndex = index },
                 shapes =
-                when (index) {
-                    0 -> ButtonGroupDefaults.connectedLeadingButtonShapes()
-                    options.lastIndex -> ButtonGroupDefaults.connectedTrailingButtonShapes()
-                    else -> ButtonGroupDefaults.connectedMiddleButtonShapes()
-                },
+                    when (index) {
+                        0 -> ButtonGroupDefaults.connectedLeadingButtonShapes()
+                        options.lastIndex -> ButtonGroupDefaults.connectedTrailingButtonShapes()
+                        else -> ButtonGroupDefaults.connectedMiddleButtonShapes()
+                    },
                 modifier = Modifier.semantics { role = Role.RadioButton },
             ) {
                 Icon(
@@ -197,11 +198,11 @@ fun MultiSelectConnectedButtonGroupSample() {
                 onCheckedChange = { checked[index] = it },
                 modifier = modifiers[index],
                 shapes =
-                when (index) {
-                    0 -> ButtonGroupDefaults.connectedLeadingButtonShapes()
-                    options.lastIndex -> ButtonGroupDefaults.connectedTrailingButtonShapes()
-                    else -> ButtonGroupDefaults.connectedMiddleButtonShapes()
-                },
+                    when (index) {
+                        0 -> ButtonGroupDefaults.connectedLeadingButtonShapes()
+                        options.lastIndex -> ButtonGroupDefaults.connectedTrailingButtonShapes()
+                        else -> ButtonGroupDefaults.connectedMiddleButtonShapes()
+                    },
             ) {
                 Icon(
                     if (checked[index]) checkedIcons[index] else unCheckedIcons[index],
@@ -247,11 +248,11 @@ fun MultiSelectConnectedButtonGroupWithFlowLayoutSample() {
                 checked = checked[index],
                 onCheckedChange = { checked[index] = it },
                 shapes =
-                when (index) {
-                    0 -> ButtonGroupDefaults.connectedLeadingButtonShapes()
-                    options.lastIndex -> ButtonGroupDefaults.connectedTrailingButtonShapes()
-                    else -> ButtonGroupDefaults.connectedMiddleButtonShapes()
-                },
+                    when (index) {
+                        0 -> ButtonGroupDefaults.connectedLeadingButtonShapes()
+                        options.lastIndex -> ButtonGroupDefaults.connectedTrailingButtonShapes()
+                        else -> ButtonGroupDefaults.connectedMiddleButtonShapes()
+                    },
             ) {
                 Icon(
                     if (checked[index]) checkedIcons[index] else unCheckedIcons[index],

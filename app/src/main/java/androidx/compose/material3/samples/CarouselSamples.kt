@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     https://www.apache.org/licenses/LICENSE-2.0
+ *      http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -13,10 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package androidx.compose.material3.samples
 
 import androidx.activity.compose.BackHandler
 import androidx.annotation.DrawableRes
+import androidx.annotation.Sampled
 import androidx.annotation.StringRes
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
@@ -53,7 +55,6 @@ import androidx.compose.material3.carousel.HorizontalMultiBrowseCarousel
 import androidx.compose.material3.carousel.HorizontalUncontainedCarousel
 import androidx.compose.material3.carousel.rememberCarouselState
 import androidx.compose.material3.catalog.R
-import androidx.compose.material3.catalog.library.Sampled
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -89,7 +90,11 @@ import kotlinx.coroutines.launch
 @Composable
 fun HorizontalMultiBrowseCarouselSample() {
 
-    data class CarouselItem(val id: Int, @DrawableRes val imageResId: Int, @StringRes val contentDescriptionResId: Int)
+    data class CarouselItem(
+        val id: Int,
+        @DrawableRes val imageResId: Int,
+        @StringRes val contentDescriptionResId: Int,
+    )
 
     val items =
         listOf(
@@ -123,7 +128,11 @@ fun HorizontalMultiBrowseCarouselSample() {
 @Composable
 fun HorizontalUncontainedCarouselSample() {
 
-    data class CarouselItem(val id: Int, @DrawableRes val imageResId: Int, @StringRes val contentDescriptionResId: Int)
+    data class CarouselItem(
+        val id: Int,
+        @DrawableRes val imageResId: Int,
+        @StringRes val contentDescriptionResId: Int,
+    )
 
     val items =
         listOf(
@@ -156,7 +165,11 @@ fun HorizontalUncontainedCarouselSample() {
 @Composable
 fun HorizontalCenteredHeroCarouselSample() {
 
-    data class CarouselItem(val id: Int, @DrawableRes val imageResId: Int, @StringRes val contentDescriptionResId: Int)
+    data class CarouselItem(
+        val id: Int,
+        @DrawableRes val imageResId: Int,
+        @StringRes val contentDescriptionResId: Int,
+    )
 
     val items =
         listOf(
@@ -177,12 +190,12 @@ fun HorizontalCenteredHeroCarouselSample() {
         val item = items[i]
         Image(
             modifier =
-            Modifier.fillMaxWidth()
-                .height(205.dp)
-                .maskClip(MaterialTheme.shapes.extraLarge)
-                .clickable(true, "Tap to focus", Role.Image) {
-                    animationScope.launch { state.animateScrollToItem(i) }
-                },
+                Modifier.fillMaxWidth()
+                    .height(205.dp)
+                    .maskClip(MaterialTheme.shapes.extraLarge)
+                    .clickable(true, "Tap to focus", Role.Image) {
+                        animationScope.launch { state.animateScrollToItem(i) }
+                    },
             painter = painterResource(id = item.imageResId),
             contentDescription = stringResource(item.contentDescriptionResId),
             contentScale = ContentScale.Crop,
@@ -196,7 +209,11 @@ fun HorizontalCenteredHeroCarouselSample() {
 @Composable
 fun FadingHorizontalMultiBrowseCarouselSample() {
 
-    data class CarouselItem(val id: Int, @DrawableRes val imageResId: Int, @StringRes val contentDescriptionResId: Int)
+    data class CarouselItem(
+        val id: Int,
+        @DrawableRes val imageResId: Int,
+        @StringRes val contentDescriptionResId: Int,
+    )
 
     val items =
         listOf(
@@ -224,22 +241,22 @@ fun FadingHorizontalMultiBrowseCarouselSample() {
             ) {
                 Image(
                     modifier =
-                    Modifier.fillMaxWidth()
-                        .fillMaxHeight(.5f)
-                        .maskClip(MaterialTheme.shapes.extraLarge)
-                        .maskBorder(
-                            BorderStroke(3.dp, Color.Magenta),
-                            MaterialTheme.shapes.extraLarge,
-                        ),
+                        Modifier.fillMaxWidth()
+                            .fillMaxHeight(.5f)
+                            .maskClip(MaterialTheme.shapes.extraLarge)
+                            .maskBorder(
+                                BorderStroke(3.dp, Color.Magenta),
+                                MaterialTheme.shapes.extraLarge,
+                            ),
                     painter = painterResource(id = item.imageResId),
                     contentDescription = stringResource(item.contentDescriptionResId),
                     contentScale = ContentScale.Crop,
                 )
                 Image(
                     modifier =
-                    Modifier.fillMaxSize()
-                        .maskClip(RoundedCornerShape(8.dp))
-                        .maskBorder(BorderStroke(5.dp, Color.Green), RoundedCornerShape(8.dp)),
+                        Modifier.fillMaxSize()
+                            .maskClip(RoundedCornerShape(8.dp))
+                            .maskBorder(BorderStroke(5.dp, Color.Green), RoundedCornerShape(8.dp)),
                     painter = painterResource(id = item.imageResId),
                     contentDescription = stringResource(item.contentDescriptionResId),
                     contentScale = ContentScale.Crop,
@@ -249,7 +266,11 @@ fun FadingHorizontalMultiBrowseCarouselSample() {
             // Mask using a generic path shape
             val pathShape = remember {
                 object : Shape {
-                    override fun createOutline(size: Size, layoutDirection: LayoutDirection, density: Density): Outline {
+                    override fun createOutline(
+                        size: Size,
+                        layoutDirection: LayoutDirection,
+                        density: Density,
+                    ): Outline {
                         val roundRect =
                             RoundRect(0f, 0f, size.width, size.height, CornerRadius(30f))
                         val shapePath = Path().apply { addRoundRect(roundRect) }
@@ -259,9 +280,9 @@ fun FadingHorizontalMultiBrowseCarouselSample() {
             }
             Box(
                 modifier =
-                Modifier.height(205.dp)
-                    .maskClip(pathShape)
-                    .maskBorder(BorderStroke(5.dp, Color.Red), pathShape),
+                    Modifier.height(205.dp)
+                        .maskClip(pathShape)
+                        .maskBorder(BorderStroke(5.dp, Color.Red), pathShape)
             ) {
                 Image(
                     painter = painterResource(id = item.imageResId),
@@ -273,22 +294,22 @@ fun FadingHorizontalMultiBrowseCarouselSample() {
                     onClick = { /* Do something! */ },
                     label = { Text("Image $i") },
                     modifier =
-                    Modifier.graphicsLayer {
-                        // Fade the chip in once the carousel item's size is large enough to
-                        // display the entire chip
-                        alpha =
-                            lerp(
-                                0f,
-                                1f,
-                                max(
-                                    size.width - (carouselItemDrawInfo.maxSize) +
-                                        carouselItemDrawInfo.size,
+                        Modifier.graphicsLayer {
+                            // Fade the chip in once the carousel item's size is large enough to
+                            // display the entire chip
+                            alpha =
+                                lerp(
                                     0f,
-                                ) / size.width,
-                            )
-                        // Translate the chip to be pinned to the left side of the item's mask
-                        translationX = carouselItemDrawInfo.maskRect.left + 8.dp.toPx()
-                    },
+                                    1f,
+                                    max(
+                                        size.width - (carouselItemDrawInfo.maxSize) +
+                                            carouselItemDrawInfo.size,
+                                        0f,
+                                    ) / size.width,
+                                )
+                            // Translate the chip to be pinned to the left side of the item's mask
+                            translationX = carouselItemDrawInfo.maskRect.left + 8.dp.toPx()
+                        },
                     leadingIcon = {
                         Icon(
                             Icons.Filled.Image,
@@ -308,7 +329,11 @@ fun FadingHorizontalMultiBrowseCarouselSample() {
 @Composable
 fun CarouselWithShowAllButtonSample() {
 
-    data class CarouselItem(val id: Int, @DrawableRes val imageResId: Int, @StringRes val contentDescriptionResId: Int)
+    data class CarouselItem(
+        val id: Int,
+        @DrawableRes val imageResId: Int,
+        @StringRes val contentDescriptionResId: Int,
+    )
 
     val items =
         listOf(
@@ -343,9 +368,9 @@ fun CarouselWithShowAllButtonSample() {
     } else {
         Column(
             modifier =
-            Modifier.fillMaxSize()
-                .verticalScroll(rememberScrollState())
-                .padding(vertical = 16.dp),
+                Modifier.fillMaxSize()
+                    .verticalScroll(rememberScrollState())
+                    .padding(vertical = 16.dp)
         ) {
             HorizontalMultiBrowseCarousel(
                 state = rememberCarouselState { items.count() },
@@ -365,7 +390,7 @@ fun CarouselWithShowAllButtonSample() {
             TextButton(
                 onClick = { showAllItems = true },
                 modifier =
-                Modifier.align(Alignment.End).padding(vertical = 4.dp, horizontal = 16.dp),
+                    Modifier.align(Alignment.End).padding(vertical = 4.dp, horizontal = 16.dp),
             ) {
                 Text("Show all")
             }
@@ -374,13 +399,13 @@ fun CarouselWithShowAllButtonSample() {
                 Spacer(modifier = Modifier.height(16.dp))
                 Box(
                     modifier =
-                    Modifier.fillMaxWidth()
-                        .height(140.dp)
-                        .padding(horizontal = 16.dp)
-                        .background(
-                            MaterialTheme.colorScheme.surfaceVariant,
-                            RoundedCornerShape(16.dp),
-                        ),
+                        Modifier.fillMaxWidth()
+                            .height(140.dp)
+                            .padding(horizontal = 16.dp)
+                            .background(
+                                MaterialTheme.colorScheme.surfaceVariant,
+                                RoundedCornerShape(16.dp),
+                            )
                 ) {}
             }
         }
