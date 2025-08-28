@@ -84,3 +84,4 @@ lint/tmp/
 
 .kotlin/
 signing.properties
+tmp/
