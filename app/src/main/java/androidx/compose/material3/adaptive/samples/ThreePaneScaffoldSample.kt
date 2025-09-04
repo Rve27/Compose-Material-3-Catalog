@@ -65,13 +65,13 @@ import androidx.compose.material3.adaptive.currentWindowAdaptiveInfo
 import androidx.compose.material3.adaptive.layout.AdaptStrategy
 import androidx.compose.material3.adaptive.layout.AnimatedPane
 import androidx.compose.material3.adaptive.layout.DockedEdge
+import androidx.compose.material3.adaptive.layout.LevitatedPaneScrim
 import androidx.compose.material3.adaptive.layout.ListDetailPaneScaffold
 import androidx.compose.material3.adaptive.layout.ListDetailPaneScaffoldDefaults
 import androidx.compose.material3.adaptive.layout.ListDetailPaneScaffoldRole
 import androidx.compose.material3.adaptive.layout.PaneAdaptedValue
 import androidx.compose.material3.adaptive.layout.PaneExpansionAnchor
 import androidx.compose.material3.adaptive.layout.PaneExpansionState
-import androidx.compose.material3.adaptive.layout.Scrim
 import androidx.compose.material3.adaptive.layout.SupportingPaneScaffold
 import androidx.compose.material3.adaptive.layout.SupportingPaneScaffoldDefaults
 import androidx.compose.material3.adaptive.layout.SupportingPaneScaffoldRole
@@ -451,15 +451,21 @@ fun <T> levitateAsDialogSample(): ThreePaneScaffoldNavigator<T> {
                 SupportingPaneScaffoldDefaults.adaptStrategies(
                     extraPaneAdaptStrategy =
                         AdaptStrategy.Levitate(
-                            alignment = Alignment.Center,
-                            scrim =
-                                Scrim(
-                                    onClick = {
-                                        coroutineScope.launch { navigator?.navigateBack() }
-                                    },
-                                )
-                        )
-                        .onlyIfSinglePane(scaffoldDirective)
+                                alignment = Alignment.Center,
+                                scrim = {
+                                    LevitatedPaneScrim(
+                                        Modifier.semantics {
+                                            contentDescription = "Scrim"
+                                            this.onClick("Dismiss the extra pane") {
+                                                onClick()
+                                                true
+                                            }
+                                        },
+                                        onClick = onClick,
+                                    )
+                                },
+                            )
+                            .onlyIfSinglePane(scaffoldDirective)
                 ),
         )
     return navigator
