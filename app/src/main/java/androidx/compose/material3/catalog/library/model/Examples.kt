@@ -24,7 +24,10 @@ import androidx.compose.material3.adaptive.navigationsuite.samples.NavigationSui
 import androidx.compose.material3.adaptive.samples.ListDetailPaneScaffoldSample
 import androidx.compose.material3.adaptive.samples.ListDetailPaneScaffoldSampleWithExtraPane
 import androidx.compose.material3.adaptive.samples.ListDetailPaneScaffoldSampleWithExtraPaneLevitatedAsDialog
+import androidx.compose.material3.adaptive.samples.ListDetailWithNavigation2Sample
+import androidx.compose.material3.adaptive.samples.ListDetailWithNavigation3Sample
 import androidx.compose.material3.adaptive.samples.SupportingPaneScaffoldSample
+import androidx.compose.material3.adaptive.samples.SupportingPaneScaffoldSampleWithExtraPaneLevitatedAsBottomSheet
 import androidx.compose.material3.catalog.library.util.AdaptiveNavigationSuiteSampleSourceUrl
 import androidx.compose.material3.catalog.library.util.AdaptiveSampleSourceUrl
 import androidx.compose.material3.catalog.library.util.SampleSourceUrl
@@ -113,6 +116,7 @@ import androidx.compose.material3.samples.FilterChipWithTrailingIconSample
 import androidx.compose.material3.samples.FloatingActionButtonMenuSample
 import androidx.compose.material3.samples.FloatingActionButtonSample
 import androidx.compose.material3.samples.FullScreenSearchBarScaffoldSample
+import androidx.compose.material3.samples.GroupedMenuSample
 import androidx.compose.material3.samples.HorizontalCenteredHeroCarouselSample
 import androidx.compose.material3.samples.HorizontalFloatingToolbarAsScaffoldFabSample
 import androidx.compose.material3.samples.HorizontalFloatingToolbarWithFabSample
@@ -269,6 +273,7 @@ import androidx.compose.material3.samples.TonalToggleButtonSample
 import androidx.compose.material3.samples.TriStateCheckboxRoundedStrokesSample
 import androidx.compose.material3.samples.TriStateCheckboxSample
 import androidx.compose.material3.samples.TwoLineListItem
+import androidx.compose.material3.samples.VerticalButtonGroupSample
 import androidx.compose.material3.samples.VerticalCenteredSliderSample
 import androidx.compose.material3.samples.VerticalFloatingToolbarWithFabSample
 import androidx.compose.material3.samples.VerticalSliderSample
@@ -328,6 +333,30 @@ val AdaptiveExamples =
             isExpressive = false,
         ) {
             SupportingPaneScaffoldSample()
+        },
+        Example(
+            name = "SupportingPaneScaffoldSampleWithExtraPaneLevitatedAsBottomSheet",
+            description = AdaptiveExampleDescription,
+            sourceUrl = AdaptiveExampleSourceUrl,
+            isExpressive = false,
+        ) {
+            SupportingPaneScaffoldSampleWithExtraPaneLevitatedAsBottomSheet()
+        },
+        Example(
+            name = "ListDetailWithNavigation2Sample",
+            description = AdaptiveExampleDescription,
+            sourceUrl = AdaptiveExampleSourceUrl,
+            isExpressive = false,
+        ) {
+            ListDetailWithNavigation2Sample()
+        },
+        Example(
+            name = "ListDetailWithNavigation3Sample",
+            description = AdaptiveExampleDescription,
+            sourceUrl = AdaptiveExampleSourceUrl,
+            isExpressive = false,
+        ) {
+            ListDetailWithNavigation3Sample()
         },
     )
 
@@ -544,6 +573,14 @@ val ButtonGroupsExamples =
             isExpressive = true,
         ) {
             MultiSelectConnectedButtonGroupWithFlowLayoutSample()
+        },
+        Example(
+            name = "VerticalButtonGroupSample",
+            description = ButtonGroupsExampleDescription,
+            sourceUrl = ButtonGroupsExampleSourceUrl,
+            isExpressive = true,
+        ) {
+            VerticalButtonGroupSample()
         },
     )
 
@@ -1510,6 +1547,14 @@ val MenusExamples =
             MenuSample()
         },
         Example(
+            name = "GroupedMenuSample",
+            description = MenusExampleDescription,
+            sourceUrl = MenusExampleSourceUrl,
+            isExpressive = true,
+        ) {
+            GroupedMenuSample()
+        },
+        Example(
             name = "MenuWithScrollStateSample",
             description = MenusExampleDescription,
             sourceUrl = MenusExampleSourceUrl,
@@ -1521,7 +1566,7 @@ val MenusExamples =
             name = "ExposedDropdownMenuSample",
             description = MenusExampleDescription,
             sourceUrl = MenusExampleSourceUrl,
-            isExpressive = false,
+            isExpressive = true,
         ) {
             ExposedDropdownMenuSample()
         },
@@ -1867,7 +1912,7 @@ val SearchBarExamples =
             name = "DockedSearchBarScaffoldSample",
             description = SearchBarExampleDescription,
             sourceUrl = SearchBarExampleSourceUrl,
-            isExpressive = false,
+            isExpressive = true,
         ) {
             DockedSearchBarScaffoldSample()
         },
