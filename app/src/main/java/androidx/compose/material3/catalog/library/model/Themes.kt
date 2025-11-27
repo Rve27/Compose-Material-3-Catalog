@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     https://www.apache.org/licenses/LICENSE-2.0
+ *      http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package androidx.compose.material3.catalog.library.model
 
 import androidx.compose.material3.MaterialExpressiveTheme
@@ -29,29 +30,30 @@ data class Theme(
     val markExpressiveComponents: Boolean = true,
 ) {
     constructor(
-        map: Map<String, Float>,
+        map: Map<String, Float>
     ) : this(
         themeColorMode = ThemeColorMode.values()[map.getValue(ThemeModeKey).toInt()],
         colorMode = ColorMode.values()[map.getValue(ColorModeKey).toInt()],
         expressiveThemeMode =
-        ExpressiveThemeMode.values()[map.getValue(ExpressiveThemeModeKey).toInt()],
-        fontScale = map.getValue(FontScaleKey).toFloat(),
+            ExpressiveThemeMode.values()[map.getValue(ExpressiveThemeModeKey).toInt()],
+        fontScale = map.getValue(FontScaleKey),
         fontScaleMode = FontScaleMode.values()[map.getValue(FontScaleModeKey).toInt()],
         textDirection = TextDirection.values()[map.getValue(TextDirectionKey).toInt()],
         showOnlyExpressiveComponents = map.getValue(ShowOnlyExpressiveComponents).toInt() != 0,
         markExpressiveComponents = map.getValue(MarkExpressiveComponents).toInt() != 0,
     )
 
-    fun toMap() = mapOf(
-        ThemeModeKey to themeColorMode.ordinal.toFloat(),
-        ColorModeKey to colorMode.ordinal.toFloat(),
-        ExpressiveThemeModeKey to expressiveThemeMode.ordinal.toFloat(),
-        FontScaleKey to fontScale,
-        FontScaleModeKey to fontScaleMode.ordinal.toFloat(),
-        TextDirectionKey to textDirection.ordinal.toFloat(),
-        ShowOnlyExpressiveComponents to if (showOnlyExpressiveComponents) 1 else 0,
-        MarkExpressiveComponents to if (markExpressiveComponents) 1 else 0,
-    )
+    fun toMap() =
+        mapOf(
+            ThemeModeKey to themeColorMode.ordinal.toFloat(),
+            ColorModeKey to colorMode.ordinal.toFloat(),
+            ExpressiveThemeModeKey to expressiveThemeMode.ordinal.toFloat(),
+            FontScaleKey to fontScale,
+            FontScaleModeKey to fontScaleMode.ordinal.toFloat(),
+            TextDirectionKey to textDirection.ordinal.toFloat(),
+            ShowOnlyExpressiveComponents to if (showOnlyExpressiveComponents) 1 else 0,
+            MarkExpressiveComponents to if (markExpressiveComponents) 1 else 0,
+        )
 }
 
 /**
@@ -94,16 +96,14 @@ enum class ColorMode(val label: String) {
      * If the dynamic colors are not available, the baseline color scheme will be used as a
      * fallback.
      */
-    Dynamic("Dynamic (Android 12+)"),
-    ;
+    Dynamic("Dynamic (Android 12+)");
 
     override fun toString(): String = label
 }
 
 enum class FontScaleMode(val label: String) {
     Custom("Custom"),
-    System("System"),
-    ;
+    System("System");
 
     override fun toString(): String = label
 }
